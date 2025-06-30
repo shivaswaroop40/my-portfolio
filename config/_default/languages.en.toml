@@ -1,0 +1,22 @@
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Shiva Swaroop N K"
+
+[params]
+  displayName = "English"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  description = "MSc in Communication Systems student at KTH, specializing in Cloud Infrastructure and System Engineering with 3+ years of experience in AWS, Azure, Kubernetes, and Terraform."
+
+[params.author]
+  name = "Shivaswaroop Nittoor Krishnamurthy"
+  email = "shivaswaroop40@gmail.com"
+  headline = "Cloud Infrastructure Engineer & Communication Systems Graduate Student"
+  bio = "MSc in Communication Systems student at KTH, specializing in Cloud Infrastructure and System Engineering with 3+ years of experience in AWS, Azure, Kubernetes, and Terraform. Expertise in automating security checks, optimizing cloud infrastructures, and managing large-scale computing environments."
+  links = [
+    { email = "shivaswaroop40@gmail.com" },
+    { linkedin = "https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b" },
+    { github = "https://github.com/shivaswaroop40" },
+  ]

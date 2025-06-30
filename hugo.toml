@@ -1,0 +1,41 @@
+baseURL = 'https://shivu.io/'
+languageCode = 'en-us'
+title = 'Shiva Swaroop N K'
+theme = "blowfish"
+defaultContentLanguage = "en"
+
+enableRobotsTXT = true
+summaryLength = 30
+enableEmoji = true
+
+buildDrafts = false
+buildFuture = false
+
+[pagination]
+  pagerSize = 10
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  author = "authors"
+  series = "series"
+
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[related]
+  threshold = 0
+  toLower = false
+
+    [[related.indices]]
+        name = "tags"
+        weight = 100
+
+    [[related.indices]]
+        name = "categories"
+        weight = 100
