@@ -4,31 +4,18 @@
     <title>Introduction on Shiva Swaroop N K</title>
     <link>http://localhost:1313/tags/introduction/</link>
     <description>Recent content in Introduction on Shiva Swaroop N K</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>shivaswaroop40@gmail.com (Shivaswaroop Nittoor Krishnamurthy)</managingEditor>
     <webMaster>shivaswaroop40@gmail.com (Shivaswaroop Nittoor Krishnamurthy)</webMaster>
-    <copyright>© 2025 Shivaswaroop Nittoor Krishnamurthy</copyright>
-    <lastBuildDate>Mon, 30 Jun 2025 18:52:15 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/introduction/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Mon, 30 Jun 2025 18:52:15 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/introduction/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Welcome to My Portfolio!</title>
       <link>http://localhost:1313/posts/my-first-post/</link>
-      <pubDate>Mon, 30 Jun 2025 18:52:15 +0200</pubDate>
-      <author>shivaswaroop40@gmail.com (Shivaswaroop Nittoor Krishnamurthy)</author>
+      <pubDate>Mon, 30 Jun 2025 18:52:15 +0200</pubDate><author>shivaswaroop40@gmail.com (Shivaswaroop Nittoor Krishnamurthy)</author>
       <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>&lt;h2 class=&#34;relative group&#34;&gt;Hello and Welcome! 👋 
-    &lt;div id=&#34;hello-and-welcome-&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#hello-and-welcome-&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;p&gt;I&amp;rsquo;m excited to share my journey as a &lt;strong&gt;Cloud Infrastructure Engineer&lt;/strong&gt; and &lt;strong&gt;MSc Communication Systems&lt;/strong&gt; student at KTH Royal Institute of Technology in Stockholm, Sweden.&lt;/p&gt;</description>
-      
+      <description>&lt;h2 id=&#34;hello-and-welcome-&#34;&gt;Hello and Welcome! 👋&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m excited to share my journey as a &lt;strong&gt;Cloud Infrastructure Engineer&lt;/strong&gt; and &lt;strong&gt;MSc Communication Systems&lt;/strong&gt; student at KTH Royal Institute of Technology in Stockholm, Sweden.&lt;/p&gt;&#xA;&lt;h2 id=&#34;my-story&#34;&gt;My Story&lt;/h2&gt;&#xA;&lt;p&gt;From Bengaluru to Stockholm, my path has been driven by a passion for technology and innovation. After completing my Bachelor&amp;rsquo;s in Telecommunication Engineering, I spent over 3 years working with cloud technologies, helping organizations build better, more efficient infrastructure.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
