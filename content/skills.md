@@ -3,9 +3,8 @@ title = 'Technical Skills'
 date = 2025-06-30T18:52:15+02:00
 draft = false
 description = 'Comprehensive overview of technical skills and expertise in cloud technologies, programming, and infrastructure'
-tags = ["skills", "technical", "cloud", "programming", "infrastructure"]
-categories = ["professional"]
-weight = 4
+#categories = ["professional"]
+weight = 40
 +++
 
 ## 🛠 Technical Expertise

@@ -3,9 +3,9 @@ title = 'About Me'
 date = 2025-06-30T18:52:15+02:00
 draft = false
 description = 'Learn more about Shivaswaroop N K - Cloud Infrastructure Engineer and Communication Systems Graduate Student'
-tags = ["about", "professional", "cloud engineering", "KTH"]
-categories = ["personal"]
-weight = 1
+#categories = ["personal"]
+weight = 10
+showAuthor = true
 +++
 
 ## 👋 Hello, I'm Shivaswaroop!
@@ -41,4 +41,3 @@ I'm always excited to discuss cloud technologies, network systems, and innovativ
 **📧 Email**: [shivaswaroop40@gmail.com](mailto:shivaswaroop40@gmail.com)  
 **💼 LinkedIn**: [Connect with me](https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b)  
 **💻 GitHub**: [View my code](https://github.com/shivaswaroop40)  
-**📱 Phone**: +(46) 764381455

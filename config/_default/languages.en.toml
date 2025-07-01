@@ -12,9 +12,10 @@ title = "Shiva Swaroop N K"
 
 [params.author]
   name = "Shivaswaroop Nittoor Krishnamurthy"
+  image = "/shivu.jpg"
   email = "shivaswaroop40@gmail.com"
   headline = "Cloud Infrastructure Engineer & Communication Systems Graduate Student"
-  bio = "MSc in Communication Systems student at KTH, specializing in Cloud Infrastructure and System Engineering with 3+ years of experience in AWS, Azure, Kubernetes, and Terraform. Expertise in automating security checks, optimizing cloud infrastructures, and managing large-scale computing environments."
+  bio = "I'm Shiv, an MSc in Communication Systems student at KTH, specializing in Cloud Infrastructure and System Engineering with 3+ years of experience in AWS, Azure, Kubernetes, and Terraform. Expertise in automating security checks, optimizing cloud infrastructures, and managing large-scale computing environments."
   links = [
     { email = "shivaswaroop40@gmail.com" },
     { linkedin = "https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b" },

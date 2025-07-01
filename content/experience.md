@@ -3,12 +3,31 @@ title = 'Professional Experience'
 date = 2025-06-30T18:52:15+02:00
 draft = false
 description = 'Professional experience and career journey of Shivaswaroop N K in cloud infrastructure and software engineering'
-tags = ["experience", "career", "cloud engineering", "software engineering"]
-categories = ["professional"]
-weight = 2
+#categories = ["professional"]
+weight = 20
+showTaxonomies = true
 +++
 
 ## 💼 Professional Journey
+
+### DevOps Engineer
+**Youmoni** | *Stockholm, Sweden*  
+📅 **May 2025 – Present** | *2 months*
+
+#### Key Achievements & Responsibilities
+
+🚀 **GitOps and Infrastructure Optimization**
+- Designing large-scale cloud infrastructure provisioning for backend services.
+- Migrating production workloads from Docker Swarm to EKS.
+- Implementing GitOps pipelines for backend services.
+
+#### Technical Environment
+- **Cloud Platforms**: AWS
+- **Infrastructure**: Terraform, Ansible, Kubernetes, Docker
+- **CI/CD**: GitHub Actions, ArgoCD
+- **Security**: Kyverno
+- **Programming**: Python, Shell Scripting
+- **Monitoring**: Grafana, Prometheus
 
 ### Software Engineer
 **Infinite Computer Solutions** | *Bengaluru, India*  
@@ -44,25 +63,6 @@ weight = 2
 - **Programming**: Go, Python, Shell Scripting
 - **Monitoring**: Grafana, Graylog, Prometheus
 
----
-
-## 🎓 Current Academic Journey
-
-### MSc Communication Systems Student
-**KTH Royal Institute of Technology** | *Stockholm, Sweden*  
-📅 **August 2024 – June 2026** | *Expected Graduation: 2026*
-
-#### Specialized Coursework
-- **Advanced Internetworking** - Deep dive into modern network architectures
-- **Internet Security and Privacy** - Comprehensive security frameworks
-- **Building Network Systems Security** - Hands-on security implementation
-- **Networked Systems for Edge or Cloud Data Centers** - Edge computing and cloud architecture
-
-#### Academic Projects
-- **Kubernetes in a Datacenter Network** - Configured hybrid edge/cloud setups with VXLAN
-- **Network Systems Security** - Built secure networked systems with certificate-based authentication
-
----
 
 ## 🌟 Community Involvement
 
@@ -74,15 +74,6 @@ weight = 2
 - 🧑‍💻 **Active Member** of the Cloud Native Club
 - 🎫 **Attendee** at KubeCon EU 2025
 
----
-
-## 📈 Career Highlights
-
-✨ **30% reduction** in cloud infrastructure provisioning time  
-✨ **35% improvement** in infrastructure deployment efficiency  
-✨ **3+ years** of hands-on cloud engineering experience  
-✨ **Active contributor** to cloud-native community  
-✨ **International exposure** with Sweden-based education  
 
 ---
 

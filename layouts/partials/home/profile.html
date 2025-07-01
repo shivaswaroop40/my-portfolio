@@ -1,0 +1,56 @@
+{{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
+<article
+  class="{{ if not .Site.Params.homepage.showRecent }}
+    h-full
+  {{ end }} flex flex-col items-center justify-center">
+  
+  <!-- Custom horizontal layout with name on left, image on right -->
+  <header class="relative px-1 py-1 mb-3 w-full max-w-5xl">
+    <div class="flex items-start justify-center gap-10">
+      
+      <!-- Left side: Name and info -->
+      <div class="flex-1 text-left max-w-lg">
+        <h1 class="text-4xl font-extrabold mb-2">
+          {{ .Site.Params.Author.name | default .Site.Title }}
+        </h1>
+        {{ with .Site.Params.Author.headline }}
+          <h2 class="text-xl text-neutral-500 dark:text-neutral-400 mb-4">
+            {{ . | markdownify }}
+          </h2>
+        {{ end }}
+        <div class="text-2xl">
+          {{ partialCached "author-links.html" . }}
+        </div>
+      </div>
+      
+      <!-- Right side: Larger square image -->
+      {{ with .Site.Params.Author.image }}
+        {{ $authorImage := "" }}
+        {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
+          {{ $authorImage = resources.GetRemote . }}
+        {{ else }}
+          {{ $authorImage = resources.Get . }}
+        {{ end }}
+        {{ if $authorImage }}
+          {{ if not $disableImageOptimization }}
+            {{ $authorImage = $authorImage.Fill (print "565x565 q" ( $.Site.Params.Author.imagequality | default "96" )) }}
+          {{ end }}
+          <div class="flex-shrink-0">
+            <img
+              class="h-72 w-72 object-cover border-3 border-neutral-300 dark:border-neutral-600"
+              width="288"
+              height="288"
+              alt="{{ $.Site.Params.Author.name | default "Author" }}"
+              src="{{ $authorImage.RelPermalink }}">
+          </div>
+        {{ end }}
+      {{ end }}
+      
+    </div>
+  </header>
+  
+  <section class="prose dark:prose-invert">{{ .Content }}</section>
+</article>
+<section>
+  {{ partial "recent-articles/main.html" . }}
+</section>

@@ -3,9 +3,8 @@ title = 'Education'
 date = 2025-06-30T18:52:15+02:00
 draft = false
 description = 'Academic background and educational journey of Shivaswaroop N K in Communication Systems and Telecommunication Engineering'
-tags = ["education", "academic", "KTH", "masters", "engineering"]
-categories = ["academic"]
-weight = 5
+#categories = ["academic"]
+weight = 50
 +++
 
 ## 🎓 Academic Journey

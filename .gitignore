@@ -1,0 +1,97 @@
+# Hugo build files
+public/
+resources/
+
+# Hugo lock file
+.hugo_build.lock
+
+# Hugo cache
+hugo_cache/
+
+# Temporary folders
+tmp/
+temp/
+
+# Logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Node.js dependencies (if using npm/yarn for themes or preprocessing)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json.backup
+
+# macOS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Hugo development server files
+.hugo_build.lock
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Hugo themes downloaded via git clone (if not using submodules)
+# themes/*/
+
+# Generated files from Hugo modules
+go.mod
+go.sum
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+
+# Archive files
+*.tar
+*.tar.gz
+*.zip
+*.rar
+
+# Site-specific generated content
+# Uncomment if you have custom generated content
+# static/css/
+# static/js/

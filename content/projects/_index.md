@@ -3,9 +3,8 @@ title = 'Projects'
 date = 2025-06-30T18:52:15+02:00
 draft = false
 description = 'Academic and professional projects showcasing expertise in cloud infrastructure, Kubernetes, network security, and system engineering'
-tags = ["projects", "kubernetes", "security", "cloud", "infrastructure"]
 categories = ["portfolio"]
-weight = 3
+weight = 30
 +++
 
 ## 🚀 Featured Projects
@@ -18,7 +17,7 @@ A collection of academic and professional projects demonstrating expertise in cl
 
 ### Kubernetes in a Datacenter Network
 **KTH Royal Institute of Technology** | *IK2227 Network Systems with Edge or Cloud Datacenters*  
-📅 **January 2025 - March 2025** | 🔗 [View Details](#kubernetes-datacenter)
+📅 **January 2025 - March 2025**
 
 #### Project Overview
 Designed and implemented a sophisticated hybrid edge/cloud computing environment using Kubernetes orchestration with advanced networking capabilities.
@@ -44,7 +43,7 @@ Designed and implemented a sophisticated hybrid edge/cloud computing environment
 
 ### Network Systems Security Implementation
 **KTH Royal Institute of Technology** | *EP2520 Building Networked Systems Security*  
-📅 **January 2025 - March 2025** | 🔗 [View Details](#network-security)
+📅 **January 2025 - March 2025**
 
 #### Project Overview
 Built a comprehensive secure networked system implementing enterprise-grade security practices and certificate-based authentication mechanisms.
@@ -66,13 +65,12 @@ Built a comprehensive secure networked system implementing enterprise-grade secu
 - Demonstrated comprehensive understanding of PKI systems
 - Created secure, production-ready service deployments
 
----
-
+<!-- 
 ## 💼 Professional Projects
 
 ### Cloud Infrastructure Optimization Platform
 **Infinite Computer Solutions** | *Software Engineer*  
-📅 **March 2021 - July 2024** | 🔗 [Professional Impact](#cloud-optimization)
+📅 **March 2021 - July 2024**
 
 #### Project Overview
 Led the design and optimization of large-scale cloud infrastructure provisioning systems, achieving significant performance improvements and cost reductions.
@@ -101,7 +99,7 @@ Led the design and optimization of large-scale cloud infrastructure provisioning
 
 ### IBM Cloud Cost Estimator
 **Infinite Computer Solutions** | *Software Engineer*  
-📅 **2022 - 2023** | 🔗 [Cost Management](#cost-estimator)
+📅 **2022 - 2023**
 
 #### Project Overview
 Developed a sophisticated cost estimation tool for IBM Cloud services using Go, enabling accurate budget planning and resource optimization.
@@ -127,7 +125,7 @@ Developed a sophisticated cost estimation tool for IBM Cloud services using Go, 
 
 ### Kubernetes Security Compliance System
 **Infinite Computer Solutions** | *Software Engineer*  
-📅 **2022 - 2024** | 🔗 [Security Compliance](#k8s-security)
+📅 **2022 - 2024**
 
 #### Project Overview
 Implemented comprehensive Kubernetes security compliance using Kyverno policy engine, significantly improving security audit outcomes.
@@ -172,4 +170,4 @@ Implemented comprehensive Kubernetes security compliance using Kyverno policy en
 
 ---
 
-*Each project represents a commitment to technical excellence, innovation, and practical problem-solving in cloud infrastructure and network security.*
+*Each project represents a commitment to technical excellence, innovation, and practical problem-solving in cloud infrastructure and network security.* -->
