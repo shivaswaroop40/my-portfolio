@@ -28,7 +28,7 @@
 
 [[main]]
   name = "Blog"
-  url = "https://coherent-feels-61d.notion.site/Shiv-Writes-About-Stuff-2066afd5b4ac800fabeae431c4b7a271"
+  pageRef = "blog"
   weight = 60
 
 # Social Media Links
