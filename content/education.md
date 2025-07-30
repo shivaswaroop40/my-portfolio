@@ -6,9 +6,6 @@ description = 'Academic background and educational journey of Shivaswaroop N K i
 #categories = ["academic"]
 weight = 50
 +++
-
-## 🎓 Academic Journey
-
 ### Master of Science in Communication Systems
 **KTH Royal Institute of Technology** | *Stockholm, Sweden* 🇸🇪  
 📅 **August 2024 – June 2026** | *Expected Graduation: June 2026*
@@ -94,38 +91,3 @@ Comprehensive undergraduate program in telecommunications with strong emphasis o
 - **Research Experience**: Undergraduate research in cloud computing and IoT
 
 ---
-
-## 🏆 Academic Excellence
-
-### Key Achievements
-- 🎯 **Consistent High Performance** across both undergraduate and graduate studies
-- 🌍 **International Education** experience with cross-cultural academic exposure
-- 🔬 **Research Focus** on practical applications of theoretical knowledge
-- 💡 **Innovation Mindset** with emphasis on solving real-world problems
-
-### Research Interests
-- **Cloud-Native Technologies** and their security implications
-- **Edge Computing** and distributed systems architecture
-- **Network Security** and privacy-preserving technologies
-- **High-Performance Computing** in cloud environments
-- **Software-Defined Networking** and network automation
-
----
-
-## 📚 Continuous Learning
-
-### Current Academic Focus
-- Advanced research in **communication systems** and **network security**
-- Practical implementation of **theoretical concepts** through hands-on projects
-- Collaboration with **international peers** and **industry professionals**
-- Integration of **academic learning** with **professional experience**
-
-### Future Academic Plans
-- **PhD consideration** in Communication Systems or Network Security
-- **Research publications** in cloud security and network systems
-- **International conferences** and academic presentations
-- **Industry-academia collaboration** projects
-
----
-
-*Committed to bridging the gap between academic excellence and practical industry applications in cloud infrastructure and communication systems.*

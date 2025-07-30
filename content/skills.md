@@ -6,9 +6,6 @@ description = 'Comprehensive overview of technical skills and expertise in cloud
 #categories = ["professional"]
 weight = 40
 +++
-
-## 🛠 Technical Expertise
-
 ### ☁️ Cloud Platforms
 **Advanced proficiency with major cloud providers**
 
@@ -184,5 +181,3 @@ weight = 40
 - Security professional development courses
 
 ---
-
-*Constantly evolving skill set with focus on cloud-native technologies, security, and infrastructure automation.*

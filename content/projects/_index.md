@@ -7,14 +7,6 @@ categories = ["portfolio"]
 weight = 30
 +++
 
-## 🚀 Featured Projects
-
-A collection of academic and professional projects demonstrating expertise in cloud infrastructure, network security, and modern system architecture.
-
----
-
-## 🎓 Academic Projects
-
 ### Kubernetes in a Datacenter Network
 **KTH Royal Institute of Technology** | *IK2227 Network Systems with Edge or Cloud Datacenters*  
 📅 **January 2025 - March 2025**
@@ -65,109 +57,76 @@ Built a comprehensive secure networked system implementing enterprise-grade secu
 - Demonstrated comprehensive understanding of PKI systems
 - Created secure, production-ready service deployments
 
-<!-- 
-## 💼 Professional Projects
+---
 
-### Cloud Infrastructure Optimization Platform
-**Infinite Computer Solutions** | *Software Engineer*  
-📅 **March 2021 - July 2024**
+### Email Security with GPG
+**KTH Royal Institute of Technology** | *IK2206 Internet Security and Privacy*
+📅 **November 2024 - January 2025**
 
 #### Project Overview
-Led the design and optimization of large-scale cloud infrastructure provisioning systems, achieving significant performance improvements and cost reductions.
+Implemented comprehensive email encryption, authentication, and validation system using GNU Privacy Guard (GPG) on Linux systems, demonstrating practical cryptographic security applications.
 
-#### Key Achievements
-- **📈 30% Reduction** in infrastructure provisioning time
-- **⚡ 35% Improvement** in deployment efficiency
-- **💰 Cost Optimization** through intelligent resource management
-- **🔄 Automation** of complex deployment workflows
+#### Key Features
+- **🔐 Email Encryption**: End-to-end email encryption using GPG public-key cryptography
+- **✅ Digital Signatures**: Email authentication through digital signatures
+- **🛡️ Identity Validation**: Comprehensive key management and identity verification
+- **🔧 Linux Integration**: Native GPG implementation on Linux systems
+
+#### Technical Stack
+- **Cryptography**: GNU Privacy Guard (GPG), PGP Protocol
+- **Operating System**: Linux (Ubuntu/Debian)
+- **Email Clients**: Thunderbird, Mutt, command-line tools
+- **Key Management**: GPG keyring, key servers, web of trust
 
 #### Technical Implementation
-- **Infrastructure as Code**: Advanced Terraform modules for AWS and Azure
-- **Configuration Management**: Ansible playbooks for automated deployment
-- **CI/CD Pipeline**: GitLab CI integration with ArgoCD for GitOps
-- **Monitoring**: Comprehensive observability with Grafana, Prometheus, and Graylog
-
-#### Technical Stack
-- **Cloud Platforms**: AWS, Azure, IBM Cloud
-- **IaC Tools**: Terraform, Ansible
-- **CI/CD**: GitLab CI, ArgoCD
-- **Containers**: Docker, Kubernetes
-- **Monitoring**: Grafana, Prometheus, Graylog
-- **Programming**: Go, Python, Shell Scripting
-
----
-
-### IBM Cloud Cost Estimator
-**Infinite Computer Solutions** | *Software Engineer*  
-📅 **2022 - 2023**
-
-#### Project Overview
-Developed a sophisticated cost estimation tool for IBM Cloud services using Go, enabling accurate budget planning and resource optimization.
-
-#### Key Features
-- **💰 Accurate Cost Modeling**: Real-time pricing integration with IBM Cloud APIs
-- **📊 Resource Analysis**: Comprehensive usage pattern analysis
-- **🎯 Budget Planning**: Predictive cost modeling for different scenarios
-- **📈 Optimization Recommendations**: Automated suggestions for cost reduction
-
-#### Technical Stack
-- **Programming**: Go (Golang)
-- **Cloud Platform**: IBM Cloud
-- **APIs**: IBM Cloud Pricing APIs
-- **Architecture**: Microservices, RESTful APIs
+- Generated and managed RSA/DSA key pairs for secure communication
+- Configured email clients for automatic GPG integration
+- Implemented key distribution and verification workflows
+- Created secure communication channels with trusted parties
+- Validated email integrity and sender authenticity
 
 #### Impact
-- Enabled accurate budget planning for enterprise clients
-- Reduced cloud spending through optimization recommendations
-- Improved resource allocation decision-making
+- Demonstrated practical application of public-key cryptography
+- Implemented real-world email security protocols
+- Enhanced understanding of digital identity and trust models
 
 ---
 
-### Kubernetes Security Compliance System
-**Infinite Computer Solutions** | *Software Engineer*  
-📅 **2022 - 2024**
+### ISP Implementation
+**KTH Royal Institute of Technology** | *IK2215 Advanced Internetworking*
+📅 **August 2024 - October 2024**
 
 #### Project Overview
-Implemented comprehensive Kubernetes security compliance using Kyverno policy engine, significantly improving security audit outcomes.
+Designed and implemented a comprehensive software-based Internet Service Provider (ISP) model using network emulation technologies, demonstrating advanced routing protocols and autonomous system management.
 
 #### Key Features
-- **🛡️ Policy Enforcement**: Automated security policy validation
-- **📋 Compliance Monitoring**: Continuous compliance checking
-- **🔍 Security Auditing**: Comprehensive audit trail and reporting
-- **⚙️ Automated Remediation**: Self-healing security configurations
+- **🌐 Autonomous System Design**: Complete AS configuration with multi-protocol routing
+- **🔄 Dynamic Routing**: OSPF implementation for internal routing optimization
+- **🌍 Inter-AS Communication**: BGP protocol for external network connectivity
+- **📡 Network Emulation**: Realistic ISP topology using Kathara virtualization
 
 #### Technical Stack
-- **Orchestration**: Kubernetes
-- **Security**: Kyverno, Pod Security Standards
-- **Supply Chain**: Buildah, Cosign
-- **Monitoring**: Custom security dashboards
+- **Network Emulation**: Kathara (Container-based network emulation)
+- **Routing Software**: Quagga routing suite
+- **Protocols**: OSPF (Open Shortest Path First), BGP (Border Gateway Protocol)
+- **Operating System**: Linux containers and virtualization
+- **Monitoring**: Network analysis and traffic monitoring tools
+
+#### Technical Implementation
+- Configured hierarchical OSPF areas for scalable internal routing
+- Implemented BGP peering relationships with multiple autonomous systems
+- Created realistic ISP network topology with redundant paths
+- Configured route filtering and traffic engineering policies
+- Monitored network performance and routing convergence
+
+#### Network Architecture
+- **Core Network**: High-capacity backbone with OSPF routing
+- **Edge Routers**: BGP-enabled border routers for inter-AS connectivity
+- **Customer Networks**: Simulated enterprise and residential connections
+- **Redundancy**: Multiple paths and failover mechanisms
 
 #### Impact
-- Improved security audit outcomes
-- Reduced security incidents through proactive policy enforcement
-- Established security best practices across development teams
-
----
-
-## 🌟 Project Highlights
-
-### 📊 Quantified Impact
-- **30%** reduction in cloud infrastructure provisioning time
-- **35%** improvement in deployment efficiency
-- **100%** security compliance achievement in Kubernetes environments
-- **Multiple** successful academic project implementations
-
-### 🛠 Technical Expertise Demonstrated
-- **Cloud Architecture**: Multi-cloud infrastructure design and optimization
-- **Security Implementation**: Enterprise-grade security systems
-- **Automation**: Infrastructure as Code and CI/CD pipeline development
-- **Research & Development**: Academic research project execution
-
-### 🏆 Recognition
-- Academic excellence in advanced networking and security projects
-- Professional recognition for infrastructure optimization achievements
-- Community engagement through technical presentations and knowledge sharing
-
----
-
-*Each project represents a commitment to technical excellence, innovation, and practical problem-solving in cloud infrastructure and network security.* -->
+- Gained hands-on experience with production-grade routing protocols
+- Demonstrated understanding of ISP network architecture
+- Implemented realistic network scenarios and troubleshooting procedures
+- Enhanced knowledge of Internet infrastructure and routing policies

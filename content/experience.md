@@ -7,9 +7,6 @@ description = 'Professional experience and career journey of Shivaswaroop N K in
 weight = 20
 showTaxonomies = true
 +++
-
-## 💼 Professional Journey
-
 ### DevOps Engineer
 **Youmoni** | *Stockholm, Sweden*  
 📅 **May 2025 – Present** | *2 months*
@@ -71,10 +68,8 @@ showTaxonomies = true
 - 🎤 **Speaker & Panelist** at Stockholm Cloud Native Community Group *(February 18, 2025)*
 
 ### Professional Activities
+- 🧑‍💻 **Active Member** of the Sweden Platform Engineering Group
 - 🧑‍💻 **Active Member** of the Cloud Native Club
 - 🎫 **Attendee** at KubeCon EU 2025
 
 
----
-
-*Passionate about cloud technologies, network security, and building scalable systems that drive business value.*
