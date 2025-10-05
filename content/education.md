@@ -7,29 +7,29 @@ description = 'Academic background and educational journey of Shivaswaroop N K i
 weight = 50
 +++
 ### Master of Science in Communication Systems
-**KTH Royal Institute of Technology** | *Stockholm, Sweden* 🇸🇪  
-📅 **August 2024 – June 2026** | *Expected Graduation: June 2026*
+**KTH Royal Institute of Technology** | *Stockholm, Sweden*  
+**August 2024 – June 2026** | *Expected Graduation: June 2026*
 
 #### Program Overview
 Advanced graduate program focusing on modern communication systems, network security, and cloud infrastructure technologies. The program combines theoretical foundations with practical, hands-on experience in cutting-edge technologies.
 
 #### Core Coursework
-- **🌐 Advanced Internetworking**
+- **Advanced Internetworking**
   - Modern network architectures and protocols
   - Software-defined networking (SDN)
   - Network performance optimization
   
-- **🔒 Internet Security and Privacy**
+- **Internet Security and Privacy**
   - Cryptographic protocols and implementations
   - Privacy-preserving technologies
   - Security analysis and threat modeling
   
-- **🛡️ Building Network Systems Security**
+- **Building Network Systems Security**
   - Hands-on security system implementation
   - Secure network design principles
   - Vulnerability assessment and mitigation
   
-- **☁️ Networked Systems for Edge or Cloud Data Centers**
+- **Networked Systems for Edge or Cloud Data Centers**
   - Edge computing architectures
   - Cloud-native networking
   - Data center network optimization
@@ -38,7 +38,7 @@ Advanced graduate program focusing on modern communication systems, network secu
 
 ##### Kubernetes in a Datacenter Network
 **Course**: IK2227 Network Systems with Edge or Cloud Datacenters  
-📅 *January 2025 - March 2025*
+*January 2025 - March 2025*
 
 - Configured a **hybrid edge/cloud setup** with two Kubernetes clusters using VXLAN
 - Deployed **Large Language Model (Llama2)** as microservices
@@ -47,7 +47,7 @@ Advanced graduate program focusing on modern communication systems, network secu
 
 ##### Network Systems Security Implementation
 **Course**: EP2520 Building Networked Systems Security  
-📅 *January 2025 - March 2025*
+*January 2025 - March 2025*
 
 - Built a **secure networked system** with comprehensive certificate-based authentication
 - Implemented **Public Key Infrastructure (PKI)** using XCA & OpenSSL
@@ -58,29 +58,29 @@ Advanced graduate program focusing on modern communication systems, network secu
 ---
 
 ### Bachelor of Engineering in Telecommunication Engineering
-**M.S Ramaiah Institute of Technology** | *Bengaluru, India* 🇮🇳  
-📅 **August 2017 – July 2021** | **CGPA: 8.48/10** 🏆
+**M.S Ramaiah Institute of Technology** | *Bengaluru, India*  
+**August 2017 – July 2021** | **CGPA: 8.48/10**
 
 #### Program Highlights
 Comprehensive undergraduate program in telecommunications with strong emphasis on networking, programming, and emerging technologies.
 
 #### Relevant Coursework
-- **💻 Internet of Things and Cloud Computing**
+- **Internet of Things and Cloud Computing**
   - IoT architecture and protocols
   - Cloud service models and deployment
   - Edge computing fundamentals
   
-- **🌐 Computer Communication Networks**
+- **Computer Communication Networks**
   - Network protocols and standards
   - TCP/IP stack implementation
   - Network design and analysis
   
-- **🔐 Network Security**
+- **Network Security**
   - Cryptography and security protocols
   - Network attack prevention
   - Security policy implementation
   
-- **🐍 Python Programming**
+- **Python Programming**
   - Object-oriented programming
   - Data structures and algorithms
   - Application development

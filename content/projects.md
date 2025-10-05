@@ -9,16 +9,16 @@ weight = 30
 
 ### Kubernetes in a Datacenter Network
 **KTH Royal Institute of Technology** | *IK2227 Network Systems with Edge or Cloud Datacenters*  
-📅 **January 2025 - March 2025**
+**January 2025 - March 2025**
 
 #### Project Overview
 Designed and implemented a sophisticated hybrid edge/cloud computing environment using Kubernetes orchestration with advanced networking capabilities.
 
 #### Key Features
-- **🔗 Hybrid Architecture**: Configured two Kubernetes clusters for edge and cloud deployment
-- **🌐 Advanced Networking**: Implemented VXLAN for secure overlay networking
-- **🤖 AI/ML Integration**: Deployed Large Language Model (Llama2) as distributed microservices
-- **⚡ High-Performance Storage**: Implemented RDMA over fabric for ultra-low latency remote storage access
+- **Hybrid Architecture**: Configured two Kubernetes clusters for edge and cloud deployment
+- **Advanced Networking**: Implemented VXLAN for secure overlay networking
+- **AI/ML Integration**: Deployed Large Language Model (Llama2) as distributed microservices
+- **High-Performance Storage**: Implemented RDMA over fabric for ultra-low latency remote storage access
 
 #### Technical Stack
 - **Orchestration**: Kubernetes, Docker
@@ -35,16 +35,16 @@ Designed and implemented a sophisticated hybrid edge/cloud computing environment
 
 ### Network Systems Security Implementation
 **KTH Royal Institute of Technology** | *EP2520 Building Networked Systems Security*  
-📅 **January 2025 - March 2025**
+**January 2025 - March 2025**
 
 #### Project Overview
 Built a comprehensive secure networked system implementing enterprise-grade security practices and certificate-based authentication mechanisms.
 
 #### Key Features
-- **🔐 Public Key Infrastructure**: Complete PKI implementation using XCA & OpenSSL
-- **🛡️ Certificate-Based Authentication**: Secure service-to-service communication
-- **🔥 Firewall Configuration**: Advanced IPTables rules for network security
-- **☁️ Secure Services**: Hardened NextCloud and Apache deployments with SSL/TLS
+- **Public Key Infrastructure**: Complete PKI implementation using XCA & OpenSSL
+- **Certificate-Based Authentication**: Secure service-to-service communication
+- **Firewall Configuration**: Advanced IPTables rules for network security
+- **Secure Services**: Hardened NextCloud and Apache deployments with SSL/TLS
 
 #### Technical Stack
 - **Security**: XCA, OpenSSL, IPTables, SSL/TLS
@@ -61,16 +61,16 @@ Built a comprehensive secure networked system implementing enterprise-grade secu
 
 ### Email Security with GPG
 **KTH Royal Institute of Technology** | *IK2206 Internet Security and Privacy*
-📅 **November 2024 - January 2025**
+**November 2024 - January 2025**
 
 #### Project Overview
 Implemented comprehensive email encryption, authentication, and validation system using GNU Privacy Guard (GPG) on Linux systems, demonstrating practical cryptographic security applications.
 
 #### Key Features
-- **🔐 Email Encryption**: End-to-end email encryption using GPG public-key cryptography
-- **✅ Digital Signatures**: Email authentication through digital signatures
-- **🛡️ Identity Validation**: Comprehensive key management and identity verification
-- **🔧 Linux Integration**: Native GPG implementation on Linux systems
+- **Email Encryption**: End-to-end email encryption using GPG public-key cryptography
+- **Digital Signatures**: Email authentication through digital signatures
+- **Identity Validation**: Comprehensive key management and identity verification
+- **Linux Integration**: Native GPG implementation on Linux systems
 
 #### Technical Stack
 - **Cryptography**: GNU Privacy Guard (GPG), PGP Protocol
@@ -94,16 +94,16 @@ Implemented comprehensive email encryption, authentication, and validation syste
 
 ### ISP Implementation
 **KTH Royal Institute of Technology** | *IK2215 Advanced Internetworking*
-📅 **August 2024 - October 2024**
+**August 2024 - October 2024**
 
 #### Project Overview
 Designed and implemented a comprehensive software-based Internet Service Provider (ISP) model using network emulation technologies, demonstrating advanced routing protocols and autonomous system management.
 
 #### Key Features
-- **🌐 Autonomous System Design**: Complete AS configuration with multi-protocol routing
-- **🔄 Dynamic Routing**: OSPF implementation for internal routing optimization
-- **🌍 Inter-AS Communication**: BGP protocol for external network connectivity
-- **📡 Network Emulation**: Realistic ISP topology using Kathara virtualization
+- **Autonomous System Design**: Complete AS configuration with multi-protocol routing
+- **Dynamic Routing**: OSPF implementation for internal routing optimization
+- **Inter-AS Communication**: BGP protocol for external network connectivity
+- **Network Emulation**: Realistic ISP topology using Kathara virtualization
 
 #### Technical Stack
 - **Network Emulation**: Kathara (Container-based network emulation)
@@ -130,3 +130,4 @@ Designed and implemented a comprehensive software-based Internet Service Provide
 - Demonstrated understanding of ISP network architecture
 - Implemented realistic network scenarios and troubleshooting procedures
 - Enhanced knowledge of Internet infrastructure and routing policies
+

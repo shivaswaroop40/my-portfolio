@@ -6,7 +6,7 @@ description = 'Comprehensive overview of technical skills and expertise in cloud
 #categories = ["professional"]
 weight = 40
 +++
-### ☁️ Cloud Platforms
+### Cloud Platforms
 **Advanced proficiency with major cloud providers**
 
 - **Amazon Web Services (AWS)**
@@ -21,10 +21,10 @@ weight = 40
 
 ---
 
-### 🔧 Automation & Infrastructure Tools
+### Automation & Infrastructure Tools
 **Infrastructure as Code and automation specialists**
 
-- **Terraform** 🔥
+- **Terraform**
   - Multi-cloud infrastructure provisioning
   - Module development and optimization
   - State management and best practices
@@ -41,7 +41,7 @@ weight = 40
 
 ---
 
-### 🐳 Containerization & Orchestration
+### Containerization & Orchestration
 **Container technologies and orchestration platforms**
 
 - **Docker**
@@ -62,20 +62,20 @@ weight = 40
 
 ---
 
-### 💻 Programming Languages
+### Programming Languages
 **Multi-language development capabilities**
 
-- **Python** 🐍
+- **Python**
   - Automation scripts and tooling
   - Infrastructure management utilities
   - Data processing and analysis
 
-- **Go (Golang)** ⚡
+- **Go (Golang)**
   - Cloud-native application development
   - Cost estimation tools for IBM Cloud
   - High-performance system programming
 
-- **Shell Scripting** 📝
+- **Shell Scripting**
   - Bash and Zsh automation
   - System administration tasks
   - CI/CD pipeline scripting
@@ -87,7 +87,7 @@ weight = 40
 
 ---
 
-### 📊 Monitoring & Observability
+### Monitoring & Observability
 **Comprehensive monitoring and logging solutions**
 
 - **Grafana**
@@ -107,7 +107,7 @@ weight = 40
 
 ---
 
-### 🚀 CI/CD & DevOps Tools
+### CI/CD & DevOps Tools
 **Continuous integration and deployment expertise**
 
 - **GitLab CI**
@@ -127,7 +127,7 @@ weight = 40
 
 ---
 
-### 🔒 Security & Compliance
+### Security & Compliance
 **Security-first approach to infrastructure**
 
 - **Network Security**
@@ -144,40 +144,5 @@ weight = 40
   - PKI implementation with XCA & OpenSSL
   - Certificate-based authentication
   - SSL/TLS configuration and management
-
----
-
-### 🎓 Academic & Research Skills
-**Current focus areas in graduate studies**
-
-- **Network Systems**
-  - Advanced internetworking protocols
-  - Edge and cloud data center architecture
-  - VXLAN and software-defined networking
-
-- **Security Research**
-  - Internet security and privacy
-  - Networked systems security
-  - Threat modeling and risk assessment
-
-- **High-Performance Computing**
-  - Distributed systems design
-  - Performance optimization techniques
-  - Scalability and reliability patterns
-
----
-
-## 📈 Skill Development
-
-### 🎯 Currently Learning
-- **Advanced Kubernetes** - Service mesh and advanced networking
-- **Edge Computing** - IoT and edge infrastructure
-- **Security Architecture** - Zero-trust and modern security patterns
-- **Machine Learning Operations** - MLOps and AI infrastructure
-
-### 🏆 Certifications & Training
-- Cloud provider certifications (in progress)
-- Kubernetes administrator certification preparation
-- Security professional development courses
 
 ---

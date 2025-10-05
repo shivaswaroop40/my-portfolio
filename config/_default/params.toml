@@ -40,7 +40,7 @@ fingerprintAlgorithm = "sha256"
   cardViewScreenWidth = false
 
 [article]
-  showDate = true
+  showDate = false
   showViews = false
   showLikes = false
   showDateOnlyInArticle = false
@@ -72,7 +72,7 @@ fingerprintAlgorithm = "sha256"
   heroStyle = "background"
   layoutBackgroundBlur = true
   layoutBackgroundHeaderSpace = false
-  showBreadcrumbs = false
+  showBreadcrumbs = true
   showSummary = true
   showViews = false
   showLikes = false
@@ -81,7 +81,7 @@ fingerprintAlgorithm = "sha256"
   orderByWeight = true
   groupByYear = false
   cardView = true
-  cardViewScreenWidth = false
+  cardViewScreenWidth = true
   constrainItemsWidth = false
 
 [sitemap]
@@ -98,9 +98,13 @@ fingerprintAlgorithm = "sha256"
   cardView = false
 
 [term]
+[author]
+  name = "Shivaswaroop N K"
+  headline = "Cloud Infrastructure Engineer · MSc Communication Systems at KTH"
+  image = "shivu.jpg"
   showHero = true
   heroStyle = "background"
-  showBreadcrumbs = false
+  showBreadcrumbs = true
   showViews = false
   showLikes = false
   showTableOfContents = true
