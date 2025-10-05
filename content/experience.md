@@ -9,11 +9,11 @@ showTaxonomies = true
 +++
 ### DevOps Engineer
 **Youmoni** | *Stockholm, Sweden*  
-📅 **May 2025 – Present** | *2 months*
+**May 2025 – Present** | *6 months*
 
-#### Key Achievements & Responsibilities
+### Key Achievements & Responsibilities
 
-🚀 **GitOps and Infrastructure Optimization**
+**GitOps and Infrastructure Optimization**
 - Designing large-scale cloud infrastructure provisioning for backend services.
 - Migrating production workloads from Docker Swarm to EKS.
 - Implementing GitOps pipelines for backend services.
@@ -28,26 +28,26 @@ showTaxonomies = true
 
 ### Software Engineer
 **Infinite Computer Solutions** | *Bengaluru, India*  
-📅 **March 2021 – July 2024** | *3 years 5 months*
+**March 2021 – July 2024** | *3 years 5 months*
 
-#### Key Achievements & Responsibilities
+### Key Achievements & Responsibilities
 
-🚀 **Infrastructure Optimization**
+**Infrastructure Optimization**
 - Designed and optimized large-scale cloud infrastructure provisioning, **reducing provisioning time by 30%**
 - Developed and optimized Terraform modules for AWS and Azure environments
 - Improved infrastructure deployment efficiency by **35%** through cross-functional collaboration
 
-🔧 **Automation & CI/CD**
+**Automation & CI/CD**
 - Automated deployments using Terraform and Ansible, ensuring high availability
 - Built and maintained CI/CD pipelines on GitLab, integrated with ArgoCD
 - Led software supply chain security implementations using Buildah and Cosign
 
-🔒 **Security & Compliance**
+**Security & Compliance**
 - Improved network security through firewall rules, VPNs, and compliance policies
 - Enforced Kubernetes compliance using Kyverno, improving audit outcomes
 - Implemented security best practices across cloud environments
 
-💻 **Development & Innovation**
+**Development & Innovation**
 - Designed a cost estimator for IBM Cloud using Go programming language
 - Worked extensively with Linux-based environments
 - Managed large-scale computing environments with focus on performance optimization
@@ -61,15 +61,16 @@ showTaxonomies = true
 - **Monitoring**: Grafana, Graylog, Prometheus
 
 
-## 🌟 Community Involvement
+## Community Involvement
 
 ### Speaking Engagements
-- 🎤 **Speaker** at Finland Cloud Native Community Group Meetup *(February 5, 2025)*
-- 🎤 **Speaker & Panelist** at Stockholm Cloud Native Community Group *(February 18, 2025)*
+- **Speaker** at Finland Cloud Native Community Group Meetup *(February 5, 2025)*
+- **Speaker & Panelist** at Stockholm Cloud Native Community Group *(February 18, 2025)*
+- **Speaker** at Stockholm Platform Engineering Community Event *(October 8, 2025)*
 
 ### Professional Activities
-- 🧑‍💻 **Active Member** of the Sweden Platform Engineering Group
-- 🧑‍💻 **Active Member** of the Cloud Native Club
-- 🎫 **Attendee** at KubeCon EU 2025
+- **Active Member** of the Sweden Platform Engineering Group
+- **Active Member** of the Cloud Native Club
+- **Attendee** at KubeCon EU 2025
 
 

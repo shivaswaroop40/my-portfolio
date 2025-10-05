@@ -9,11 +9,7 @@ author = "Shivaswaroop N K"
 featured = true
 +++
 
-## Hello and Welcome! 👋
-
 I'm excited to share my journey as a **Cloud Infrastructure Engineer** and **MSc Communication Systems** student at KTH Royal Institute of Technology in Stockholm, Sweden.
-
-## My Story
 
 From Bengaluru to Stockholm, my path has been driven by a passion for technology and innovation. After completing my Bachelor's in Telecommunication Engineering, I spent over 3 years working with cloud technologies, helping organizations build better, more efficient infrastructure.
 
@@ -23,10 +19,10 @@ Now, I'm pursuing my Master's degree at KTH, diving deeper into advanced network
 
 This portfolio showcases:
 
-- **🚀 Professional Projects**: Real-world cloud infrastructure work that made a measurable impact
-- **🎓 Academic Research**: Current projects in network security and edge computing
-- **💡 Learning Journey**: Insights from both industry experience and academic research
-- **🌟 Community Involvement**: Speaking engagements and contributions to the cloud-native community
+- **Professional Projects**: Real-world cloud infrastructure work that made a measurable impact
+- **Academic Research**: Current projects in network security and edge computing
+- **Learning Journey**: Insights from both industry experience and academic research
+- **Community Involvement**: Speaking engagements and contributions to the cloud-native community
 
 ## Current Focus
 
@@ -41,9 +37,9 @@ I'm also actively involved in the Cloud Native community, having spoken at meetu
 
 I love discussing technology, sharing knowledge, and learning from others. Whether you're interested in cloud infrastructure, network security, or just want to chat about the latest tech trends, feel free to reach out!
 
-**📧 Email**: [shivaswaroop40@gmail.com](mailto:shivaswaroop40@gmail.com)  
-**💼 LinkedIn**: [Connect with me](https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b)  
-**💻 GitHub**: [View my code](https://github.com/shivaswaroop40)
+**Email**: [shivaswaroop40@gmail.com](mailto:shivaswaroop40@gmail.com)  
+**LinkedIn**: [Connect with me](https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b)  
+**GitHub**: [View my code](https://github.com/shivaswaroop40)
 
 Thanks for visiting, and I look forward to sharing more of my journey with you!
 
