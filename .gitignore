@@ -1,34 +1,4 @@
-# Hugo build files
-public/
-resources/
-
-# Hugo lock file
-.hugo_build.lock
-
-# Hugo cache
-hugo_cache/
-
-# Temporary folders
-tmp/
-temp/
-
-# Logs
-*.log
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Node.js dependencies (if using npm/yarn for themes or preprocessing)
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-package-lock.json.backup
-
-# macOS specific files
+# macOS
 .DS_Store
 .DS_Store?
 ._*
@@ -37,61 +7,66 @@ package-lock.json.backup
 ehthumbs.db
 Thumbs.db
 
-# VS Code
+# Editor directories and files
 .vscode/
-
-# JetBrains IDEs
 .idea/
-*.iml
-*.iws
-*.ipr
-
-# Vim
 *.swp
 *.swo
 *~
 
-# Emacs
-*~
-\#*\#
-/.emacs.desktop
-/.emacs.desktop.lock
-*.elc
-auto-save-list
-tramp
-.\#*
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Hugo development server files
-.hugo_build.lock
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# Environment variables
+# Coverage directory used by tools like istanbul
+coverage/
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 
-# Hugo themes downloaded via git clone (if not using submodules)
-# themes/*/
+# Temporary files
+*.tmp
+*.temp
 
-# Generated files from Hugo modules
-go.mod
-go.sum
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
-# Backup files
-*.bak
-*.backup
-*.old
-*.orig
-*.save
+# Local development
+.local
 
-# Archive files
-*.tar
-*.tar.gz
-*.zip
-*.rar
-
-# Site-specific generated content
-# Uncomment if you have custom generated content
-# static/css/
-# static/js/
+public/
