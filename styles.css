@@ -460,11 +460,23 @@ body {
 .highlight-email {
     color: #00ffff;
     text-decoration: underline;
+    cursor: pointer;
+}
+
+.highlight-email:hover {
+    color: #ffff00;
+    text-decoration: none;
 }
 
 .highlight-url {
     color: #00ffff;
     text-decoration: underline;
+    cursor: pointer;
+}
+
+.highlight-url:hover {
+    color: #ffff00;
+    text-decoration: none;
 }
 
 .highlight-tech {

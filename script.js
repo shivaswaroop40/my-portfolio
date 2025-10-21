@@ -127,12 +127,12 @@ class Terminal {
             .replace(/^(#{1,6})\s+(.+)$/gm, '<h$1 class="highlight-header">$2</h$1>')
             // Bold text
             .replace(/\*\*(.+?)\*\*/g, '<strong class="highlight-bold">$1</strong>')
-            // Email links
-            .replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<span class="highlight-email">$1</span>')
-            // URLs
-            .replace(/(https?:\/\/[^\s]+)/g, '<span class="highlight-url">$1</span>')
-            // Technical terms
-            .replace(/\b(AWS|Azure|Kubernetes|Docker|Terraform|Ansible|Python|Go|JavaScript|React|Node\.js|Git|GitHub|GitLab|CI\/CD|DevOps|Cloud|Infrastructure|Security|Monitoring|Grafana|Prometheus|Graylog|ArgoCD|Kyverno|Buildah|Cosign|VXLAN|RDMA|PKI|OpenSSL|IPTables|SSL\/TLS|GPG|OSPF|BGP|KTH|M\.S Ramaiah|Stockholm|Bengaluru|Sweden|India)\b/g, '<span class="highlight-tech">$1</span>')
+            // Email links (only if not already in HTML tags)
+            .replace(/(?<!<[^>]*)([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(?![^<]*>)/g, '<a href="mailto:$1" class="highlight-email">$1</a>')
+            // URLs (only if not already in HTML tags)
+            .replace(/(?<!<[^>]*)(https?:\/\/[^\s]+)(?![^<]*>)/g, '<a href="$1" target="_blank" class="highlight-url">$1</a>')
+            // Technical terms (only if not already in HTML tags)
+            .replace(/(?<!<[^>]*)\b(AWS|Azure|Kubernetes|Docker|Terraform|Ansible|Python|Go|JavaScript|React|Node\.js|Git|GitHub|GitLab|CI\/CD|DevOps|Cloud|Infrastructure|Security|Monitoring|Grafana|Prometheus|Graylog|ArgoCD|Kyverno|Buildah|Cosign|VXLAN|RDMA|PKI|OpenSSL|IPTables|SSL\/TLS|GPG|OSPF|BGP|KTH|M\.S Ramaiah|Stockholm|Bengaluru|Sweden|India)\b(?![^<]*>)/g, '<span class="highlight-tech">$1</span>')
             // Dates and time periods
             .replace(/(\d{4}\s*–\s*\d{4}|\d{4}\s*–\s*Present|\d+\s*years?\s*\d+\s*months?|\d+\s*months?)/g, '<span class="highlight-date">$1</span>')
             // Percentages and numbers
