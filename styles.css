@@ -1,0 +1,533 @@
+/* Terminal TUI Style CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    background: #0a0a0a;
+    color: #00ff00;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.terminal-container {
+    width: 100vw;
+    height: 100vh;
+    background: #0a0a0a;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    background: #1a1a1a;
+    padding: 8px 12px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btn.close {
+    background: #ff5f56;
+}
+
+.btn.minimize {
+    background: #ffbd2e;
+}
+
+.btn.maximize {
+    background: #27ca3f;
+}
+
+.terminal-title {
+    color: #888;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.terminal-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #0a0a0a;
+    position: relative;
+}
+
+.terminal-content {
+    min-height: calc(100vh - 120px);
+}
+
+.terminal-line {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.prompt {
+    color: #00ff00;
+    font-weight: bold;
+    margin-right: 8px;
+    white-space: nowrap;
+}
+
+.command {
+    color: #ffffff;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    flex: 1;
+    min-width: 200px;
+}
+
+.output {
+    margin: 20px 0;
+    line-height: 1.6;
+    color: #cccccc;
+}
+
+.ascii-art {
+    color: #00ff00;
+    font-size: 8px;
+    line-height: 1;
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+}
+
+.welcome-text {
+    margin: 20px 0;
+    color: #cccccc;
+}
+
+.welcome-text p {
+    margin: 10px 0;
+}
+
+.highlight {
+    color: #ffff00;
+    font-weight: bold;
+}
+
+.inspiration-text {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+.inspiration-link {
+    color: #00ffff;
+    text-decoration: none;
+}
+
+.inspiration-link:hover {
+    color: #ffff00;
+    text-decoration: underline;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    position: sticky;
+    bottom: 0;
+    background: #0a0a0a;
+    padding: 10px 0;
+}
+
+#terminal-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: inherit;
+    flex: 1;
+    margin-left: 8px;
+}
+
+#terminal-input:focus {
+    outline: none;
+}
+
+/* Page content styling */
+.page-content {
+    color: #cccccc;
+    line-height: 1.6;
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+.page-content h2 {
+    color: #00ff00;
+    margin: 20px 0 15px 0;
+    font-size: 1.5em;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.page-content h3 {
+    color: #ffff00;
+    margin: 15px 0 10px 0;
+    font-size: 1.2em;
+}
+
+.page-content h4 {
+    color: #00ffff;
+    margin: 12px 0 8px 0;
+    font-size: 1.1em;
+}
+
+.page-content h5 {
+    color: #ff8800;
+    margin: 10px 0 5px 0;
+    font-size: 1em;
+}
+
+.page-content p {
+    margin: 8px 0;
+    text-align: justify;
+}
+
+.page-content ul {
+    margin: 8px 0;
+    padding-left: 20px;
+}
+
+.page-content li {
+    margin: 4px 0;
+}
+
+.page-content a {
+    color: #00ff00;
+    text-decoration: underline;
+}
+
+.page-content a:hover {
+    color: #ffff00;
+    text-decoration: none;
+}
+
+.page-content strong {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Command history and output styling */
+.command-history {
+    margin-bottom: 8px;
+}
+
+.command-output {
+    margin: 8px 0 20px 0;
+    color: #cccccc;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.error {
+    color: #ff4444;
+}
+
+.success {
+    color: #00ff00;
+}
+
+.info {
+    color: #00ffff;
+}
+
+.warning {
+    color: #ffaa00;
+}
+
+/* Cursor animation */
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .terminal-body {
+        padding: 10px;
+    }
+    
+    .ascii-art {
+        font-size: 6px;
+    }
+    
+    .terminal-line {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .prompt {
+        margin-bottom: 5px;
+    }
+}
+
+/* Help command styling */
+.help-section {
+    margin: 15px 0;
+}
+
+.help-section h3 {
+    color: #00ff00;
+    margin: 10px 0 5px 0;
+}
+
+.help-section p {
+    margin: 5px 0;
+    color: #cccccc;
+}
+
+.help-command {
+    color: #ffff00;
+    font-weight: bold;
+}
+
+.help-description {
+    color: #cccccc;
+    margin-left: 20px;
+}
+
+/* File listing styling */
+.file-list {
+    margin: 10px 0;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 2px 0;
+}
+
+.file-icon {
+    margin-right: 8px;
+    color: #00ff00;
+}
+
+.file-name {
+    color: #ffffff;
+    margin-right: 8px;
+}
+
+.file-size {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.directory {
+    color: #00ffff;
+}
+
+.executable {
+    color: #ff8800;
+}
+
+/* Command not found styling */
+.command-not-found {
+    color: #ff4444;
+    font-style: italic;
+}
+
+/* Loading animation */
+.loading {
+    display: inline-block;
+    animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Terminal prompt variations */
+.prompt-user {
+    color: #00ff00;
+}
+
+.prompt-host {
+    color: #ffff00;
+}
+
+.prompt-path {
+    color: #00ffff;
+}
+
+.prompt-symbol {
+    color: #ff8800;
+}
+
+/* Special effects */
+.glitch {
+    animation: glitch 0.3s ease-in-out;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* Matrix rain effect (optional) */
+.matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+/* Terminal window effects */
+.terminal-container:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+}
+
+/* Selection styling */
+::selection {
+    background: #00ff00;
+    color: #000;
+}
+
+::-moz-selection {
+    background: #00ff00;
+    color: #000;
+}
+
+/* Text highlighting styles */
+.highlight-header {
+    color: #00ff00;
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px 0;
+}
+
+.highlight-bold {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.highlight-email {
+    color: #00ffff;
+    text-decoration: underline;
+}
+
+.highlight-url {
+    color: #00ffff;
+    text-decoration: underline;
+}
+
+.highlight-tech {
+    color: #ffff00;
+    font-weight: bold;
+}
+
+.highlight-date {
+    color: #ff8800;
+    font-weight: bold;
+}
+
+.highlight-number {
+    color: #ff4444;
+    font-weight: bold;
+}
+
+.highlight-bullet {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.highlight-code {
+    color: #ff8800;
+    background: rgba(255, 136, 0, 0.1);
+    padding: 1px 3px;
+    border-radius: 2px;
+    font-family: 'Courier New', monospace;
+}
+
+/* Header specific styling */
+.h1 {
+    font-size: 1.5em;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.h2 {
+    font-size: 1.3em;
+    color: #00ff00;
+    margin: 15px 0 8px 0;
+}
+
+.h3 {
+    font-size: 1.1em;
+    color: #ffff00;
+    margin: 12px 0 6px 0;
+}
+
+.h4 {
+    font-size: 1em;
+    color: #00ffff;
+    margin: 10px 0 4px 0;
+}
+
+.h5 {
+    font-size: 0.9em;
+    color: #ff8800;
+    margin: 8px 0 3px 0;
+}
+
+.h6 {
+    font-size: 0.8em;
+    color: #ff4444;
+    margin: 6px 0 2px 0;
+}
