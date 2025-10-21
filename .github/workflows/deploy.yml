@@ -49,6 +49,8 @@ jobs:
           cp styles.css public/
           cp script.js public/
           cp README.md public/
+          # Create favicon
+          echo 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💻</text></svg>' > public/favicon.ico
           # Create a simple 404 page
           echo '<!DOCTYPE html>
 <html lang="en">
