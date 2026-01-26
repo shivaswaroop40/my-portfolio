@@ -3,361 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@Shiva Swaroop N K</title>
+    <title>Shiva Swaroop N K - Cloud Infrastructure Engineer</title>
+    <meta name="description" content="Cloud Infrastructure Engineer specializing in Kubernetes, Terraform, and cloud-native architectures. Co-organizer of Stockholm CNCF community.">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
 </head>
 <body>
-    <div class="terminal-container">
-        <div class="terminal-header">
-            <div class="terminal-buttons">
-                <span class="btn close"></span>
-                <span class="btn minimize"></span>
-                <span class="btn maximize"></span>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">Shiva Swaroop</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
             </div>
-            <div class="terminal-title">shivaswaroop@portfolio: ~$</div>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+                <button class="nav-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
-        <div class="terminal-body">
-            <div class="terminal-content" id="terminal-content">
-                <div class="terminal-line">
-                    <span class="prompt">shivaswaroop@portfolio:~$</span>
-                    <span class="command">welcome</span>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Cloud Infrastructure Engineer</h1>
+                <p class="lead">I design and build scalable cloud infrastructure using Kubernetes, Terraform, and cloud-native technologies. Currently working as DevOps Engineer at Youmoni and pursuing my MSc at KTH Royal Institute of Technology.</p>
+                <p class="subtitle">Co-organizer of Stockholm CNCF community</p>
+                <div class="hero-links">
+                    <a href="https://github.com/shivaswaroop40" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="mailto:shivaswaroop40@gmail.com">Email</a>
                 </div>
-                <div class="output">
-                    <div class="ascii-art">
-                        <pre>
-/$$      /$$           /$$                                                     /$$                     /$$      /$$                 /$$      /$$           /$$                 /$$   /$$               /$$
-| $$  /$ | $$          | $$                                                    | $$                    | $$$    /$$$                | $$  /$ | $$          | $$                |__/  | $$              | $$
-| $$ /$$$| $$  /$$$$$$ | $$  /$$$$$$$  /$$$$$$  /$$$$$$/$$$$   /$$$$$$        /$$$$$$    /$$$$$$       | $$$$  /$$$$ /$$   /$$      | $$ /$$$| $$  /$$$$$$ | $$$$$$$   /$$$$$$$ /$$ /$$$$$$    /$$$$$$ | $$
-| $$/$$ $$ $$ /$$__  $$| $$ /$$_____/ /$$__  $$| $$_  $$_  $$ /$$__  $$      |_  $$_/   /$$__  $$      | $$ $$/$$ $$| $$  | $$      | $$/$$ $$ $$ /$$__  $$| $$__  $$ /$$_____/| $$|_  $$_/   /$$__  $$| $$
-| $$$$_  $$$$| $$$$$$$$| $$| $$      | $$  \ $$| $$ \ $$ \ $$| $$$$$$$$        | $$    | $$  \ $$      | $$  $$$| $$| $$  | $$      | $$$$_  $$$$| $$$$$$$$| $$  \ $$|  $$$$$$ | $$  | $$    | $$$$$$$$|__/
-| $$$/ \  $$$| $$_____/| $$| $$      | $$  | $$| $$ | $$ | $$| $$_____/        | $$ /$$| $$  | $$      | $$\  $ | $$| $$  | $$      | $$$/ \  $$$| $$_____/| $$  | $$ \____  $$| $$  | $$ /$$| $$_____/    
-| $$/   \  $$|  $$$$$$$| $$|  $$$$$$$|  $$$$$$/| $$ | $$ | $$|  $$$$$$$        |  $$$$/|  $$$$$$/      | $$ \/  | $$|  $$$$$$$      | $$/   \  $$|  $$$$$$$| $$$$$$$/ /$$$$$$$/| $$  |  $$$$/|  $$$$$$$ /$$
-|__/     \__/ \_______/|__/ \_______/ \______/ |__/ |__/ |__/ \_______/         \___/   \______/       |__/     |__/ \____  $$      |__/     \__/ \_______/|_______/ |_______/ |__/   \___/   \_______/|__/
-                                                                                                                     /$$  | $$                                                                             
-                                                                                                                    |  $$$$$$/                                                                             
-                                                                                                                     \______/                                                                              
-                        </pre>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I'm a Cloud Infrastructure Engineer based in Stockholm, Sweden, with over 3 years of experience designing and optimizing large-scale cloud systems.</p>
+                        <p>At Youmoni, I'm leading the migration from Docker Swarm to EKS and implementing GitOps pipelines. Previously at Infinite Computer Solutions, I reduced infrastructure provisioning time by 30% and improved deployment efficiency by 35%.</p>
+                        <p>I'm passionate about cloud-native technologies and actively contribute to the community as a co-organizer of the Stockholm CNCF group, where I host meetups and speak at events across Scandinavia.</p>
                     </div>
-                    <div class="welcome-text">
-                        <p>I'm Shiva Swaroop N K</p>
-                        <p>Cloud Infrastructure Engineer & MSc Communication Systems Student at KTH</p>
-                        <p>Type <span class="highlight">help</span> to see available commands</p>
-                        <p class="inspiration-text">Inspired by <a href="https://ddaniel.dev/#landing" target="_blank" class="inspiration-link">ddaniel.dev</a></p>
+                    <div class="about-location">
+                        <p><strong>Location</strong><br>Stockholm, Sweden</p>
+                        <p><strong>Education</strong><br>MSc Communication Systems<br>KTH Royal Institute of Technology</p>
+                        <p><strong>Focus Areas</strong><br>Cloud Infrastructure<br>Kubernetes & GitOps<br>Network Security</p>
                     </div>
                 </div>
             </div>
-            <div class="terminal-input-line">
-                <span class="prompt">shiv@portfolio:~$</span>
-                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
+        </section>
+
+        <section id="experience" class="section section-gray">
+            <div class="container">
+                <h2>Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3>DevOps Engineer</h3>
+                            <p class="company">Youmoni, Stockholm</p>
+                        </div>
+                        <p class="period">May 2025 – Present</p>
+                    </div>
+                    <ul>
+                        <li>Designing large-scale cloud infrastructure provisioning for backend services on AWS</li>
+                        <li>Leading migration of production workloads from Docker Swarm to EKS</li>
+                        <li>Implementing GitOps pipelines with ArgoCD for continuous deployment</li>
+                        <li>Enforcing security policies using Kyverno across Kubernetes clusters</li>
+                    </ul>
+                    <div class="tags">
+                        <span>AWS</span>
+                        <span>Kubernetes</span>
+                        <span>Terraform</span>
+                        <span>ArgoCD</span>
+                        <span>Kyverno</span>
+                        <span>Python</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Software Engineer</h3>
+                            <p class="company">Infinite Computer Solutions, Bengaluru</p>
+                        </div>
+                        <p class="period">March 2021 – July 2024</p>
+                    </div>
+                    <ul>
+                        <li>Reduced infrastructure provisioning time by 30% through optimized Terraform modules</li>
+                        <li>Improved deployment efficiency by 35% via cross-functional collaboration</li>
+                        <li>Built and maintained CI/CD pipelines on GitLab integrated with ArgoCD</li>
+                        <li>Led software supply chain security implementations using Buildah and Cosign</li>
+                        <li>Enhanced network security with firewall rules, VPNs, and compliance policies</li>
+                    </ul>
+                    <div class="tags">
+                        <span>AWS</span>
+                        <span>Azure</span>
+                        <span>Terraform</span>
+                        <span>GitLab</span>
+                        <span>Kubernetes</span>
+                        <span>Ansible</span>
+                    </div>
+                </div>
+
+                <div class="education-section">
+                    <h3>Education</h3>
+                    <div class="education-items">
+                        <div class="education-item">
+                            <div>
+                                <h4>Master of Science in Communication Systems</h4>
+                                <p>KTH Royal Institute of Technology, Stockholm</p>
+                            </div>
+                            <p class="period">2024 – 2026</p>
+                        </div>
+                        <div class="education-item">
+                            <div>
+                                <h4>Bachelor of Engineering in Telecommunication</h4>
+                                <p>M.S Ramaiah Institute of Technology, Bengaluru</p>
+                            </div>
+                            <p class="period">2017 – 2021</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Hidden content for different pages -->
-    <div id="about-content" style="display: none;">
-        <div class="page-content">
-            <h2>About Me</h2>
-            <p>Hello, I'm Shivaswaroop!</p>
-            <p>I'm a <strong>Cloud Infrastructure Engineer</strong> and <strong>MSc Communication Systems</strong> student at <strong>KTH Royal Institute of Technology</strong> in Stockholm, Sweden. With over 3 years of professional experience in cloud technologies, I specialize in designing, optimizing, and securing large-scale cloud infrastructures.</p>
-            
-            <h3>What I Do</h3>
-            <p>I'm passionate about <strong>cloud-native technologies</strong> and <strong>high-performance computing</strong>. My expertise spans across:</p>
-            <ul>
-                <li><strong>Cloud Architecture</strong>: Designing scalable infrastructure on AWS and Azure</li>
-                <li><strong>Infrastructure as Code</strong>: Automating deployments with Terraform and Ansible</li>
-                <li><strong>Containerization</strong>: Managing Kubernetes clusters and Docker environments</li>
-                <li><strong>Security</strong>: Implementing security best practices and compliance policies</li>
-                <li><strong>Monitoring</strong>: Setting up comprehensive observability with Grafana, Prometheus, and Graylog</li>
-            </ul>
-            
-            <h3>Current Focus</h3>
-            <p>Currently pursuing my Master's degree at KTH, I'm diving deep into:</p>
-            <ul>
-                <li>Advanced Internetworking</li>
-                <li>Internet Security and Privacy</li>
-                <li>Building Network Systems Security</li>
-                <li>Networked Systems for Edge and Cloud Data Centers</li>
-            </ul>
-            
-            <h3>Location</h3>
-            <p>Based in <strong>Stockholm, Sweden</strong></p>
-            
-            <h3>Let's Connect</h3>
-            <p>I'm always excited to discuss cloud technologies, network systems, and innovative solutions. Whether you're looking to collaborate on a project or just want to chat about the latest in cloud infrastructure, feel free to reach out!</p>
-            <p><strong>Email</strong>: <a href="mailto:shivaswaroop40@gmail.com">shivaswaroop40@gmail.com</a></p>
-            <p><strong>LinkedIn</strong>: <a href="https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b" target="_blank">Connect with me</a></p>
-            <p><strong>GitHub</strong>: <a href="https://github.com/shivaswaroop40" target="_blank">View my code</a></p>
-        </div>
-    </div>
+        <section id="projects" class="section">
+            <div class="container">
+                <h2>Selected Projects</h2>
+                
+                <div class="project">
+                    <h3>Kubernetes in a Datacenter Network</h3>
+                    <p>Configured hybrid edge/cloud setup with two Kubernetes clusters using VXLAN for secure overlay networking. Deployed Llama2 LLM as distributed microservices and implemented RDMA over fabric for ultra-low latency remote storage access.</p>
+                    <p class="project-meta">KTH Royal Institute of Technology • January – March 2025</p>
+                </div>
 
-    <div id="experience-content" style="display: none;">
-        <div class="page-content">
-            <h2>Professional Experience</h2>
-            
-            <h3>DevOps Engineer</h3>
-            <p><strong>Youmoni</strong> | Stockholm, Sweden</p>
-            <p><strong>May 2025 – Present</strong> | 6 months</p>
-            
-            <h4>Key Achievements & Responsibilities</h4>
-            <p><strong>GitOps and Infrastructure Optimization</strong></p>
-            <ul>
-                <li>Designing large-scale cloud infrastructure provisioning for backend services</li>
-                <li>Migrating production workloads from Docker Swarm to EKS</li>
-                <li>Implementing GitOps pipelines for backend services</li>
-            </ul>
-            
-            <h4>Technical Environment</h4>
-            <ul>
-                <li><strong>Cloud Platforms</strong>: AWS</li>
-                <li><strong>Infrastructure</strong>: Terraform, Ansible, Kubernetes, Docker</li>
-                <li><strong>CI/CD</strong>: GitHub Actions, ArgoCD</li>
-                <li><strong>Security</strong>: Kyverno</li>
-                <li><strong>Programming</strong>: Python, Shell Scripting</li>
-                <li><strong>Monitoring</strong>: Grafana, Prometheus</li>
-            </ul>
-            
-            <h3>Software Engineer</h3>
-            <p><strong>Infinite Computer Solutions</strong> | Bengaluru, India</p>
-            <p><strong>March 2021 – July 2024</strong> | 3 years 5 months</p>
-            
-            <h4>Key Achievements & Responsibilities</h4>
-            <p><strong>Infrastructure Optimization</strong></p>
-            <ul>
-                <li>Designed and optimized large-scale cloud infrastructure provisioning, <strong>reducing provisioning time by 30%</strong></li>
-                <li>Developed and optimized Terraform modules for AWS and Azure environments</li>
-                <li>Improved infrastructure deployment efficiency by <strong>35%</strong> through cross-functional collaboration</li>
-            </ul>
-            
-            <p><strong>Automation & CI/CD</strong></p>
-            <ul>
-                <li>Automated deployments using Terraform and Ansible, ensuring high availability</li>
-                <li>Built and maintained CI/CD pipelines on GitLab, integrated with ArgoCD</li>
-                <li>Led software supply chain security implementations using Buildah and Cosign</li>
-            </ul>
-            
-            <p><strong>Security & Compliance</strong></p>
-            <ul>
-                <li>Improved network security through firewall rules, VPNs, and compliance policies</li>
-                <li>Enforced Kubernetes compliance using Kyverno, improving audit outcomes</li>
-                <li>Implemented security best practices across cloud environments</li>
-            </ul>
-            
-            <h3>Community Involvement</h3>
-            <h4>Speaking Engagements</h4>
-            <ul>
-                <li><strong>Speaker</strong> at Finland Cloud Native Community Group Meetup (February 5, 2025)</li>
-                <li><strong>Speaker & Panelist</strong> at Stockholm Cloud Native Community Group (February 18, 2025)</li>
-                <li><strong>Speaker</strong> at Stockholm Platform Engineering Community Event (October 8, 2025)</li>
-            </ul>
-        </div>
-    </div>
+                <div class="project">
+                    <h3>Network Systems Security Implementation</h3>
+                    <p>Built enterprise-grade secure networked system with complete PKI implementation using XCA and OpenSSL. Configured certificate-based authentication, advanced IPTables firewall rules, and hardened NextCloud deployments with SSL/TLS.</p>
+                    <p class="project-meta">KTH Royal Institute of Technology • January – March 2025</p>
+                </div>
 
-    <div id="education-content" style="display: none;">
-        <div class="page-content">
-            <h2>Education</h2>
-            
-            <h3>Master of Science in Communication Systems</h3>
-            <p><strong>KTH Royal Institute of Technology</strong> | Stockholm, Sweden</p>
-            <p><strong>August 2024 – June 2026</strong> | Expected Graduation: June 2026</p>
-            
-            <h4>Program Overview</h4>
-            <p>Advanced graduate program focusing on modern communication systems, network security, and cloud infrastructure technologies. The program combines theoretical foundations with practical, hands-on experience in cutting-edge technologies.</p>
-            
-            <h4>Core Coursework</h4>
-            <ul>
-                <li><strong>Advanced Internetworking</strong>
-                    <ul>
-                        <li>Modern network architectures and protocols</li>
-                        <li>Software-defined networking (SDN)</li>
-                        <li>Network performance optimization</li>
-                    </ul>
-                </li>
-                <li><strong>Internet Security and Privacy</strong>
-                    <ul>
-                        <li>Cryptographic protocols and implementations</li>
-                        <li>Privacy-preserving technologies</li>
-                        <li>Security analysis and threat modeling</li>
-                    </ul>
-                </li>
-                <li><strong>Building Network Systems Security</strong>
-                    <ul>
-                        <li>Hands-on security system implementation</li>
-                        <li>Secure network design principles</li>
-                        <li>Vulnerability assessment and mitigation</li>
-                    </ul>
-                </li>
-                <li><strong>Networked Systems for Edge or Cloud Data Centers</strong>
-                    <ul>
-                        <li>Edge computing architectures</li>
-                        <li>Cloud-native networking</li>
-                        <li>Data center network optimization</li>
-                    </ul>
-                </li>
-            </ul>
-            
-            <h4>Academic Projects</h4>
-            <h5>Kubernetes in a Datacenter Network</h5>
-            <p><strong>Course</strong>: IK2227 Network Systems with Edge or Cloud Datacenters</p>
-            <p><strong>January 2025 - March 2025</strong></p>
-            <ul>
-                <li>Configured a <strong>hybrid edge/cloud setup</strong> with two Kubernetes clusters using VXLAN</li>
-                <li>Deployed <strong>Large Language Model (Llama2)</strong> as microservices</li>
-                <li>Implemented <strong>RDMA over fabric</strong> for high-performance remote storage access</li>
-                <li><strong>Technologies</strong>: Kubernetes, VXLAN, RDMA, Microservices Architecture</li>
-            </ul>
-            
-            <h3>Bachelor of Engineering in Telecommunication Engineering</h3>
-            <p><strong>M.S Ramaiah Institute of Technology</strong> | Bengaluru, India</p>
-            <p><strong>August 2017 – July 2021</strong> | <strong>CGPA: 8.48/10</strong></p>
-        </div>
-    </div>
+                <div class="project">
+                    <h3>Email Security with GPG</h3>
+                    <p>Implemented comprehensive email encryption system using GNU Privacy Guard on Linux. Built end-to-end encryption with digital signatures and key management infrastructure for secure communication.</p>
+                    <p class="project-meta">KTH Royal Institute of Technology • November 2024 – January 2025</p>
+                </div>
 
-    <div id="skills-content" style="display: none;">
-        <div class="page-content">
-            <h2>Technical Skills</h2>
-            
-            <h3>Cloud Platforms</h3>
-            <p><strong>Advanced proficiency with major cloud providers</strong></p>
-            <ul>
-                <li><strong>Amazon Web Services (AWS)</strong>
-                    <ul>
-                        <li>EC2, S3, VPC, IAM, Lambda, ECS, EKS</li>
-                        <li>CloudFormation, CloudWatch, Route 53</li>
-                        <li>Cost optimization and security best practices</li>
-                    </ul>
-                </li>
-                <li><strong>Microsoft Azure</strong>
-                    <ul>
-                        <li>Virtual Machines, Storage Accounts, Resource Groups</li>
-                        <li>Azure Kubernetes Service (AKS), Container Instances</li>
-                        <li>Azure DevOps, ARM Templates, Azure Monitor</li>
-                    </ul>
-                </li>
-            </ul>
-            
-            <h3>Automation & Infrastructure Tools</h3>
-            <p><strong>Infrastructure as Code and automation specialists</strong></p>
-            <ul>
-                <li><strong>Terraform</strong>
-                    <ul>
-                        <li>Multi-cloud infrastructure provisioning</li>
-                        <li>Module development and optimization</li>
-                        <li>State management and best practices</li>
-                    </ul>
-                </li>
-                <li><strong>Ansible</strong>
-                    <ul>
-                        <li>Configuration management and deployment automation</li>
-                        <li>Playbook development and execution</li>
-                        <li>Integration with CI/CD pipelines</li>
-                    </ul>
-                </li>
-                <li><strong>Linux Administration</strong>
-                    <ul>
-                        <li>System administration and shell scripting</li>
-                        <li>Performance tuning and troubleshooting</li>
-                        <li>Security hardening and compliance</li>
-                    </ul>
-                </li>
-            </ul>
-            
-            <h3>Containerization & Orchestration</h3>
-            <p><strong>Container technologies and orchestration platforms</strong></p>
-            <ul>
-                <li><strong>Docker</strong>
-                    <ul>
-                        <li>Container building and optimization</li>
-                        <li>Multi-stage builds and security scanning</li>
-                        <li>Registry management and distribution</li>
-                    </ul>
-                </li>
-                <li><strong>Kubernetes</strong>
-                    <ul>
-                        <li>Cluster management and deployment</li>
-                        <li>Service mesh configuration</li>
-                        <li>Monitoring and logging setup</li>
-                        <li>Security policies with Kyverno</li>
-                    </ul>
-                </li>
-            </ul>
-            
-            <h3>Programming Languages</h3>
-            <p><strong>Multi-language development capabilities</strong></p>
-            <ul>
-                <li><strong>Python</strong>: Automation scripts and tooling, Infrastructure management utilities</li>
-                <li><strong>Go (Golang)</strong>: Cloud-native application development, Cost estimation tools</li>
-                <li><strong>Shell Scripting</strong>: Bash and Zsh automation, System administration tasks</li>
-                <li><strong>HCL</strong>: Terraform configuration and modules, Advanced resource management</li>
-            </ul>
-        </div>
-    </div>
+                <div class="project">
+                    <h3>ISP Implementation</h3>
+                    <p>Designed software-based ISP model using Kathara network emulation. Implemented OSPF for internal routing optimization and BGP for external connectivity across autonomous systems.</p>
+                    <p class="project-meta">KTH Royal Institute of Technology • August – October 2024</p>
+                </div>
+            </div>
+        </section>
 
-    <div id="projects-content" style="display: none;">
-        <div class="page-content">
-            <h2>Projects</h2>
-            
-            <h3>Kubernetes in a Datacenter Network</h3>
-            <p><strong>KTH Royal Institute of Technology</strong> | IK2227 Network Systems with Edge or Cloud Datacenters</p>
-            <p><strong>January 2025 - March 2025</strong></p>
-            
-            <h4>Project Overview</h4>
-            <p>Designed and implemented a sophisticated hybrid edge/cloud computing environment using Kubernetes orchestration with advanced networking capabilities.</p>
-            
-            <h4>Key Features</h4>
-            <ul>
-                <li><strong>Hybrid Architecture</strong>: Configured two Kubernetes clusters for edge and cloud deployment</li>
-                <li><strong>Advanced Networking</strong>: Implemented VXLAN for secure overlay networking</li>
-                <li><strong>AI/ML Integration</strong>: Deployed Large Language Model (Llama2) as distributed microservices</li>
-                <li><strong>High-Performance Storage</strong>: Implemented RDMA over fabric for ultra-low latency remote storage access</li>
-            </ul>
-            
-            <h3>Network Systems Security Implementation</h3>
-            <p><strong>KTH Royal Institute of Technology</strong> | EP2520 Building Networked Systems Security</p>
-            <p><strong>January 2025 - March 2025</strong></p>
-            
-            <h4>Project Overview</h4>
-            <p>Built a comprehensive secure networked system implementing enterprise-grade security practices and certificate-based authentication mechanisms.</p>
-            
-            <h4>Key Features</h4>
-            <ul>
-                <li><strong>Public Key Infrastructure</strong>: Complete PKI implementation using XCA & OpenSSL</li>
-                <li><strong>Certificate-Based Authentication</strong>: Secure service-to-service communication</li>
-                <li><strong>Firewall Configuration</strong>: Advanced IPTables rules for network security</li>
-                <li><strong>Secure Services</strong>: Hardened NextCloud and Apache deployments with SSL/TLS</li>
-            </ul>
-            
-            <h3>Email Security with GPG</h3>
-            <p><strong>KTH Royal Institute of Technology</strong> | IK2206 Internet Security and Privacy</p>
-            <p><strong>November 2024 - January 2025</strong></p>
-            
-            <h4>Project Overview</h4>
-            <p>Implemented comprehensive email encryption, authentication, and validation system using GNU Privacy Guard (GPG) on Linux systems, demonstrating practical cryptographic security applications.</p>
-            
-            <h4>Key Features</h4>
-            <ul>
-                <li><strong>Email Encryption</strong>: End-to-end email encryption using GPG public-key cryptography</li>
-                <li><strong>Digital Signatures</strong>: Email authentication through digital signatures</li>
-                <li><strong>Identity Validation</strong>: Comprehensive key management and identity verification</li>
-                <li><strong>Linux Integration</strong>: Native GPG implementation on Linux systems</li>
-            </ul>
-            
-            <h3>ISP Implementation</h3>
-            <p><strong>KTH Royal Institute of Technology</strong> | IK2215 Advanced Internetworking</p>
-            <p><strong>August 2024 - October 2024</strong></p>
-            
-            <h4>Project Overview</h4>
-            <p>Designed and implemented a comprehensive software-based Internet Service Provider (ISP) model using network emulation technologies, demonstrating advanced routing protocols and autonomous system management.</p>
-            
-            <h4>Key Features</h4>
-            <ul>
-                <li><strong>Autonomous System Design</strong>: Complete AS configuration with multi-protocol routing</li>
-                <li><strong>Dynamic Routing</strong>: OSPF implementation for internal routing optimization</li>
-                <li><strong>Inter-AS Communication</strong>: BGP protocol for external network connectivity</li>
-                <li><strong>Network Emulation</strong>: Realistic ISP topology using Kathara virtualization</li>
-            </ul>
+        <section class="section section-gray">
+            <div class="container">
+                <h2>Speaking & Community</h2>
+                <div class="speaking-list">
+                    <div class="speaking-item">
+                        <div>
+                            <h4>Platform Engineering Best Practices</h4>
+                            <p>Stockholm Platform Engineering Community Event</p>
+                        </div>
+                        <p class="date">October 2025</p>
+                    </div>
+                    <div class="speaking-item">
+                        <div>
+                            <h4>Cloud Native Security & Panel Discussion</h4>
+                            <p>Stockholm Cloud Native Community Group</p>
+                        </div>
+                        <p class="date">February 2025</p>
+                    </div>
+                    <div class="speaking-item">
+                        <div>
+                            <h4>Kubernetes in Production</h4>
+                            <p>Finland Cloud Native Community Group Meetup</p>
+                        </div>
+                        <p class="date">February 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p class="contact-intro">I'm always interested in discussing cloud infrastructure, speaking opportunities, or collaboration on interesting projects.</p>
+                <div class="contact-links">
+                    <a href="mailto:shivaswaroop40@gmail.com" class="contact-link">
+                        <strong>Email</strong>
+                        <span>shivaswaroop40@gmail.com</span>
+                    </a>
+                    <a href="https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b" target="_blank" rel="noopener" class="contact-link">
+                        <strong>LinkedIn</strong>
+                        <span>Connect with me</span>
+                    </a>
+                    <a href="https://github.com/shivaswaroop40" target="_blank" rel="noopener" class="contact-link">
+                        <strong>GitHub</strong>
+                        <span>@shivaswaroop40</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Shiva Swaroop N K. Cloud Infrastructure Engineer based in Stockholm, Sweden.</p>
         </div>
-    </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
