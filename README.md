@@ -1,44 +1,38 @@
-# Shiva Swaroop N K - Portfolio Terminal
+# Shiva Swaroop N K - Portfolio
 
-A terminal-style portfolio website inspired by [ddaniel.dev](https://ddaniel.dev/#landing).
+A modern, responsive portfolio website showcasing my experience as a Cloud Infrastructure Engineer and MSc Communication Systems student at KTH.
 
 ## Features
 
-- **Interactive Terminal Interface**: Type Linux commands to navigate through the portfolio
-- **Syntax Highlighting**: Beautiful text highlighting for technical content
-- **Responsive Design**: Works on desktop and mobile devices
-- **Real-time IP Detection**: `whoami` command shows your actual IP address
-- **Command History**: Use arrow keys to navigate through command history
-- **Auto-completion**: Tab key for command completion
+- **Modern Design**: Clean, professional interface with smooth animations
+- **Responsive Layout**: Optimized for all devices - desktop, tablet, and mobile
+- **Smooth Scrolling**: Seamless navigation between sections
+- **Interactive Elements**: Hover effects, animations, and transitions
+- **Performance Optimized**: Fast loading with vanilla JavaScript
+- **Accessibility**: Semantic HTML and ARIA labels
 
-## Available Commands
+## Sections
 
-- `help` - Show available commands
-- `ls` - List files and directories
-- `cat <filename>` - Display file contents
-- `about` - Show about information
-- `experience` - Show professional experience
-- `education` - Show educational background
-- `skills` - Show technical skills
-- `projects` - Show projects
-- `whoami` - Display current user and IP
-- `date` - Show current date and time
-- `clear` - Clear the terminal
-- `history` - Show command history
-- `exit` - Exit terminal
+- **Home**: Hero section with introduction and social links
+- **About**: Professional background and expertise
+- **Experience**: Detailed work history with achievements
+- **Education**: Academic background and coursework
+- **Skills**: Technical skills across cloud platforms, automation, and programming
+- **Projects**: Academic and professional projects with detailed descriptions
+- **Contact**: Multiple ways to get in touch
 
 ## Technologies Used
 
-- **HTML5** - Semantic markup
-- **CSS3** - Terminal styling and animations
-- **Vanilla JavaScript** - Interactive terminal functionality
-- **No external dependencies** - Pure vanilla implementation
+- **HTML5**: Semantic markup and structure
+- **CSS3**: Modern styling with CSS Grid, Flexbox, and animations
+- **Vanilla JavaScript**: Interactive features and smooth scrolling
+- **No external dependencies**: Pure vanilla implementation for optimal performance
 
 ## Getting Started
 
 1. Clone the repository
 2. Open `index.html` in your web browser
-3. Start typing commands!
+3. Navigate through sections using the menu or scroll
 
 ## Deployment
 
@@ -51,9 +45,15 @@ This is a static website that can be deployed to any web hosting service:
 
 Simply upload the `index.html`, `styles.css`, and `script.js` files to your hosting provider.
 
-## Inspiration
+## Project Structure
 
-This project is inspired by [ddaniel.dev](https://ddaniel.dev/#landing) - a beautiful terminal-style portfolio website.
+```
+my-portfolio/
+├── index.html          # Main HTML file
+├── styles.css          # Stylesheet with responsive design
+├── script.js           # JavaScript for interactivity
+└── README.md           # Project documentation
+```
 
 ## Contact
 
