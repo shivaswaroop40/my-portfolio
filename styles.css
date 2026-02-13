@@ -150,6 +150,31 @@ body {
     background: var(--bg-secondary);
 }
 
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-image {
+    flex-shrink: 0;
+}
+
+.hero-image img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 4px solid var(--border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
 .hero h1 {
     font-size: 3.5rem;
     font-weight: 700;
@@ -497,6 +522,21 @@ footer p {
 
     .hero {
         padding: 7rem 1.5rem 4rem;
+    }
+
+    .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hero-links {
+        justify-content: center;
     }
 
     .hero h1 {
