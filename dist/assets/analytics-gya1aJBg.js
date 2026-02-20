@@ -1,0 +1,1 @@
+function i(e,c){try{typeof window<"u"&&window.plausible&&window.plausible(e,{props:c})}catch{}}function t(e){i("Mode Selected",{mode:e})}function a(e,c){i("Pod Clicked",{namespace:e,pod:c})}function n(e){i("Namespace Viewed",{namespace:e})}export{n as a,a as b,t};
