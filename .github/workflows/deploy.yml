@@ -51,6 +51,8 @@ jobs:
           cp README.md public/
           # Copy assets folder if it exists
           [ -d assets ] && cp -r assets public/
+          # Copy blog redirect page
+          [ -d blog ] && cp -r blog public/
           # Create favicon
           echo 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💻</text></svg>' > public/favicon.ico
           # Create a simple 404 page

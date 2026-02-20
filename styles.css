@@ -441,6 +441,50 @@ body {
     white-space: nowrap;
 }
 
+/* Blog Section */
+.blog-preview {
+    max-width: 700px;
+}
+
+.blog-card {
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: border-color 0.2s;
+}
+
+.blog-card:hover {
+    border-color: var(--accent);
+}
+
+.blog-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.blog-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    font-size: 1.0625rem;
+}
+
+.blog-link {
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.0625rem;
+    transition: color 0.2s;
+}
+
+.blog-link:hover {
+    color: var(--accent-hover);
+}
+
 /* Contact Section */
 .contact-intro {
     font-size: 1.125rem;
