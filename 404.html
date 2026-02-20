@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found - Shiva Swaroop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <style>
+        .error-page { min-height: 100vh; padding: 2rem; display: flex; flex-direction: column; align-items: center; }
+        .error-message { text-align: center; padding: 3rem 1rem 2rem; max-width: 560px; }
+        .error-message h1 { font-size: clamp(2.5rem, 10vw, 4rem); font-weight: 800; letter-spacing: -0.04em; color: var(--text-primary); line-height: 0.9; margin-bottom: 1rem; }
+        .error-message .sub { font-size: 1.2rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .error-message .home { display: inline-block; padding: 0.75rem 1.5rem; background: var(--accent); color: #fff !important; text-decoration: none; border-radius: 8px; font-weight: 600; transition: background 0.2s, transform 0.15s; }
+        .error-message .home:hover { background: var(--accent-hover); transform: translateY(-2px); }
+        .slideshow-wrap { width: 100%; max-width: 900px; margin: 0 auto 3rem; padding: 0 1rem; }
+        .slideshow { position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.12); background: var(--bg-secondary); aspect-ratio: 4/3; }
+        [data-theme="dark"] .slideshow { box-shadow: 0 8px 40px rgba(0,0,0,0.35); }
+        .slideshow img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity 0.5s ease; }
+        .slideshow img.active { opacity: 1; z-index: 1; }
+        .slideshow-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 48px; height: 48px; border: none; border-radius: 50%; background: var(--bg-primary); color: var(--text-primary); cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(0,0,0,0.15); transition: background 0.2s, transform 0.15s; }
+        .slideshow-btn:hover { background: var(--accent); color: #fff; transform: translateY(-50%) scale(1.05); }
+        .slideshow-btn.prev { left: 1rem; }
+        .slideshow-btn.next { right: 1rem; }
+        .slideshow-btn svg { width: 24px; height: 24px; }
+        .slideshow-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
+        .slideshow-dots button { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--border); cursor: pointer; padding: 0; transition: background 0.2s, transform 0.2s; }
+        .slideshow-dots button.active { background: var(--accent); transform: scale(1.25); }
+        .slideshow-dots button:hover { background: var(--text-muted); }
+        @media (max-width: 600px) { .slideshow { aspect-ratio: 3/4; } .slideshow-btn { width: 40px; height: 40px; } .slideshow-btn.prev { left: 0.5rem; } .slideshow-btn.next { right: 0.5rem; } }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-message">
+            <h1>404</h1>
+            <p class="sub">Couldn't find what you were looking for :( but here are some of the pictures that I've clicked!</p>
+            <a href="/" class="home">Back to home</a>
+        </div>
+        <div class="slideshow-wrap">
+            <div class="slideshow">
+                <img src="pictures/IMG_7520.JPG" alt="Photo" class="active">
+                <img src="pictures/IMG_7354.JPG" alt="Photo">
+                <img src="pictures/IMG_8220.JPG" alt="Photo">
+                <img src="pictures/IMG_7262.JPG" alt="Photo">
+                <img src="pictures/IMG_7599.JPG" alt="Photo">
+                <img src="pictures/IMG_8267.JPG" alt="Photo">
+                <img src="pictures/IMG_7372.JPG" alt="Photo">
+                <img src="pictures/IMG_7485.JPG" alt="Photo">
+                <img src="pictures/IMG_7897.JPG" alt="Photo">
+                <img src="pictures/IMG_7590.JPG" alt="Photo">
+                <button type="button" class="slideshow-btn prev" aria-label="Previous photo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button type="button" class="slideshow-btn next" aria-label="Next photo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+            </div>
+            <div class="slideshow-dots" role="tablist" aria-label="Slide navigation"></div>
+        </div>
+    </div>
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        (function() {
+            var slides = document.querySelectorAll('.slideshow img');
+            var dotsContainer = document.querySelector('.slideshow-dots');
+            var prevBtn = document.querySelector('.slideshow-btn.prev');
+            var nextBtn = document.querySelector('.slideshow-btn.next');
+            var current = 0;
+            function show(i) {
+                current = (i + slides.length) % slides.length;
+                slides.forEach(function(img, j) { img.classList.toggle('active', j === current); });
+                dotsContainer.querySelectorAll('button').forEach(function(btn, j) { btn.classList.toggle('active', j === current); });
+            }
+            slides.forEach(function(_, i) {
+                var btn = document.createElement('button');
+                btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                btn.addEventListener('click', function() { show(i); });
+                dotsContainer.appendChild(btn);
+            });
+            prevBtn.addEventListener('click', function() { show(current - 1); });
+            nextBtn.addEventListener('click', function() { show(current + 1); });
+            show(0);
+        })();
+    </script>
+</body>
+</html>
