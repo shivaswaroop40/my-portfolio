@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page not found - Shiva Swaroop</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preload" as="image" href="pictures/IMG_7520.JPG">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <style>
         .error-page { min-height: 100vh; padding: 2rem; display: flex; flex-direction: column; align-items: center; }
@@ -39,16 +40,16 @@
         </div>
         <div class="slideshow-wrap">
             <div class="slideshow">
-                <img src="pictures/IMG_7520.JPG" alt="Photo" class="active">
-                <img src="pictures/IMG_7354.JPG" alt="Photo">
-                <img src="pictures/IMG_8220.JPG" alt="Photo">
-                <img src="pictures/IMG_7262.JPG" alt="Photo">
-                <img src="pictures/IMG_7599.JPG" alt="Photo">
-                <img src="pictures/IMG_8267.JPG" alt="Photo">
-                <img src="pictures/IMG_7372.JPG" alt="Photo">
-                <img src="pictures/IMG_7485.JPG" alt="Photo">
-                <img src="pictures/IMG_7897.JPG" alt="Photo">
-                <img src="pictures/IMG_7590.JPG" alt="Photo">
+                <img src="pictures/IMG_7520.JPG" alt="Photo" class="active" data-loaded>
+                <img data-src="pictures/IMG_7354.JPG" alt="Photo">
+                <img data-src="pictures/IMG_8220.JPG" alt="Photo">
+                <img data-src="pictures/IMG_7262.JPG" alt="Photo">
+                <img data-src="pictures/IMG_7599.JPG" alt="Photo">
+                <img data-src="pictures/IMG_8267.JPG" alt="Photo">
+                <img data-src="pictures/IMG_7372.JPG" alt="Photo">
+                <img data-src="pictures/IMG_7485.JPG" alt="Photo">
+                <img data-src="pictures/IMG_7897.JPG" alt="Photo">
+                <img data-src="pictures/IMG_7590.JPG" alt="Photo">
                 <button type="button" class="slideshow-btn prev" aria-label="Previous photo">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
                 </button>
@@ -70,8 +71,21 @@
             var prevBtn = document.querySelector('.slideshow-btn.prev');
             var nextBtn = document.querySelector('.slideshow-btn.next');
             var current = 0;
+            function loadSlide(img) {
+                var src = img.getAttribute('data-src');
+                if (src && !img.src) {
+                    img.src = src;
+                    img.setAttribute('data-loaded', '1');
+                }
+            }
+            function preloadAdjacent(i) {
+                loadSlide(slides[(i + 1) % slides.length]);
+                loadSlide(slides[(i - 1 + slides.length) % slides.length]);
+            }
             function show(i) {
                 current = (i + slides.length) % slides.length;
+                loadSlide(slides[current]);
+                preloadAdjacent(current);
                 slides.forEach(function(img, j) { img.classList.toggle('active', j === current); });
                 dotsContainer.querySelectorAll('button').forEach(function(btn, j) { btn.classList.toggle('active', j === current); });
             }
