@@ -53,9 +53,35 @@ jobs:
           [ -d assets ] && cp -r assets public/
           # Copy blog gateway page
           [ -d blog ] && cp -r blog public/
-          # Copy 404 page and pictures for photo gallery
+          # Copy 404 page, game script, and pictures for photo gallery
           cp 404.html public/
-          [ -d pictures ] && cp -r pictures public/
+          cp 404-game.js public/
+          mkdir -p public/pictures
+          [ -d pictures ] && cp -r pictures/. public/pictures/ 2>/dev/null || true
+          python3 << 'PY'
+          import json
+          from pathlib import Path
+          base = Path("public/pictures")
+          base.mkdir(parents=True, exist_ok=True)
+          exts = {
+              ".jpg", ".jpeg", ".jpe", ".png", ".webp", ".gif",
+              ".avif", ".jfif", ".bmp", ".tif", ".tiff",
+          }
+          rels = []
+          for p in base.rglob("*"):
+              if not p.is_file():
+                  continue
+              if p.name.lower() == "manifest.json":
+                  continue
+              if p.suffix.lower() not in exts:
+                  continue
+              rels.append(p.relative_to(base).as_posix())
+          rels.sort()
+          manifest = [f"pictures/{r}" for r in rels]
+          (base / "manifest.json").write_text(
+              json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
+          )
+          PY
           # Create favicon
           echo 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💻</text></svg>' > public/favicon.ico
       - name: Upload artifact

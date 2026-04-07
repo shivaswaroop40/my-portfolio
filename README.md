@@ -1,58 +1,63 @@
-# Shiva Swaroop N K - Portfolio
+# Shiva Swaroop N K,  Portfolio
 
-A modern, responsive portfolio website showcasing my experience as a Cloud Infrastructure Engineer and MSc Communication Systems student at KTH.
+A fluid, responsive personal site: pastel palette with blue accents, a bit of personality in the hero and About, carousels for academic projects and a photo album, and the usual professional sections (experience, community, blog, contact).
 
 ## Features
 
-- **Modern Design**: Clean, professional interface with smooth animations
-- **Responsive Layout**: Optimized for all devices - desktop, tablet, and mobile
-- **Smooth Scrolling**: Seamless navigation between sections
-- **Interactive Elements**: Hover effects, animations, and transitions
-- **Performance Optimized**: Fast loading with vanilla JavaScript
-- **Accessibility**: Semantic HTML and ARIA labels
+- **Fluid layout**: `clamp()` typography and spacing, smooth scaling across viewports
+- **Pastel + blue**: Cohesive light/dark themes with accessible contrast
+- **Photo album**: Images anywhere under `pictures/` (subfolders included) with a generated `manifest.json` and a rolling carousel
+- **Projects carousel**: KTH academic work in a keyboard- and screen-reader-friendly carousel
+- **Smooth scrolling**, **theme toggle**, **scroll-reveal** (respects `prefers-reduced-motion`)
+- **Vanilla stack**: HTML, CSS, and JavaScript,  no build step required for the page itself
 
 ## Sections
 
-- **Home**: Hero section with introduction and social links
-- **About**: Professional background and expertise
-- **Experience**: Detailed work history with achievements
-- **Education**: Academic background and coursework
-- **Skills**: Technical skills across cloud platforms, automation, and programming
-- **Projects**: Academic and professional projects with detailed descriptions
-- **Contact**: Multiple ways to get in touch
+- **Hero**: Role, professional summary, personal line, hook pills, CNCF subtitle, links
+- **Snapshots**: Rolling photo strip after Experience (hidden when the album is empty)
+- **About**: Work story, “Also me”, “Right now”, sidebar facts
+- **Experience**: Roles, education
+- **Projects**: Academic projects (carousel)
+- **Speaking & community**
+- **Blog** gateway
+- **Contact**
 
-## Technologies Used
+## Photo manifest
 
-- **HTML5**: Semantic markup and structure
-- **CSS3**: Modern styling with CSS Grid, Flexbox, and animations
-- **Vanilla JavaScript**: Interactive features and smooth scrolling
-- **No external dependencies**: Pure vanilla implementation for optimal performance
+Browsers cannot list a folder on static hosting. The script walks **`pictures/` recursively** (subfolders count) and includes common web formats (JPEG, PNG, WebP, GIF, AVIF, BMP, TIFF). **HEIC** from iPhones often will not display in all browsers, so it is skipped,  convert to JPEG/PNG for the site.
 
-## Getting Started
+After adding or removing images anywhere under `pictures/`, regenerate the manifest:
+
+```bash
+python3 scripts/generate-picture-manifest.py
+```
+
+GitHub Actions runs the same logic on deploy and writes `public/pictures/manifest.json` so new images are picked up on push.
+
+## Getting started
 
 1. Clone the repository
-2. Open `index.html` in your web browser
-3. Navigate through sections using the menu or scroll
+2. (Optional) `python3 scripts/generate-picture-manifest.py` if you use `pictures/`
+3. Serve the site locally (e.g. `python3 -m http.server 8080`) so `fetch('pictures/manifest.json')` works,  opening `index.html` as a `file://` URL may block the album
+4. Open the served URL in a browser
 
 ## Deployment
 
-This is a static website that can be deployed to any web hosting service:
+Static files deploy to **GitHub Pages** via `.github/workflows/deploy.yml` (copies `index.html`, `styles.css`, `script.js`, `assets/`, `blog/`, `pictures/`, generates the picture manifest, then uploads `public/`).
 
-- **GitHub Pages**
-- **Netlify**
-- **Vercel**
-- **Any static hosting service**
-
-Simply upload the `index.html`, `styles.css`, and `script.js` files to your hosting provider.
-
-## Project Structure
+## Project structure
 
 ```
 my-portfolio/
-├── index.html          # Main HTML file
-├── styles.css          # Stylesheet with responsive design
-├── script.js           # JavaScript for interactivity
-└── README.md           # Project documentation
+├── index.html
+├── styles.css
+├── script.js
+├── pictures/                 # Album images + manifest.json (regenerated)
+├── scripts/
+│   └── generate-picture-manifest.py
+├── assets/
+├── blog/
+└── README.md
 ```
 
 ## Contact
@@ -63,4 +68,4 @@ my-portfolio/
 
 ---
 
-*Cloud Infrastructure Engineer & MSc Communication Systems Student at KTH*
+*Cloud infrastructure engineer & MSc Communication Systems student at KTH*

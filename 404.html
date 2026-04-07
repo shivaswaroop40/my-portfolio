@@ -3,102 +3,444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page not found - Shiva Swaroop</title>
+    <title>404, Page not found</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preload" as="image" href="pictures/IMG_7520.JPG">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <style>
-        .error-page { min-height: 100vh; padding: 2rem; display: flex; flex-direction: column; align-items: center; }
-        .error-message { text-align: center; padding: 3rem 1rem 2rem; max-width: 560px; }
-        .error-message h1 { font-size: clamp(2.5rem, 10vw, 4rem); font-weight: 800; letter-spacing: -0.04em; color: var(--text-primary); line-height: 0.9; margin-bottom: 1rem; }
-        .error-message .sub { font-size: 1.2rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 1.5rem; }
-        .error-message .home { display: inline-block; padding: 0.75rem 1.5rem; background: var(--accent); color: #fff !important; text-decoration: none; border-radius: 8px; font-weight: 600; transition: background 0.2s, transform 0.15s; }
-        .error-message .home:hover { background: var(--accent-hover); transform: translateY(-2px); }
-        .slideshow-wrap { width: 100%; max-width: 900px; margin: 0 auto 3rem; padding: 0 1rem; }
-        .slideshow { position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.12); background: var(--bg-secondary); aspect-ratio: 4/3; }
-        [data-theme="dark"] .slideshow { box-shadow: 0 8px 40px rgba(0,0,0,0.35); }
-        .slideshow img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity 0.5s ease; }
-        .slideshow img.active { opacity: 1; z-index: 1; }
-        .slideshow-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 48px; height: 48px; border: none; border-radius: 50%; background: var(--bg-primary); color: var(--text-primary); cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(0,0,0,0.15); transition: background 0.2s, transform 0.15s; }
-        .slideshow-btn:hover { background: var(--accent); color: #fff; transform: translateY(-50%) scale(1.05); }
-        .slideshow-btn.prev { left: 1rem; }
-        .slideshow-btn.next { right: 1rem; }
-        .slideshow-btn svg { width: 24px; height: 24px; }
-        .slideshow-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
-        .slideshow-dots button { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--border); cursor: pointer; padding: 0; transition: background 0.2s, transform 0.2s; }
-        .slideshow-dots button.active { background: var(--accent); transform: scale(1.25); }
-        .slideshow-dots button:hover { background: var(--text-muted); }
-        @media (max-width: 600px) { .slideshow { aspect-ratio: 3/4; } .slideshow-btn { width: 40px; height: 40px; } .slideshow-btn.prev { left: 0.5rem; } .slideshow-btn.next { right: 0.5rem; } }
+        .error-shell { min-height: 100vh; padding: clamp(1rem, 4vw, 2rem); display: flex; flex-direction: column; align-items: center; }
+        .error-bar {
+            width: 100%;
+            max-width: 960px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .error-bar a {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .error-bar a:hover { text-decoration: underline; }
+        .error-bar .theme-toggle { margin: 0; }
+
+        .error-joke {
+            text-align: center;
+            max-width: 560px;
+            margin-bottom: 2rem;
+        }
+        .error-joke .code {
+            font-family: ui-monospace, monospace;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+        .error-joke h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 8vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            line-height: 1.1;
+            margin: 0 0 0.75rem;
+        }
+        .error-joke .punch {
+            font-size: 1.15rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .error-2048-wrap {
+            width: 100%;
+            max-width: 960px;
+            display: grid;
+            gap: clamp(1.5rem, 4vw, 2.5rem);
+            align-items: start;
+        }
+        @media (min-width: 800px) {
+            .error-2048-wrap { grid-template-columns: 1fr 280px; }
+        }
+
+        #game-2048 {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: clamp(1rem, 3vw, 1.35rem);
+            box-shadow: 0 2px 0 color-mix(in srgb, var(--border) 80%, transparent);
+            position: relative;
+        }
+        .g2048-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .g2048-head h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-primary);
+        }
+        .g2048-scores {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .g2048-scorebox {
+            background: color-mix(in srgb, var(--accent-soft) 55%, var(--bg-secondary));
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.35rem 0.65rem;
+            text-align: center;
+            min-width: 4.5rem;
+        }
+        .g2048-scorebox span {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .g2048-scorebox strong {
+            font-size: 1.15rem;
+            color: var(--text-primary);
+        }
+
+        .g2048-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .g2048-btn {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 0.45rem 0.85rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .g2048-btn:hover {
+            border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+            background: color-mix(in srgb, var(--accent-soft) 25%, var(--bg-primary));
+        }
+        .g2048-btn:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .g2048-btn--primary {
+            background: var(--accent);
+            color: #fff;
+            border-color: transparent;
+        }
+        .g2048-btn--primary:hover {
+            background: var(--accent-hover);
+            color: #fff;
+        }
+        .g2048-btn--ghost {
+            background: transparent;
+            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .g2048-btn--ghost:hover {
+            color: var(--text-primary);
+        }
+
+        .g2048-arrows {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-left: auto;
+        }
+        .g2048-arrows .g2048-btn {
+            min-width: 2.25rem;
+            padding: 0.35rem 0.5rem;
+        }
+
+        #g2048-board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(6px, 1.5vw, 10px);
+            aspect-ratio: 1;
+            max-width: 400px;
+            margin: 0 auto 0.75rem;
+            padding: clamp(6px, 1.5vw, 10px);
+            background: color-mix(in srgb, var(--border) 35%, var(--bg-secondary));
+            border-radius: var(--radius);
+            touch-action: none;
+        }
+        .g2048-cell {
+            border-radius: var(--radius-sm);
+            background: color-mix(in srgb, var(--border) 25%, var(--bg-card));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 0;
+        }
+        .g2048-tile {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: clamp(0.85rem, 4.5vw, 1.35rem);
+            color: var(--text-primary);
+            animation: g2048-pop 0.12s ease-out;
+        }
+        @keyframes g2048-pop {
+            from { transform: scale(0.85); opacity: 0.7; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .g2048-tile[data-value="2"] { background: color-mix(in srgb, var(--mint) 40%, var(--bg-card)); }
+        .g2048-tile[data-value="4"] { background: color-mix(in srgb, var(--lavender) 45%, var(--bg-card)); }
+        .g2048-tile[data-value="8"] { background: color-mix(in srgb, var(--peach) 50%, var(--bg-card)); }
+        .g2048-tile[data-value="16"] { background: color-mix(in srgb, var(--accent-soft) 70%, var(--bg-card)); }
+        .g2048-tile[data-value="32"] { background: color-mix(in srgb, var(--accent) 35%, var(--bg-card)); color: #fff; }
+        .g2048-tile[data-value="64"] { background: color-mix(in srgb, var(--accent) 55%, var(--bg-card)); color: #fff; }
+        .g2048-tile[data-value="128"],
+        .g2048-tile[data-value="256"] { background: color-mix(in srgb, var(--accent) 70%, #1a1a2e); color: #fff; font-size: clamp(0.75rem, 4vw, 1.15rem); }
+        .g2048-tile[data-value="512"],
+        .g2048-tile[data-value="1024"],
+        .g2048-tile[data-value="2048"] { background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--lavender) 60%, var(--accent))); color: #fff; font-size: clamp(0.65rem, 3.5vw, 1rem); }
+
+        .g2048-hint {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        #g2048-overlay {
+            position: absolute;
+            inset: 0;
+            margin: clamp(1rem, 3vw, 1.35rem);
+            border-radius: calc(var(--radius) - 4px);
+            background: color-mix(in srgb, var(--bg-primary) 92%, transparent);
+            backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem;
+            z-index: 5;
+        }
+        #g2048-overlay[hidden] { display: none !important; }
+        .g2048-overlay-inner {
+            text-align: center;
+            max-width: 320px;
+        }
+        .g2048-overlay-inner h3 {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            margin: 0 0 0.5rem;
+            color: var(--text-primary);
+        }
+        .g2048-overlay-inner .g2048-overlay-score {
+            margin: 0 0 1rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .g2048-overlay-inner input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0.55rem 0.75rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            font-family: var(--font-body);
+            margin-bottom: 0.65rem;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+        .g2048-overlay-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .g2048-overlay-actions .g2048-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .g2048-leaderboard-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: clamp(1rem, 3vw, 1.25rem);
+            box-shadow: 0 2px 0 color-mix(in srgb, var(--border) 80%, transparent);
+        }
+        .g2048-leaderboard-panel h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            margin: 0 0 0.75rem;
+            color: var(--text-primary);
+        }
+        .g2048-leaderboard-panel .g2048-lb-note {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin: 0 0 0.85rem;
+        }
+        #g2048-leaderboard {
+            list-style: none;
+            margin: 0 0 1rem;
+            padding: 0;
+        }
+        #g2048-leaderboard li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+        #g2048-leaderboard li:last-child { border-bottom: none; }
+        .g2048-lb-rank {
+            font-weight: 700;
+            color: var(--accent);
+            width: 1.5rem;
+        }
+        .g2048-lb-name { flex: 1; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; }
+        .g2048-lb-score { font-weight: 700; color: var(--text-secondary); }
+        .g2048-lb-empty {
+            color: var(--text-muted);
+            font-style: italic;
+            border: none !important;
+            padding: 0.5rem 0 !important;
+        }
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
     </style>
 </head>
 <body>
-    <div class="error-page">
-        <div class="error-message">
-            <h1>404</h1>
-            <p class="sub">Couldn't find what you were looking for :( but here are some of the pictures that I've clicked!</p>
-            <a href="/" class="home">Back to home</a>
+    <div class="error-shell">
+        <header class="error-bar">
+            <a href="/">← Back to home</a>
+            <button type="button" class="theme-toggle error-theme-toggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </header>
+
+        <div class="error-joke">
+            <p class="code">404 Not Found · HTTP teapot not brewing</p>
+            <h1>Why did the developer quit?</h1>
+            <p class="punch">They didn’t get arrays. (Also, this URL doesn’t exist, but the grid below does. Same dimensions. Totally related.)</p>
         </div>
-        <div class="slideshow-wrap">
-            <div class="slideshow">
-                <img src="pictures/IMG_7520.JPG" alt="Photo" class="active" data-loaded>
-                <img data-src="pictures/IMG_7354.JPG" alt="Photo">
-                <img data-src="pictures/IMG_8220.JPG" alt="Photo">
-                <img data-src="pictures/IMG_7262.JPG" alt="Photo">
-                <img data-src="pictures/IMG_7599.JPG" alt="Photo">
-                <img data-src="pictures/IMG_8267.JPG" alt="Photo">
-                <img data-src="pictures/IMG_7372.JPG" alt="Photo">
-                <img data-src="pictures/IMG_7485.JPG" alt="Photo">
-                <img data-src="pictures/IMG_7897.JPG" alt="Photo">
-                <img data-src="pictures/IMG_7590.JPG" alt="Photo">
-                <button type="button" class="slideshow-btn prev" aria-label="Previous photo">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-                </button>
-                <button type="button" class="slideshow-btn next" aria-label="Next photo">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </button>
-            </div>
-            <div class="slideshow-dots" role="tablist" aria-label="Slide navigation"></div>
+
+        <div class="error-2048-wrap">
+            <section
+                id="game-2048"
+                class="game-2048"
+                aria-labelledby="g2048-title"
+                aria-describedby="g2048-live"
+            >
+                <div class="g2048-head">
+                    <h2 id="g2048-title">2048 while you’re lost</h2>
+                    <div class="g2048-scores" aria-live="polite">
+                        <div class="g2048-scorebox">
+                            <span>Score</span>
+                            <strong id="g2048-score">0</strong>
+                        </div>
+                        <div class="g2048-scorebox">
+                            <span>Best</span>
+                            <strong id="g2048-best">0</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="g2048-toolbar">
+                    <button type="button" class="g2048-btn g2048-btn--primary" id="g2048-new">New game</button>
+                    <div class="g2048-arrows" role="group" aria-label="Move tiles">
+                        <button type="button" class="g2048-btn" data-dir="left" aria-label="Move left">←</button>
+                        <button type="button" class="g2048-btn" data-dir="up" aria-label="Move up">↑</button>
+                        <button type="button" class="g2048-btn" data-dir="down" aria-label="Move down">↓</button>
+                        <button type="button" class="g2048-btn" data-dir="right" aria-label="Move right">→</button>
+                    </div>
+                </div>
+
+                <div id="g2048-board" role="application" aria-roledescription="2048 tile board" aria-label="Tiles"></div>
+                <p class="g2048-hint">Arrow keys or swipe on the board. Merge tiles to reach 2048.</p>
+                <p id="g2048-live" class="visually-hidden">Score 0. Playing.</p>
+
+                <div id="g2048-overlay" hidden>
+                    <div class="g2048-overlay-inner">
+                        <h3 id="g2048-overlay-title">Game over</h3>
+                        <p class="g2048-overlay-score" id="g2048-overlay-score"></p>
+                        <div class="g2048-overlay-actions">
+                            <input type="text" id="g2048-name" maxlength="24" placeholder="Your name" autocomplete="nickname" aria-label="Name for leaderboard">
+                            <div class="g2048-row">
+                                <button type="button" class="g2048-btn g2048-btn--primary" id="g2048-save">Save score</button>
+                                <button type="button" class="g2048-btn" id="g2048-skip-save">Skip</button>
+                            </div>
+                            <button type="button" class="g2048-btn g2048-btn--primary" id="g2048-overlay-again" hidden>Play again</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="g2048-leaderboard-panel" aria-labelledby="g2048-lb-heading">
+                <h3 id="g2048-lb-heading">Leaderboard</h3>
+                <p class="g2048-lb-note">Stored in your browser on this device only, great for bragging rights at home, useless for global fame.</p>
+                <ol id="g2048-leaderboard"></ol>
+                <button type="button" class="g2048-btn g2048-btn--ghost" id="g2048-reset-lb">Clear leaderboard</button>
+            </aside>
         </div>
     </div>
+
     <script>
-        (function() {
+        (function () {
             var theme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', theme);
-        })();
-        (function() {
-            var slides = document.querySelectorAll('.slideshow img');
-            var dotsContainer = document.querySelector('.slideshow-dots');
-            var prevBtn = document.querySelector('.slideshow-btn.prev');
-            var nextBtn = document.querySelector('.slideshow-btn.next');
-            var current = 0;
-            function loadSlide(img) {
-                var src = img.getAttribute('data-src');
-                if (src && !img.src) {
-                    img.src = src;
-                    img.setAttribute('data-loaded', '1');
-                }
+            var btn = document.querySelector('.error-theme-toggle');
+            var html = document.documentElement;
+            if (btn) {
+                btn.addEventListener('click', function () {
+                    var t = html.getAttribute('data-theme');
+                    var next = t === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    try { localStorage.setItem('theme', next); } catch (e) {}
+                });
             }
-            function preloadAdjacent(i) {
-                loadSlide(slides[(i + 1) % slides.length]);
-                loadSlide(slides[(i - 1 + slides.length) % slides.length]);
-            }
-            function show(i) {
-                current = (i + slides.length) % slides.length;
-                loadSlide(slides[current]);
-                preloadAdjacent(current);
-                slides.forEach(function(img, j) { img.classList.toggle('active', j === current); });
-                dotsContainer.querySelectorAll('button').forEach(function(btn, j) { btn.classList.toggle('active', j === current); });
-            }
-            slides.forEach(function(_, i) {
-                var btn = document.createElement('button');
-                btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-                btn.addEventListener('click', function() { show(i); });
-                dotsContainer.appendChild(btn);
-            });
-            prevBtn.addEventListener('click', function() { show(current - 1); });
-            nextBtn.addEventListener('click', function() { show(current + 1); });
-            show(0);
         })();
     </script>
+    <script src="404-game.js"></script>
 </body>
 </html>
