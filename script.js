@@ -469,7 +469,7 @@
     initBentoTilt();
 
     /**
-     * Ambient Reethigowla excerpt (see assets/audio/reethigowla.mp3 — a segment of the full track).
+     * Ambient Reethigowla clip (assets/audio/reethigowla.mp3). Loops continuously.
      * Autoplay after splash dismiss counts as a user gesture; otherwise use the nav control.
      */
     function initAmbientMusic() {
@@ -477,7 +477,13 @@
         const btn = document.getElementById('music-toggle');
         if (!audio || !btn) return;
 
+        audio.loop = true;
         audio.volume = 0.24;
+
+        audio.addEventListener('ended', () => {
+            audio.currentTime = 0;
+            audio.play().catch(() => {});
+        });
 
         function syncButton() {
             const playing = !audio.paused;
