@@ -19,6 +19,7 @@
             }
             root.classList.add('splash-dismissed');
             splash.setAttribute('aria-hidden', 'true');
+            window.dispatchEvent(new CustomEvent('portfolio-splash-dismissed'));
         }
 
         const enter = splash.querySelector('.splash-enter');
@@ -466,6 +467,53 @@
     }
 
     initBentoTilt();
+
+    /**
+     * Ambient Reethigowla excerpt (see assets/audio/reethigowla.mp3 — a segment of the full track).
+     * Autoplay after splash dismiss counts as a user gesture; otherwise use the nav control.
+     */
+    function initAmbientMusic() {
+        const audio = document.getElementById('ambient-music');
+        const btn = document.getElementById('music-toggle');
+        if (!audio || !btn) return;
+
+        audio.volume = 0.24;
+
+        function syncButton() {
+            const playing = !audio.paused;
+            btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+            btn.setAttribute(
+                'aria-label',
+                playing ? 'Pause background music' : 'Play background music (Reethigowla excerpt)'
+            );
+            btn.classList.toggle('is-playing', playing);
+        }
+
+        btn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play().catch(() => {});
+            } else {
+                audio.pause();
+            }
+            syncButton();
+        });
+
+        audio.addEventListener('play', syncButton);
+        audio.addEventListener('pause', syncButton);
+        audio.addEventListener('ended', syncButton);
+
+        window.addEventListener('portfolio-splash-dismissed', () => {
+            if (prefersReducedMotion()) return;
+            audio.play().catch(() => {});
+            syncButton();
+        });
+
+        if (document.documentElement.classList.contains('splash-dismissed')) {
+            syncButton();
+        }
+    }
+
+    initAmbientMusic();
 
     document.querySelectorAll('.projects-carousel').forEach((el) => initCarousel(el));
     initPhotoAlbum().then(() => {

@@ -1052,6 +1052,41 @@ html.splash-dismissed .splash-screen {
     display: none;
 }
 
+.music-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-ui);
+}
+
+.music-toggle:hover {
+    opacity: 0.85;
+    color: var(--accent);
+}
+
+.music-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.music-toggle .music-icon--pause {
+    display: none;
+}
+
+.music-toggle.is-playing .music-icon--play {
+    display: none;
+}
+
+.music-toggle.is-playing .music-icon--pause {
+    display: block;
+}
+
 .nav-toggle {
     display: none;
     background: none;

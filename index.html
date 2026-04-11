@@ -112,6 +112,10 @@
         </div>
     </div>
     <div class="page-noise" aria-hidden="true"></div>
+    <!-- ~2 min excerpt from Reethigowla (full recording trimmed with ffmpeg); loops -->
+    <audio id="ambient-music" preload="metadata" playsinline loop>
+        <source src="assets/audio/reethigowla.mp3" type="audio/mpeg" />
+    </audio>
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-start">
@@ -132,6 +136,14 @@
                 <a href="#contact">Contact</a>
             </div>
             <div class="nav-actions">
+                <button type="button" class="music-toggle" id="music-toggle" aria-pressed="false" aria-label="Play background music (Reethigowla excerpt)" title="Reethigowla — short looping excerpt">
+                    <svg class="music-icon music-icon--play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg class="music-icon music-icon--pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                    </svg>
+                </button>
                 <button type="button" class="theme-toggle" aria-label="Toggle dark mode">
                     <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5"/>
