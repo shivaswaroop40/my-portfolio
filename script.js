@@ -469,21 +469,102 @@
     initBentoTilt();
 
     /**
-     * Ambient Reethigowla clip (assets/audio/reethigowla.mp3). Loops continuously.
-     * Autoplay after splash dismiss counts as a user gesture; otherwise use the nav control.
+     * Ambient Reethigowla clip (assets/audio/reethigowla.mp3), 00:48–2:10 from source. Loops continuously.
+     * Loads the file via fetch → Blob URL so the whole decode buffer is local (Brave and some
+     * setups stall ~10–15s when streaming progressive MP3 over range requests).
      */
     function initAmbientMusic() {
         const audio = document.getElementById('ambient-music');
         const btn = document.getElementById('music-toggle');
         if (!audio || !btn) return;
 
+        const AMBIENT_SRC = 'assets/audio/reethigowla.mp3';
+        let loadPromise = null;
+
+        function ensureAmbientLoaded() {
+            if (audio.dataset.blobReady === '1') {
+                return Promise.resolve();
+            }
+            if (loadPromise) {
+                return loadPromise;
+            }
+
+            function attachBlobUrl(blob) {
+                const prev = audio.getAttribute('data-blob-url');
+                if (prev) {
+                    URL.revokeObjectURL(prev);
+                }
+                const url = URL.createObjectURL(blob);
+                audio.setAttribute('data-blob-url', url);
+                audio.src = url;
+                return new Promise((resolve, reject) => {
+                    const onReady = () => {
+                        audio.removeEventListener('canplaythrough', onReady);
+                        audio.removeEventListener('canplay', onReady);
+                        audio.removeEventListener('error', onErr);
+                        audio.dataset.blobReady = '1';
+                        resolve();
+                    };
+                    const onErr = () => {
+                        audio.removeEventListener('canplaythrough', onReady);
+                        audio.removeEventListener('canplay', onReady);
+                        reject(audio.error || new Error('ambient audio'));
+                    };
+                    /* Blob URL is fully local; `canplay`/`canplaythrough` both work — listen to both for quirky engines. */
+                    audio.addEventListener('canplaythrough', onReady, { once: true });
+                    audio.addEventListener('canplay', onReady, { once: true });
+                    audio.addEventListener('error', onErr, { once: true });
+                    audio.load();
+                });
+            }
+
+            /* file:// cannot fetch; fall back to direct src (same streaming caveats as before). */
+            if (location.protocol === 'file:') {
+                loadPromise = new Promise((resolve, reject) => {
+                    audio.src = AMBIENT_SRC;
+                    audio.addEventListener(
+                        'canplaythrough',
+                        () => {
+                            audio.dataset.blobReady = '1';
+                            resolve();
+                        },
+                        { once: true }
+                    );
+                    audio.addEventListener('error', () => reject(audio.error || new Error('ambient audio')), {
+                        once: true
+                    });
+                    audio.load();
+                }).finally(() => {
+                    loadPromise = null;
+                });
+                return loadPromise;
+            }
+
+            loadPromise = fetch(AMBIENT_SRC)
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error(`ambient audio: ${res.status}`);
+                    }
+                    return res.blob();
+                })
+                .then(attachBlobUrl)
+                .catch((err) => {
+                    loadPromise = null;
+                    throw err;
+                });
+
+            return loadPromise;
+        }
+
+        function playAmbient() {
+            return ensureAmbientLoaded()
+                .then(() => audio.play())
+                .catch(() => {});
+        }
+
         audio.loop = true;
         audio.volume = 0.24;
-
-        audio.addEventListener('ended', () => {
-            audio.currentTime = 0;
-            audio.play().catch(() => {});
-        });
+        /* Rely on the `loop` attribute only — a manual `ended` + restart can race Safari/WebKit and fight native looping. */
 
         function syncButton() {
             const playing = !audio.paused;
@@ -497,21 +578,19 @@
 
         btn.addEventListener('click', () => {
             if (audio.paused) {
-                audio.play().catch(() => {});
+                playAmbient().then(syncButton);
             } else {
                 audio.pause();
+                syncButton();
             }
-            syncButton();
         });
 
         audio.addEventListener('play', syncButton);
         audio.addEventListener('pause', syncButton);
-        audio.addEventListener('ended', syncButton);
 
         window.addEventListener('portfolio-splash-dismissed', () => {
             if (prefersReducedMotion()) return;
-            audio.play().catch(() => {});
-            syncButton();
+            playAmbient().then(syncButton);
         });
 
         if (document.documentElement.classList.contains('splash-dismissed')) {
