@@ -112,8 +112,10 @@
         </div>
     </div>
     <div class="page-noise" aria-hidden="true"></div>
-    <!-- Reethigowla: excerpt 00:48–2:10 from the MedicoVita video; loops; src via fetch→Blob in script.js -->
-    <audio id="ambient-music" preload="none" playsinline loop></audio>
+    <!-- Reethigowla: excerpt 00:48–2:10; direct src + preload so mobile can play() in the splash tap gesture -->
+    <audio id="ambient-music" preload="auto" playsinline loop>
+        <source src="assets/audio/reethigowla.mp3" type="audio/mpeg" />
+    </audio>
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-start">

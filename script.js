@@ -470,100 +470,16 @@
 
     /**
      * Ambient Reethigowla clip (assets/audio/reethigowla.mp3), 00:48–2:10 from source. Loops continuously.
-     * Loads the file via fetch → Blob URL so the whole decode buffer is local (Brave and some
-     * setups stall ~10–15s when streaming progressive MP3 over range requests).
+     * Uses a normal audio element with src + preload (not fetch then play) so `play()` can run in the same turn as the
+     * splash tap — required for autoplay on iOS and many Android browsers.
      */
     function initAmbientMusic() {
         const audio = document.getElementById('ambient-music');
         const btn = document.getElementById('music-toggle');
         if (!audio || !btn) return;
 
-        const AMBIENT_SRC = 'assets/audio/reethigowla.mp3';
-        let loadPromise = null;
-
-        function ensureAmbientLoaded() {
-            if (audio.dataset.blobReady === '1') {
-                return Promise.resolve();
-            }
-            if (loadPromise) {
-                return loadPromise;
-            }
-
-            function attachBlobUrl(blob) {
-                const prev = audio.getAttribute('data-blob-url');
-                if (prev) {
-                    URL.revokeObjectURL(prev);
-                }
-                const url = URL.createObjectURL(blob);
-                audio.setAttribute('data-blob-url', url);
-                audio.src = url;
-                return new Promise((resolve, reject) => {
-                    const onReady = () => {
-                        audio.removeEventListener('canplaythrough', onReady);
-                        audio.removeEventListener('canplay', onReady);
-                        audio.removeEventListener('error', onErr);
-                        audio.dataset.blobReady = '1';
-                        resolve();
-                    };
-                    const onErr = () => {
-                        audio.removeEventListener('canplaythrough', onReady);
-                        audio.removeEventListener('canplay', onReady);
-                        reject(audio.error || new Error('ambient audio'));
-                    };
-                    /* Blob URL is fully local; `canplay`/`canplaythrough` both work — listen to both for quirky engines. */
-                    audio.addEventListener('canplaythrough', onReady, { once: true });
-                    audio.addEventListener('canplay', onReady, { once: true });
-                    audio.addEventListener('error', onErr, { once: true });
-                    audio.load();
-                });
-            }
-
-            /* file:// cannot fetch; fall back to direct src (same streaming caveats as before). */
-            if (location.protocol === 'file:') {
-                loadPromise = new Promise((resolve, reject) => {
-                    audio.src = AMBIENT_SRC;
-                    audio.addEventListener(
-                        'canplaythrough',
-                        () => {
-                            audio.dataset.blobReady = '1';
-                            resolve();
-                        },
-                        { once: true }
-                    );
-                    audio.addEventListener('error', () => reject(audio.error || new Error('ambient audio')), {
-                        once: true
-                    });
-                    audio.load();
-                }).finally(() => {
-                    loadPromise = null;
-                });
-                return loadPromise;
-            }
-
-            loadPromise = fetch(AMBIENT_SRC)
-                .then((res) => {
-                    if (!res.ok) {
-                        throw new Error(`ambient audio: ${res.status}`);
-                    }
-                    return res.blob();
-                })
-                .then(attachBlobUrl)
-                .catch((err) => {
-                    loadPromise = null;
-                    throw err;
-                });
-
-            return loadPromise;
-        }
-
-        function playAmbient() {
-            return ensureAmbientLoaded()
-                .then(() => audio.play())
-                .catch(() => {});
-        }
-
         audio.loop = true;
-        audio.volume = 0.24;
+        audio.volume = 0.12;
         /* Rely on the `loop` attribute only — a manual `ended` + restart can race Safari/WebKit and fight native looping. */
 
         function syncButton() {
@@ -576,13 +492,33 @@
             btn.classList.toggle('is-playing', playing);
         }
 
+        function playAmbientFromGesture() {
+            /* Must not await before play() — mobile WebKit only unlocks audio in the user-gesture stack. */
+            const attempt = audio.play();
+            if (attempt !== undefined) {
+                attempt.catch(() => {});
+            }
+        }
+
+        const splash = document.getElementById('splash-screen');
+        /* First touch on splash starts loading sooner (helps play() succeed right after “Come on in”). */
+        splash?.addEventListener(
+            'touchstart',
+            () => {
+                if (audio.readyState < HTMLMediaElement.HAVE_METADATA) {
+                    audio.load();
+                }
+            },
+            { passive: true }
+        );
+
         btn.addEventListener('click', () => {
             if (audio.paused) {
-                playAmbient().then(syncButton);
+                playAmbientFromGesture();
             } else {
                 audio.pause();
-                syncButton();
             }
+            syncButton();
         });
 
         audio.addEventListener('play', syncButton);
@@ -590,7 +526,8 @@
 
         window.addEventListener('portfolio-splash-dismissed', () => {
             if (prefersReducedMotion()) return;
-            playAmbient().then(syncButton);
+            playAmbientFromGesture();
+            syncButton();
         });
 
         if (document.documentElement.classList.contains('splash-dismissed')) {
