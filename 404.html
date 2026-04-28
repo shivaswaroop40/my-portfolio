@@ -63,7 +63,7 @@
             align-items: start;
         }
         @media (min-width: 800px) {
-            .error-2048-wrap { grid-template-columns: 1fr 280px; }
+            .error-2048-wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 280px); }
         }
 
         #game-2048 {
@@ -73,6 +73,12 @@
             padding: clamp(1rem, 3vw, 1.35rem);
             box-shadow: 0 2px 0 color-mix(in srgb, var(--border) 80%, transparent);
             position: relative;
+            min-width: 0;
+        }
+        .g2048-column {
+            max-width: 400px;
+            width: 100%;
+            margin-inline: auto;
         }
         .g2048-head {
             display: flex;
@@ -122,7 +128,7 @@
             margin-bottom: 0.75rem;
         }
         .g2048-btn {
-            font-family: var(--font-body);
+            font-family: var(--font-sans);
             font-size: 0.875rem;
             font-weight: 600;
             padding: 0.45rem 0.85rem;
@@ -173,15 +179,17 @@
 
         #g2048-board {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-rows: repeat(4, minmax(0, 1fr));
             gap: clamp(6px, 1.5vw, 10px);
+            width: 100%;
             aspect-ratio: 1;
-            max-width: 400px;
-            margin: 0 auto 0.75rem;
+            margin: 0 0 0.75rem;
             padding: clamp(6px, 1.5vw, 10px);
             background: color-mix(in srgb, var(--border) 35%, var(--bg-secondary));
             border-radius: var(--radius);
             touch-action: none;
+            box-sizing: border-box;
         }
         .g2048-cell {
             border-radius: var(--radius-sm);
@@ -189,17 +197,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            min-width: 0;
             min-height: 0;
         }
         .g2048-tile {
             width: 100%;
             height: 100%;
+            min-width: 0;
+            min-height: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: var(--radius-sm);
             font-weight: 700;
-            font-size: clamp(0.85rem, 4.5vw, 1.35rem);
+            font-size: clamp(0.6rem, 3.6vmin, 1.3rem);
             color: var(--text-primary);
             animation: g2048-pop 0.12s ease-out;
         }
@@ -214,10 +225,10 @@
         .g2048-tile[data-value="32"] { background: color-mix(in srgb, var(--accent) 35%, var(--bg-card)); color: #fff; }
         .g2048-tile[data-value="64"] { background: color-mix(in srgb, var(--accent) 55%, var(--bg-card)); color: #fff; }
         .g2048-tile[data-value="128"],
-        .g2048-tile[data-value="256"] { background: color-mix(in srgb, var(--accent) 70%, #1a1a2e); color: #fff; font-size: clamp(0.75rem, 4vw, 1.15rem); }
+        .g2048-tile[data-value="256"] { background: color-mix(in srgb, var(--accent) 70%, #1a1a2e); color: #fff; font-size: clamp(0.55rem, 3vmin, 1.05rem); }
         .g2048-tile[data-value="512"],
         .g2048-tile[data-value="1024"],
-        .g2048-tile[data-value="2048"] { background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--lavender) 60%, var(--accent))); color: #fff; font-size: clamp(0.65rem, 3.5vw, 1rem); }
+        .g2048-tile[data-value="2048"] { background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--lavender) 60%, var(--accent))); color: #fff; font-size: clamp(0.45rem, 2.6vmin, 0.9rem); }
 
         .g2048-hint {
             text-align: center;
@@ -261,7 +272,7 @@
             padding: 0.55rem 0.75rem;
             border-radius: var(--radius-sm);
             border: 1px solid var(--border);
-            font-family: var(--font-body);
+            font-family: var(--font-sans);
             margin-bottom: 0.65rem;
             background: var(--bg-primary);
             color: var(--text-primary);
@@ -284,6 +295,7 @@
             border-radius: var(--radius);
             padding: clamp(1rem, 3vw, 1.25rem);
             box-shadow: 0 2px 0 color-mix(in srgb, var(--border) 80%, transparent);
+            min-width: 0;
         }
         .g2048-leaderboard-panel h3 {
             font-family: var(--font-display);
@@ -372,32 +384,34 @@
                 aria-labelledby="g2048-title"
                 aria-describedby="g2048-live"
             >
-                <div class="g2048-head">
-                    <h2 id="g2048-title">2048 while you’re lost</h2>
-                    <div class="g2048-scores" aria-live="polite">
-                        <div class="g2048-scorebox">
-                            <span>Score</span>
-                            <strong id="g2048-score">0</strong>
-                        </div>
-                        <div class="g2048-scorebox">
-                            <span>Best</span>
-                            <strong id="g2048-best">0</strong>
+                <div class="g2048-column">
+                    <div class="g2048-head">
+                        <h2 id="g2048-title">2048 while you’re lost</h2>
+                        <div class="g2048-scores" aria-live="polite">
+                            <div class="g2048-scorebox">
+                                <span>Score</span>
+                                <strong id="g2048-score">0</strong>
+                            </div>
+                            <div class="g2048-scorebox">
+                                <span>Best</span>
+                                <strong id="g2048-best">0</strong>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="g2048-toolbar">
-                    <button type="button" class="g2048-btn g2048-btn--primary" id="g2048-new">New game</button>
-                    <div class="g2048-arrows" role="group" aria-label="Move tiles">
-                        <button type="button" class="g2048-btn" data-dir="left" aria-label="Move left">←</button>
-                        <button type="button" class="g2048-btn" data-dir="up" aria-label="Move up">↑</button>
-                        <button type="button" class="g2048-btn" data-dir="down" aria-label="Move down">↓</button>
-                        <button type="button" class="g2048-btn" data-dir="right" aria-label="Move right">→</button>
+                    <div class="g2048-toolbar">
+                        <button type="button" class="g2048-btn g2048-btn--primary" id="g2048-new">New game</button>
+                        <div class="g2048-arrows" role="group" aria-label="Move tiles">
+                            <button type="button" class="g2048-btn" data-dir="left" aria-label="Move left">←</button>
+                            <button type="button" class="g2048-btn" data-dir="up" aria-label="Move up">↑</button>
+                            <button type="button" class="g2048-btn" data-dir="down" aria-label="Move down">↓</button>
+                            <button type="button" class="g2048-btn" data-dir="right" aria-label="Move right">→</button>
+                        </div>
                     </div>
-                </div>
 
-                <div id="g2048-board" role="application" aria-roledescription="2048 tile board" aria-label="Tiles"></div>
-                <p class="g2048-hint">Arrow keys or swipe on the board. Merge tiles to reach 2048.</p>
+                    <div id="g2048-board" role="application" aria-roledescription="2048 tile board" aria-label="Tiles"></div>
+                    <p class="g2048-hint">Arrow keys or swipe on the board. Merge tiles to reach 2048.</p>
+                </div>
                 <p id="g2048-live" class="visually-hidden">Score 0. Playing.</p>
 
                 <div id="g2048-overlay" hidden>
