@@ -1,71 +1,46 @@
-# Shiva Swaroop N K,  Portfolio
+# shivu.io
 
-A fluid, responsive personal site: pastel palette with blue accents, a bit of personality in the hero and About, carousels for academic projects and a photo album, and the usual professional sections (experience, community, blog, contact).
+Personal site and portfolio of Shiva Swaroop N K, a cloud infrastructure
+engineer in Stockholm. Plain HTML and CSS, no build step.
 
-## Features
+## How it works
 
-- **Fluid layout**: `clamp()` typography and spacing, smooth scaling across viewports
-- **Pastel + blue**: Cohesive light/dark themes with accessible contrast
-- **Photo album**: Images anywhere under `pictures/` (subfolders included) with a generated `manifest.json` and a rolling carousel
-- **Projects carousel**: KTH academic work in a keyboard- and screen-reader-friendly carousel
-- **Smooth scrolling**, **theme toggle**, **scroll-reveal** (respects `prefers-reduced-motion`)
-- **Vanilla stack**: HTML, CSS, and JavaScript,  no build step required for the page itself
+- **`public/`** — the whole site: static HTML/CSS/JS, optimized photos, and the
+  machine-readable routes (`agent.md`, `llms.txt`, `resume.json`).
+- **`worker/index.js`** — a Cloudflare Worker in front of the assets. It handles
+  **agent mode** (AI agents, crawlers, and CLI clients get markdown, detected via
+  User-Agent, `Accept: text/markdown`, `?format=md`, or Cloudflare's verified-bot
+  classification), the `www` → apex and `/blog` → Notion redirects, and
+  security/caching headers.
+- **`wrangler.jsonc`** — Workers config; `public/` is served as static assets
+  with `run_worker_first` so every request passes through the worker.
+- **`pictures/`** — original full-resolution photos (source of truth). The web
+  versions in `public/photos/` are resized to 1400px:
+  `sips -Z 1400 -s format jpeg -s formatOptions 75 pictures/IMG_X.JPG --out public/photos/img_x.jpg`
 
-## Sections
+## Agent mode
 
-- **Hero**: Role, professional summary, personal line, hook pills, CNCF subtitle, links
-- **Snapshots**: Rolling photo strip after Experience (hidden when the album is empty)
-- **About**: Work story, “Also me”, “Right now”, sidebar facts
-- **Experience**: Roles, education
-- **Projects**: Academic projects (carousel)
-- **Speaking & community**
-- **Blog** gateway
-- **Contact**
+```
+curl https://shivu.io/              # markdown (curl counts as an agent)
+curl https://shivu.io/llms.txt      # llms.txt index
+curl https://shivu.io/resume.json   # CV, JSON Resume schema
+https://shivu.io/agent              # human-readable explainer
+```
 
-## Photo manifest
+Agent responses carry `X-Agent-Mode: active`. `?format=html` forces HTML for
+any client; `?format=md` forces markdown.
 
-Browsers cannot list a folder on static hosting. The script walks **`pictures/` recursively** (subfolders count) and includes common web formats (JPEG, PNG, WebP, GIF, AVIF, BMP, TIFF). **HEIC** from iPhones often will not display in all browsers, so it is skipped,  convert to JPEG/PNG for the site.
-
-After adding or removing images anywhere under `pictures/`, regenerate the manifest:
+## Develop & deploy
 
 ```bash
-python3 scripts/generate-picture-manifest.py
+npx wrangler dev      # local dev at http://localhost:8787
+npx wrangler deploy   # deploy to Cloudflare (shivu.io)
 ```
 
-GitHub Actions runs the same logic on deploy and writes `public/pictures/manifest.json` so new images are picked up on push.
+CI: pushes to `main` deploy via `.github/workflows/deploy.yml`
+(needs `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID` repo secrets).
 
-## Getting started
+## 404
 
-1. Clone the repository
-2. (Optional) `python3 scripts/generate-picture-manifest.py` if you use `pictures/`
-3. Serve the site locally (e.g. `python3 -m http.server 8080`) so `fetch('pictures/manifest.json')` works,  opening `index.html` as a `file://` URL may block the album
-4. Open the served URL in a browser
-
-## Deployment
-
-Static files deploy to **GitHub Pages** via `.github/workflows/deploy.yml` (copies `index.html`, `styles.css`, `script.js`, `assets/`, `blog/`, `pictures/`, generates the picture manifest, then uploads `public/`).
-
-## Project structure
-
-```
-my-portfolio/
-├── index.html
-├── styles.css
-├── script.js
-├── pictures/                 # Album images + manifest.json (regenerated)
-├── scripts/
-│   └── generate-picture-manifest.py
-├── assets/
-├── blog/
-└── README.md
-```
-
-## Contact
-
-- **Email**: shivaswaroop40@gmail.com
-- **LinkedIn**: [Connect with me](https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b)
-- **GitHub**: [View my code](https://github.com/shivaswaroop40)
-
----
-
-*Cloud infrastructure engineer & MSc Communication Systems student at KTH*
+The 404 page still has the 2048 game with a local leaderboard. Some things are
+load-bearing.

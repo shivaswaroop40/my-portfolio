@@ -1,0 +1,7 @@
+# Humans get HTML, agents get markdown — everyone is welcome here.
+# Machine-readable routes: /llms.txt, /agent.md, /resume.json
+
+User-agent: *
+Allow: /
+
+Sitemap: https://shivu.io/sitemap.xml

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent mode</title>
+    <meta name="description" content="How AI agents and programmatic clients can read shivu.io: markdown content negotiation, llms.txt, and a JSON Resume.">
+    <script>
+        try {
+            var t = localStorage.getItem('theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <style>
+        .agent-page pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.9rem 1.1rem;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            line-height: 1.6;
+        }
+        .agent-page h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 5vw, 2.3rem);
+            font-weight: 520;
+            margin: 0 0 0.5rem;
+        }
+        .route-table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+        .route-table td { padding: 0.5rem 1rem 0.5rem 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+        .route-table td:first-child { font-family: var(--font-mono); font-size: 0.8rem; white-space: nowrap; }
+    </style>
+</head>
+<body>
+    <header class="site-head">
+        <nav class="site-nav" aria-label="Primary">
+            <a class="brand" href="/">Shiva Swaroop</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main" class="page-main agent-page">
+        <section class="section">
+            <p class="kicker">Agent mode</p>
+            <h1>This site speaks markdown</h1>
+            <p class="section-note">
+                If you are an AI agent, a crawler, or a terminal, shivu.io answers in markdown
+                instead of HTML. A Cloudflare Worker in front of the site looks at your
+                <code>User-Agent</code>, your <code>Accept</code> header, and Cloudflare's
+                verified-bot classification, then picks the format. The content is the same
+                either way; only the packaging differs.
+            </p>
+        </section>
+
+        <section class="section">
+            <p class="kicker">Routes</p>
+            <table class="route-table">
+                <tr><td><a href="/agent.md">/agent.md</a></td><td>Full site content as markdown</td></tr>
+                <tr><td><a href="/llms.txt">/llms.txt</a></td><td>llms.txt index for language models</td></tr>
+                <tr><td><a href="/resume.json">/resume.json</a></td><td>CV in JSON Resume schema</td></tr>
+                <tr><td>/?format=md</td><td>Force markdown for any client</td></tr>
+                <tr><td>/?format=html</td><td>Force HTML, even for agents</td></tr>
+            </table>
+        </section>
+
+        <section class="section">
+            <p class="kicker">Try it</p>
+            <pre>curl https://shivu.io/            # markdown (curl is an agent)
+curl -H "Accept: text/html" https://shivu.io/?format=html
+curl https://shivu.io/resume.json | jq .basics</pre>
+            <p class="section-note">
+                Responses to agents carry an <code>X-Agent-Mode: active</code> header.
+            </p>
+        </section>
+        <footer class="site-foot">
+            <p class="foot-meta"><span>© 2026 Shiva Swaroop N K</span> <span aria-hidden="true">·</span> <a href="/">Back to the human version</a></p>
+        </footer>
+    </main>
+</body>
+</html>

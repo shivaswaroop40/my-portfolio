@@ -1,0 +1,12 @@
+{
+  "name": "shivu-io",
+  "private": true,
+  "description": "Personal site and portfolio — static assets behind a Cloudflare Worker with agent-mode content negotiation.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "cf deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.125.0"
+  }
+}

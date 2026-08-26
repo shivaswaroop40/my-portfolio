@@ -1,102 +1,26 @@
-# Workflow for deploying TUI Portfolio website to GitHub Pages
-name: Deploy TUI Portfolio to Pages
+# Deploys shivu.io to Cloudflare Workers (static assets + edge worker).
+# Requires two repository secrets:
+#   CLOUDFLARE_API_TOKEN  — API token with "Workers Scripts: Edit" permission
+#   CLOUDFLARE_ACCOUNT_ID — the Cloudflare account id
+name: Deploy to Cloudflare
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches:
-      - main
-      - new-updates
-
-  # Allows you to run this workflow manually from the Actions tab
+    branches: [main]
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
+  group: deploy
   cancel-in-progress: false
 
-# Default to bash
-defaults:
-  run:
-    shell: bash
-
 jobs:
-  # Build job
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
         with:
-          fetch-depth: 0
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v6
-      - name: Prepare static site
-        run: |
-          # Create public directory for GitHub Pages
-          mkdir -p public
-          # Copy static files to public directory
-          cp index.html public/
-          cp styles.css public/
-          cp script.js public/
-          cp README.md public/
-          # Copy assets folder if it exists
-          [ -d assets ] && cp -r assets public/
-          # Copy blog gateway page
-          [ -d blog ] && cp -r blog public/
-          # Copy 404 page, game script, and pictures for photo gallery
-          cp 404.html public/
-          cp 404-game.js public/
-          mkdir -p public/pictures
-          [ -d pictures ] && cp -r pictures/. public/pictures/ 2>/dev/null || true
-          python3 << 'PY'
-          import json
-          from pathlib import Path
-          base = Path("public/pictures")
-          base.mkdir(parents=True, exist_ok=True)
-          exts = {
-              ".jpg", ".jpeg", ".jpe", ".png", ".webp", ".gif",
-              ".avif", ".jfif", ".bmp", ".tif", ".tiff",
-          }
-          rels = []
-          for p in base.rglob("*"):
-              if not p.is_file():
-                  continue
-              if p.name.lower() == "manifest.json":
-                  continue
-              if p.suffix.lower() not in exts:
-                  continue
-              rels.append(p.relative_to(base).as_posix())
-          rels.sort()
-          manifest = [f"pictures/{r}" for r in rels]
-          (base / "manifest.json").write_text(
-              json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
-          )
-          PY
-          # Create favicon
-          echo 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💻</text></svg>' > public/favicon.ico
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: ./public
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

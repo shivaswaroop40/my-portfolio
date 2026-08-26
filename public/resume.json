@@ -1,0 +1,114 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Shiva Swaroop Nittoor Krishnamurthy",
+    "label": "Cloud Infrastructure / DevOps Engineer",
+    "email": "shivaswaroop40@gmail.com",
+    "url": "https://shivu.io",
+    "summary": "Cloud infrastructure engineer with 3+ years designing and running large-scale cloud systems. Kubernetes, GitOps, Terraform, and software supply-chain security. Co-organizer of Cloud Native Stockholm (CNCF).",
+    "location": { "city": "Stockholm", "countryCode": "SE" },
+    "profiles": [
+      { "network": "GitHub", "username": "shivaswaroop40", "url": "https://github.com/shivaswaroop40" },
+      { "network": "LinkedIn", "username": "shivaswaroop-nittoor-krishnamurthy", "url": "https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b" },
+      { "network": "X", "username": "podsandkapi", "url": "https://x.com/podsandkapi" }
+    ]
+  },
+  "work": [
+    {
+      "name": "Youmoni",
+      "position": "DevOps Engineer",
+      "location": "Stockholm, Sweden",
+      "url": "https://youmoni.com",
+      "startDate": "2025-05",
+      "summary": "Cloud infrastructure for IoT backend services on AWS.",
+      "highlights": [
+        "Leading migration of production workloads from Docker Swarm to EKS",
+        "GitOps pipelines with Flux for continuous deployment",
+        "Policy enforcement with Kyverno across Kubernetes clusters",
+        "Terraform-provisioned AWS infrastructure at scale"
+      ]
+    },
+    {
+      "name": "Infinite Computer Solutions",
+      "position": "Software Engineer",
+      "location": "Bengaluru, India",
+      "startDate": "2021-03",
+      "endDate": "2024-07",
+      "highlights": [
+        "Reduced infrastructure provisioning time by 30% through optimized Terraform modules",
+        "Improved deployment efficiency by 35% via cross-functional collaboration",
+        "Built and maintained GitLab CI/CD pipelines integrated with ArgoCD",
+        "Led software supply-chain security implementations using Buildah and Cosign",
+        "Enhanced network security with firewall rules, VPNs, and compliance policies"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "KTH Royal Institute of Technology",
+      "area": "Communication Systems",
+      "studyType": "MSc",
+      "startDate": "2024",
+      "endDate": "2026"
+    },
+    {
+      "institution": "M.S. Ramaiah Institute of Technology",
+      "area": "Telecommunication Engineering",
+      "studyType": "BE",
+      "startDate": "2017",
+      "endDate": "2021"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Enforcement-Readiness of Generated Kubernetes NetworkPolicies",
+      "description": "Master thesis at Ankra AB: a tool-agnostic attack-injection benchmark that scores NetworkPolicy generators on block-rate, over-privilege, and false-denies, plus a generation prototype fusing eBPF/Cilium-Hubble flow observation with config-derived dependencies. Shows observation alone plateaus at ~72% of needed edges; fusing config raises coverage to ~82% and cuts false-denies. Evaluated on a live k3s + Cilium cluster against the Ankra control plane and Sock Shop.",
+      "keywords": ["eBPF", "Cilium", "Hubble", "Kubernetes", "NetworkPolicy", "network security", "benchmarking"],
+      "startDate": "2026-01",
+      "roles": ["Author"]
+    },
+    {
+      "name": "containerImages",
+      "description": "Secure container supply-chain reference pipeline: multi-arch Buildx builds to GHCR, Cosign signing and verification, Trivy scanning, SBOM generation.",
+      "url": "https://github.com/shivaswaroop40/containerImages",
+      "keywords": ["GitHub Actions", "Cosign", "Trivy", "SBOM", "supply chain security"]
+    },
+    {
+      "name": "carnatic.xyz",
+      "description": "A web home for Carnatic classical music. Next.js on Cloudflare Workers; in progress.",
+      "url": "https://github.com/shivaswaroop40/carnatic.xyz",
+      "keywords": ["Next.js", "Cloudflare Workers", "Carnatic music"]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Cloud Native Stockholm (CNCF)",
+      "position": "Co-organizer",
+      "url": "https://community.cncf.io/cloud-native-stockholm/",
+      "summary": "Hosting meetups and growing the cloud-native community in Stockholm."
+    }
+  ],
+  "publications": [],
+  "skills": [
+    { "name": "Kubernetes", "keywords": ["EKS", "Flux", "ArgoCD", "Kyverno", "Cilium", "eBPF", "NetworkPolicy"] },
+    { "name": "Infrastructure as Code", "keywords": ["Terraform", "Ansible", "GitOps"] },
+    { "name": "Cloud", "keywords": ["AWS", "Azure"] },
+    { "name": "Supply-chain security", "keywords": ["Cosign", "Buildah", "Trivy", "SBOM"] },
+    { "name": "Networking", "keywords": ["OSPF", "BGP", "VXLAN", "RDMA", "PKI", "network security"] },
+    { "name": "Languages", "keywords": ["Python", "Go", "Bash"] }
+  ],
+  "languages": [
+    { "language": "English", "fluency": "Fluent" },
+    { "language": "Kannada", "fluency": "Native" }
+  ],
+  "interests": [
+    { "name": "Carnatic classical music" },
+    { "name": "Travel", "keywords": ["every country in Europe before 28", "road trips"] },
+    { "name": "Philosophy", "keywords": ["Advaita Vedanta"] }
+  ],
+  "meta": {
+    "canonical": "https://shivu.io/resume.json",
+    "version": "v2.0.0",
+    "lastModified": "2026-08-24"
+  }
+}

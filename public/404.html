@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found</title>
+    <meta name="robots" content="noindex">
+    <script>
+        try {
+            var t = localStorage.getItem('theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <style>
+        .error-shell { max-width: 60rem; margin: 0 auto; padding: 0 1.25rem 3rem; }
+        .error-joke { text-align: center; max-width: 34rem; margin: 3rem auto 2.5rem; }
+        .error-joke .code {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin: 0 0 0.75rem;
+        }
+        .error-joke h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 6vw, 2.6rem);
+            font-weight: 520;
+            letter-spacing: -0.015em;
+            line-height: 1.15;
+            margin: 0 0 0.75rem;
+        }
+        .error-joke .punch { color: var(--text-secondary); margin: 0; }
+
+        .error-2048-wrap { display: grid; gap: 2rem; align-items: start; }
+        @media (min-width: 800px) {
+            .error-2048-wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 280px); }
+        }
+
+        #game-2048:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+        #game-2048 {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: clamp(1rem, 3vw, 1.35rem);
+            position: relative;
+            min-width: 0;
+        }
+        .g2048-column { max-width: 400px; width: 100%; margin-inline: auto; }
+        .g2048-head {
+            display: flex; flex-wrap: wrap; align-items: baseline;
+            justify-content: space-between; gap: 0.75rem; margin-bottom: 1rem;
+        }
+        .g2048-head h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            font-weight: 550; margin: 0;
+        }
+        .g2048-scores { display: flex; gap: 0.5rem; }
+        .g2048-scorebox {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.35rem 0.65rem;
+            text-align: center; min-width: 4.5rem;
+        }
+        .g2048-scorebox span {
+            display: block; font-family: var(--font-mono); font-size: 0.6rem;
+            letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);
+        }
+        .g2048-scorebox strong { font-size: 1.1rem; }
+
+        .g2048-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+        .g2048-btn {
+            font-family: var(--font-sans); font-size: 0.85rem; font-weight: 500;
+            padding: 0.45rem 0.85rem; border-radius: var(--radius-sm);
+            border: 1px solid var(--border); background: var(--bg-primary);
+            color: var(--text-primary); cursor: pointer;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .g2048-btn:hover { border-color: var(--accent); }
+        .g2048-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        .g2048-btn--primary { background: var(--accent); color: #fff; border-color: transparent; }
+        .g2048-btn--primary:hover { background: var(--accent-hover); color: #fff; }
+        [data-theme="dark"] .g2048-btn--primary { color: #1f1206; }
+        [data-theme="dark"] .g2048-btn--primary:hover { color: #1f1206; }
+        .g2048-btn--ghost { background: transparent; color: var(--text-muted); font-size: 0.8rem; }
+        .g2048-btn--ghost:hover { color: var(--text-primary); }
+        .g2048-arrows { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-left: auto; }
+        .g2048-arrows .g2048-btn { min-width: 2.25rem; padding: 0.35rem 0.5rem; }
+
+        #g2048-board {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-rows: repeat(4, minmax(0, 1fr));
+            gap: clamp(6px, 1.5vw, 10px);
+            width: 100%; aspect-ratio: 1;
+            margin: 0 0 0.75rem;
+            padding: clamp(6px, 1.5vw, 10px);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            touch-action: none; box-sizing: border-box;
+        }
+        .g2048-cell {
+            border-radius: var(--radius-sm);
+            background: color-mix(in srgb, var(--border) 35%, var(--bg-card));
+            display: flex; align-items: center; justify-content: center;
+            min-width: 0; min-height: 0;
+        }
+        .g2048-tile {
+            width: 100%; height: 100%; min-width: 0; min-height: 0;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: var(--radius-sm); font-weight: 700;
+            font-size: clamp(0.6rem, 3.6vmin, 1.3rem);
+            color: var(--text-primary);
+            animation: g2048-pop 0.12s ease-out;
+        }
+        @keyframes g2048-pop {
+            from { transform: scale(0.85); opacity: 0.7; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .g2048-tile[data-value="2"]   { background: var(--mint); }
+        .g2048-tile[data-value="4"]   { background: var(--lavender); }
+        .g2048-tile[data-value="8"]   { background: var(--peach); }
+        .g2048-tile[data-value="16"]  { background: var(--accent-soft); }
+        .g2048-tile[data-value="32"]  { background: color-mix(in srgb, var(--accent) 40%, var(--bg-card)); color: #fff; }
+        .g2048-tile[data-value="64"]  { background: color-mix(in srgb, var(--accent) 60%, var(--bg-card)); color: #fff; }
+        .g2048-tile[data-value="128"],
+        .g2048-tile[data-value="256"] { background: color-mix(in srgb, var(--accent) 78%, #2b1608); color: #fff; font-size: clamp(0.55rem, 3vmin, 1.05rem); }
+        .g2048-tile[data-value="512"],
+        .g2048-tile[data-value="1024"],
+        .g2048-tile[data-value="2048"] { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: #fff; font-size: clamp(0.45rem, 2.6vmin, 0.9rem); }
+
+        .g2048-hint { text-align: center; font-size: 0.82rem; color: var(--text-muted); margin: 0; }
+
+        #g2048-overlay {
+            position: absolute; inset: 0;
+            margin: clamp(1rem, 3vw, 1.35rem);
+            border-radius: calc(var(--radius) - 4px);
+            background: color-mix(in srgb, var(--bg-primary) 92%, transparent);
+            backdrop-filter: blur(6px);
+            display: flex; align-items: center; justify-content: center;
+            padding: 1.25rem; z-index: 5;
+        }
+        #g2048-overlay[hidden] { display: none !important; }
+        .g2048-overlay-inner { text-align: center; max-width: 320px; }
+        .g2048-overlay-inner h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 550; margin: 0 0 0.5rem; }
+        .g2048-overlay-inner .g2048-overlay-score { margin: 0 0 1rem; color: var(--text-secondary); line-height: 1.5; }
+        .g2048-overlay-inner input {
+            width: 100%; box-sizing: border-box; padding: 0.55rem 0.75rem;
+            border-radius: var(--radius-sm); border: 1px solid var(--border);
+            font-family: var(--font-sans); margin-bottom: 0.65rem;
+            background: var(--bg-primary); color: var(--text-primary);
+        }
+        .g2048-overlay-actions { display: flex; flex-direction: column; gap: 0.5rem; }
+        .g2048-overlay-actions .g2048-row { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+
+        .g2048-leaderboard-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: clamp(1rem, 3vw, 1.25rem);
+            min-width: 0;
+        }
+        .g2048-leaderboard-panel h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 550; margin: 0 0 0.75rem; }
+        .g2048-leaderboard-panel .g2048-lb-note { font-size: 0.78rem; color: var(--text-muted); line-height: 1.45; margin: 0 0 0.85rem; }
+        #g2048-leaderboard { list-style: none; margin: 0 0 1rem; padding: 0; }
+        #g2048-leaderboard li {
+            display: flex; align-items: center; gap: 0.5rem;
+            padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem;
+        }
+        #g2048-leaderboard li:last-child { border-bottom: none; }
+        .g2048-lb-rank { font-family: var(--font-mono); font-weight: 500; color: var(--accent); width: 1.5rem; }
+        .g2048-lb-name { flex: 1; overflow: hidden; text-overflow: ellipsis; }
+        .g2048-lb-score { font-weight: 600; color: var(--text-secondary); }
+        .g2048-lb-empty { color: var(--text-muted); font-style: italic; border: none !important; padding: 0.5rem 0 !important; }
+        .visually-hidden {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-head">
+        <nav class="site-nav" aria-label="Primary">
+            <a class="brand" href="/">Shiva Swaroop</a>
+            <div class="nav-links">
+                <a href="/">← Back home</a>
+                <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4.5"/>
+                        <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/>
+                    </svg>
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="error-shell">
+        <div class="error-joke">
+            <p class="code">404 not found</p>
+            <h1>Why did the developer quit?</h1>
+            <p class="punch">They didn’t get arrays. (Also, this URL doesn’t exist — but the grid below does. Same dimensions. Totally related.)</p>
+        </div>
+
+        <div class="error-2048-wrap">
+            <section
+                id="game-2048"
+                class="game-2048"
+                aria-labelledby="g2048-title"
+                aria-describedby="g2048-live"
+            >
+                <div class="g2048-column">
+                    <div class="g2048-head">
+                        <h2 id="g2048-title">2048 while you’re lost</h2>
+                        <div class="g2048-scores" aria-live="polite">
+                            <div class="g2048-scorebox">
+                                <span>Score</span>
+                                <strong id="g2048-score">0</strong>
+                            </div>
+                            <div class="g2048-scorebox">
+                                <span>Best</span>
+                                <strong id="g2048-best">0</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="g2048-toolbar">
+                        <button type="button" class="g2048-btn g2048-btn--primary" id="g2048-new">New game</button>
+                        <div class="g2048-arrows" role="group" aria-label="Move tiles">
+                            <button type="button" class="g2048-btn" data-dir="left" aria-label="Move left">←</button>
+                            <button type="button" class="g2048-btn" data-dir="up" aria-label="Move up">↑</button>
+                            <button type="button" class="g2048-btn" data-dir="down" aria-label="Move down">↓</button>
+                            <button type="button" class="g2048-btn" data-dir="right" aria-label="Move right">→</button>
+                        </div>
+                    </div>
+
+                    <div id="g2048-board" role="application" aria-roledescription="2048 tile board" aria-label="Tiles"></div>
+                    <p class="g2048-hint">Arrow keys or swipe on the board. Merge tiles to reach 2048.</p>
+                </div>
+                <p id="g2048-live" class="visually-hidden">Score 0. Playing.</p>
+
+                <div id="g2048-overlay" hidden>
+                    <div class="g2048-overlay-inner">
+                        <h3 id="g2048-overlay-title">Game over</h3>
+                        <p class="g2048-overlay-score" id="g2048-overlay-score"></p>
+                        <div class="g2048-overlay-actions">
+                            <input type="text" id="g2048-name" maxlength="24" placeholder="Your name" autocomplete="nickname" aria-label="Name for leaderboard">
+                            <div class="g2048-row">
+                                <button type="button" class="g2048-btn g2048-btn--primary" id="g2048-save">Save score</button>
+                                <button type="button" class="g2048-btn" id="g2048-skip-save">Skip</button>
+                            </div>
+                            <button type="button" class="g2048-btn g2048-btn--primary" id="g2048-overlay-again" hidden>Play again</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="g2048-leaderboard-panel" aria-labelledby="g2048-lb-heading">
+                <h3 id="g2048-lb-heading">Leaderboard</h3>
+                <p class="g2048-lb-note">Stored in your browser on this device only — great for bragging rights at home, useless for global fame.</p>
+                <ol id="g2048-leaderboard"></ol>
+                <button type="button" class="g2048-btn g2048-btn--ghost" id="g2048-reset-lb">Clear leaderboard</button>
+            </aside>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var html = document.documentElement;
+            var btn = document.getElementById('theme-toggle');
+            if (btn) {
+                btn.addEventListener('click', function () {
+                    var next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    try { localStorage.setItem('theme', next); } catch (e) {}
+                });
+            }
+        })();
+    </script>
+    <script src="/404-game.js"></script>
+</body>
+</html>

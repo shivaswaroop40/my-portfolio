@@ -69,4 +69,5 @@ venv.bak/
 # Local development
 .local
 
-public/
+# Wrangler
+.wrangler/.cloudflare/
