@@ -69,5 +69,6 @@ venv.bak/
 # Local development
 .local
 
-# Wrangler
-.wrangler/.cloudflare/
+# Wrangler / Cloudflare CLI
+.wrangler/
+.cloudflare/
