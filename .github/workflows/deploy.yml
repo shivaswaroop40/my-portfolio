@@ -24,3 +24,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Must match the major version in package.json — the action's default
+          # wrangler 3.x cannot read wrangler.jsonc and fails with
+          # "Missing entry-point".
+          wranglerVersion: "4.125.0"
