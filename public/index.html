@@ -96,7 +96,7 @@
                         <li><a href="#work">Work</a></li>
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#oss">Open source</a></li>
-                        <li><a href="#practice">Practice</a></li>
+                        <li><a href="#practice">Challenges</a></li>
                         <li><a href="#talks">Talks</a></li>
                         <li><a href="#photos">Photos</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -270,96 +270,38 @@
             <section class="section" id="oss" aria-labelledby="oss-heading">
                 <p class="kicker" id="oss-heading">Open source</p>
                 <p class="section-note">
-                    I like tools that let me see how the sausage is made, so lately I've been
-                    hanging around <a href="https://github.com/saiyam1814/kiac" target="_blank" rel="noopener noreferrer">kiac</a>
-                    (Kubernetes in Apple Containers), running clusters on Apple's native
-                    container runtime and reporting what breaks. Patches are brewing.
+                    Everything I build in the open lives on
+                    <a href="https://github.com/shivaswaroop40" target="_blank" rel="noopener noreferrer">GitHub</a>.
+                    The one I keep coming back to is
+                    <a href="https://github.com/shivaswaroop40/containerImages" target="_blank" rel="noopener noreferrer">containerImages</a>:
+                    multi-arch builds to GHCR, Cosign signatures, Trivy scans, SBOMs, and a
+                    Kyverno policy that turns away anything unsigned at the cluster door.
+                    It started as the demo for my supply-chain talk and became the pipeline
+                    I actually use.
                 </p>
-                <ul class="now-list">
-                    <li>
-                        <a href="https://github.com/saiyam1814/kiac/issues/41" target="_blank" rel="noopener noreferrer">kiac#41</a>:
-                        Cilium installs time out on slow links; the <code>--wait</code> flag never reaches the installer
-                    </li>
-                    <li>
-                        <a href="https://github.com/saiyam1814/kiac/issues/42" target="_blank" rel="noopener noreferrer">kiac#42</a>:
-                        proposal for one-flag Calico and flannel on the full kernel
-                    </li>
-                    <li>
-                        <a href="https://github.com/shivaswaroop40/containerImages" target="_blank" rel="noopener noreferrer">containerImages</a>:
-                        my own supply-chain pipeline, open for anyone to borrow
-                    </li>
-                </ul>
             </section>
 
             <section class="section" id="practice" aria-labelledby="practice-heading">
-                <p class="kicker" id="practice-heading">Hands-on practice</p>
+                <p class="kicker" id="practice-heading">Challenges I've built</p>
                 <p class="section-note">
-                    I keep my fingers warm on <a href="https://labs.iximiuz.com" target="_blank" rel="noopener noreferrer">iximiuz Labs</a>,
-                    real Linux VMs, real broken clusters, no multiple choice. 40+ challenges
-                    solved and roughly 285 hours of playground time so far. The full tally,
-                    if you're curious:
+                    I author hands-on challenges on
+                    <a href="https://labs.iximiuz.com/a/shiva-swaroop" target="_blank" rel="noopener noreferrer">iximiuz Labs</a>:
+                    real VMs, real broken clusters, no multiple choice. Solving other
+                    people's is fun; writing one that breaks in exactly the right way is
+                    the harder puzzle.
                 </p>
-                <details class="challenge-group">
-                    <summary>Kubernetes (15)</summary>
-                    <ul class="challenge-list">
-                        <li><a href="https://labs.iximiuz.com/challenges/cka-kubeadm-upgrade-ecfc7390" target="_blank" rel="noopener noreferrer">CKA Practice: Upgrade Multi-Node Kubernetes Cluster</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/CKA-Practice-Migrate-an-Ingress-to-Gateway-API-c29893bc" target="_blank" rel="noopener noreferrer">CKA Practice: Migrate an Ingress to Gateway API</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/kubernetes-pod-with-faulty-init-sequence" target="_blank" rel="noopener noreferrer">Kubernetes Pod With a Faulty Init Sequence</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/troubleshoot-pod-deployment-failure-2ccb7972" target="_blank" rel="noopener noreferrer">Troubleshoot Pod Deployment Failure Due to Resource Constraints</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/resolve-container-creating-issue-caused-by-missing-configmap-43cf26a0" target="_blank" rel="noopener noreferrer">Resolve ContainerCreating Caused by a Missing ConfigMap</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/schedule-pods-using-required-pod-affinity-d0ede94e" target="_blank" rel="noopener noreferrer">Schedule Pods Using Required Pod Affinity</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/scheduling-pods-with-taints-affinity-d466e93e" target="_blank" rel="noopener noreferrer">Schedule Pods Using Taints, Tolerations and Node Affinity</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/kubernetes-pod-image-volume" target="_blank" rel="noopener noreferrer">Mount Static Assets from an OCI Image into a Pod</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/Perform-In-Place-Updates-on-a-Kubernetes-Deployment-c866d58a" target="_blank" rel="noopener noreferrer">Perform In-Place Updates on a Deployment</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/convert-pod-to-deployment-with-secret-management-d8bbf781" target="_blank" rel="noopener noreferrer">Convert Pod to Deployment with Secret Management</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/using-configmap-as-environment-variables-2cb4bdb0" target="_blank" rel="noopener noreferrer">Set ConfigMap Environment Variables in a Pod</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/kubernetes-pull-private-image" target="_blank" rel="noopener noreferrer">Deploy a Pod with an Image from a Private Registry</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/start-pod-with-limited-resources" target="_blank" rel="noopener noreferrer">Deploy a Resource-Greedy Pod Without Breaking the Cluster</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/copy-files-to-from-kubernetes-pod" target="_blank" rel="noopener noreferrer">Copy Files To/From a Running Pod</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/kubernetes-signal-container" target="_blank" rel="noopener noreferrer">Send a Signal to a Kubernetes App</a></li>
-                    </ul>
-                </details>
-                <details class="challenge-group">
-                    <summary>Networking &amp; SSH (12)</summary>
-                    <ul class="challenge-list">
-                        <li><a href="https://labs.iximiuz.com/challenges/ssh-local-port-forwarding" target="_blank" rel="noopener noreferrer">Access an Internal Debug Port Through an SSH Tunnel</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/ssh-local-port-forwarding-bastion" target="_blank" rel="noopener noreferrer">Reach a Private VPC Service Through an SSH Bastion</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/ssh-remote-port-forwarding" target="_blank" rel="noopener noreferrer">Expose a Local Service Through an SSH Reverse Tunnel</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/ssh-remote-port-forwarding-home-network" target="_blank" rel="noopener noreferrer">Expose a Home Network Device Through an SSH Reverse Tunnel</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/ssh-reverse-socks-proxy" target="_blank" rel="noopener noreferrer">Expose a Whole Home Network Through an SSH Reverse SOCKS Proxy</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/ssh-socks-proxy" target="_blank" rel="noopener noreferrer">Reach a Whole VPC Through an SSH SOCKS Proxy</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/write-tcp-client-for-telemetry-server" target="_blank" rel="noopener noreferrer">Write a TCP Client for a Telemetry Server</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/networking-configure-basic-routing" target="_blank" rel="noopener noreferrer">Configure Routes to Connect Two Private Networks</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/linux-network-namespace" target="_blank" rel="noopener noreferrer">Create a Linux Network Namespace</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/port-forwarding-using-socat" target="_blank" rel="noopener noreferrer">Forward a Port Using socat</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/linux-find-port-used-by-service" target="_blank" rel="noopener noreferrer">Which Port Is a Service Listening On?</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/linux-find-process-using-port" target="_blank" rel="noopener noreferrer">Which Process Is Listening on a Port?</a></li>
-                    </ul>
-                </details>
-                <details class="challenge-group">
-                    <summary>Containers &amp; Docker (8)</summary>
-                    <ul class="challenge-list">
-                        <li><a href="https://labs.iximiuz.com/challenges/squash-bloated-container-image" target="_blank" rel="noopener noreferrer">Squash a Bloated Image to Remove Waste and Leaked Credentials</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/docker-build-image-remote-builder" target="_blank" rel="noopener noreferrer">Build an Image for Another Platform Using a Remote Builder</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/copy-container-image-from-one-repository-to-another-with-docker" target="_blank" rel="noopener noreferrer">Copy an Image from One Repository to Another</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/docker-clean-up-unused-volumes" target="_blank" rel="noopener noreferrer">Free Up Disk Space by Removing Unused Volumes</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/docker-101-container-kill" target="_blank" rel="noopener noreferrer">Signal a Running Containerized Application</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/docker-101-container-set-restart-policy" target="_blank" rel="noopener noreferrer">Restart an Application Container on Failure Automatically</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/docker-101-container-run-env-vars" target="_blank" rel="noopener noreferrer">Pass Environment Variables to Containers</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/start-container-with-docker" target="_blank" rel="noopener noreferrer">Start and Inspect a Container With Docker</a></li>
-                    </ul>
-                </details>
-                <details class="challenge-group">
-                    <summary>Linux (6)</summary>
-                    <ul class="challenge-list">
-                        <li><a href="https://labs.iximiuz.com/challenges/linux-debug-vanishing-worker-service" target="_blank" rel="noopener noreferrer">Troubleshoot a Worker Service That Keeps Disappearing</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/linux-create-systemd-service" target="_blank" rel="noopener noreferrer">Create a systemd Service for a Long-Running Process</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/linux-resolve-port-conflict" target="_blank" rel="noopener noreferrer">Resolve a Port Conflict and Keep All Dev Services Running</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/limit-cpu-and-memory-of-linux-process" target="_blank" rel="noopener noreferrer">Limit CPU and Memory Usage of a Process with cgroups</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/linux-install-packages-debian-ubuntu" target="_blank" rel="noopener noreferrer">Install Packages from Remote Repositories</a></li>
-                        <li><a href="https://labs.iximiuz.com/challenges/linux-tar-basics" target="_blank" rel="noopener noreferrer">Archive and Extract Files and Directories with tar</a></li>
-                    </ul>
-                </details>
+                <article class="entry">
+                    <div class="entry-head">
+                        <h3><a href="https://labs.iximiuz.com/challenges/CKA-Practice-Migrate-an-Ingress-to-Gateway-API-c29893bc" target="_blank" rel="noopener noreferrer">CKA Practice: Migrate an Ingress to Gateway API</a></h3>
+                        <p class="entry-period">Challenge · medium</p>
+                    </div>
+                    <p>
+                        An app served over HTTPS by ingress-nginx has to move to Gateway API
+                        with zero downtime: stand up a Gateway and HTTPRoute on staging,
+                        verify traffic, flip production over, then retire the Ingress.
+                    </p>
+                    <ul class="tags"><li>Kubernetes</li><li>Gateway API</li><li>Ingress</li><li>CKA</li></ul>
+                </article>
             </section>
 
             <section class="section" id="talks" aria-labelledby="talks-heading">

@@ -67,23 +67,20 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
 
 ## Open source
 
-- **[kiac](https://github.com/saiyam1814/kiac)** (Kubernetes in Apple Containers) —
-  active in the issue tracker: reported a Cilium install timeout where `--wait`
-  never reaches the installer ([#41](https://github.com/saiyam1814/kiac/issues/41))
-  and proposed one-flag Calico/flannel support on the full kernel
-  ([#42](https://github.com/saiyam1814/kiac/issues/42)); PRs in progress.
-- **[containerImages](https://github.com/shivaswaroop40/containerImages)** — his
-  own open-source supply-chain pipeline (see Selected projects).
+- **[containerImages](https://github.com/shivaswaroop40/containerImages)** —
+  supply-chain reference pipeline he actually uses: multi-arch builds to GHCR,
+  Cosign signing, Trivy scanning, SBOMs, and a Kyverno ClusterPolicy that
+  rejects unsigned images at admission.
+- More on [GitHub](https://github.com/shivaswaroop40).
 
-## Hands-on practice
+## Challenges authored
 
-40+ challenges solved on [iximiuz Labs](https://labs.iximiuz.com) (real Linux
-VMs and clusters, ~285 hours of playground time): 15 Kubernetes (incl. CKA
-practice: multi-node kubeadm upgrades, Ingress → Gateway API migration),
-12 networking & SSH (tunnels, bastions, SOCKS proxies, network namespaces),
-8 containers/Docker (image squashing, remote multi-arch builders), 6 Linux
-(systemd, cgroups, port conflicts). The full linked list is on
-https://shivu.io/#practice.
+Author on [iximiuz Labs](https://labs.iximiuz.com/a/shiva-swaroop):
+
+- [CKA Practice: Migrate an Ingress to Gateway API](https://labs.iximiuz.com/challenges/CKA-Practice-Migrate-an-Ingress-to-Gateway-API-c29893bc)
+  (medium) — move an HTTPS app from ingress-nginx to Gateway API with zero
+  downtime: Gateway + HTTPRoute on staging, verify, flip production, retire
+  the Ingress.
 
 ## Speaking & community
 

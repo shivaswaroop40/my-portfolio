@@ -20,8 +20,7 @@ of HTML.
 ## Elsewhere
 
 - [GitHub](https://github.com/shivaswaroop40): containerImages (supply-chain security pipeline), carnatic.xyz, and more
-- [kiac](https://github.com/saiyam1814/kiac): Kubernetes in Apple Containers — he is active in the issue tracker
-- [iximiuz Labs](https://labs.iximiuz.com): 40+ hands-on challenges solved (full list at https://shivu.io/#practice)
+- [iximiuz Labs author profile](https://labs.iximiuz.com/a/shiva-swaroop): hands-on challenges he has authored
 - [LinkedIn](https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b)
 - [X](https://x.com/podsandkapi)
 - [Cloud Native Stockholm](https://community.cncf.io/cloud-native-stockholm/): CNCF community group he co-organizes
