@@ -150,6 +150,7 @@
                 <ul class="now-list">
                     <li>Master thesis at <a href="https://ankra.ai" target="_blank" rel="noopener noreferrer">Ankra</a>: when is a generated Kubernetes NetworkPolicy actually safe to enforce?</li>
                     <li>Co-organizing <a href="https://community.cncf.io/cloud-native-stockholm/" target="_blank" rel="noopener noreferrer">Cloud Native Stockholm</a></li>
+                    <li>Organizing for the <a href="https://aaif.io" target="_blank" rel="noopener noreferrer">Agentic AI Foundation</a> community (formerly the MLOps Community)</li>
                     <li>Reading <em>We the People of India</em> by T.M. Krishna</li>
                 </ul>
             </section>
@@ -301,6 +302,55 @@
                         verify traffic, flip production over, then retire the Ingress.
                     </p>
                     <ul class="tags"><li>Kubernetes</li><li>Gateway API</li><li>Ingress</li><li>CKA</li></ul>
+                </article>
+                <article class="entry">
+                    <div class="entry-head">
+                        <h3><a href="https://labs.iximiuz.com/challenges/per-pod-mtls-with-podcertificaterequest-144fe512" target="_blank" rel="noopener noreferrer">Issue Per-Pod mTLS Certificates with PodCertificateRequest</a></h3>
+                        <p class="entry-period">Challenge · medium</p>
+                    </div>
+                    <p>
+                        Kubernetes 1.37 can hand every pod its own short-lived X.509 identity,
+                        no mesh and no sidecar. The API issues nothing without a signer,
+                        though, and a request nobody answers waits forever. Get a stalled
+                        workload its certificates and make the server enforce mutual TLS.
+                    </p>
+                    <ul class="tags"><li>Kubernetes</li><li>mTLS</li><li>PKI</li><li>workload identity</li></ul>
+                </article>
+                <article class="entry">
+                    <div class="entry-head">
+                        <h3><a href="https://labs.iximiuz.com/challenges/cka-practice-renew-control-plane-certificates-94a449de" target="_blank" rel="noopener noreferrer">CKA Practice: Renew Expiring Control Plane Certificates</a></h3>
+                        <p class="entry-period">Challenge · medium</p>
+                    </div>
+                    <p>
+                        kubectl is dead: the kube-apiserver certificate expired and the
+                        control plane went with it, while the workload quietly keeps serving.
+                        Diagnose the expiry offline, renew, and prove the cluster recovered.
+                    </p>
+                    <ul class="tags"><li>Kubernetes</li><li>kubeadm</li><li>certificates</li><li>CKA</li></ul>
+                </article>
+                <article class="entry">
+                    <div class="entry-head">
+                        <h3><a href="https://labs.iximiuz.com/challenges/recover-broken-apiserver-static-pod-b8e1a53b" target="_blank" rel="noopener noreferrer">CKA Practice: Recover a Broken Static Control-Plane Pod</a></h3>
+                        <p class="entry-period">Challenge · medium</p>
+                    </div>
+                    <p>
+                        Every kubectl command fails and the usual tools tell you nothing,
+                        because the thing that answers them is what broke. Work from the node
+                        itself, through crictl and the kubelet, to bring the API server back.
+                    </p>
+                    <ul class="tags"><li>Kubernetes</li><li>static pods</li><li>crictl</li><li>CKA</li></ul>
+                </article>
+                <article class="entry">
+                    <div class="entry-head">
+                        <h3><a href="https://labs.iximiuz.com/challenges/recover-notready-node-kubelet-config-af6617e0" target="_blank" rel="noopener noreferrer">CKA Practice: Recover a NotReady Node After a Kubelet Configuration Error</a></h3>
+                        <p class="entry-period">Challenge · easy</p>
+                    </div>
+                    <p>
+                        A worker node dropped to NotReady and took part of the workload with
+                        it. The runtime is fine and the control plane is healthy; the trail
+                        leads from kubectl symptoms down into systemd and the kubelet config.
+                    </p>
+                    <ul class="tags"><li>Kubernetes</li><li>kubelet</li><li>systemd</li><li>CKA</li></ul>
                 </article>
             </section>
 

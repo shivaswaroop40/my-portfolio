@@ -15,6 +15,8 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
 - Master thesis at [Ankra](https://ankra.ai): enforcement-readiness of generated
   Kubernetes NetworkPolicies (attack-injection benchmarking + flows ∪ config fusion)
 - Co-organizing [Cloud Native Stockholm](https://community.cncf.io/cloud-native-stockholm/)
+- Organizing for the [Agentic AI Foundation](https://aaif.io) community
+  (formerly the MLOps Community)
 - Reading *We the People of India* by T.M. Krishna
 
 ## Work
@@ -75,12 +77,26 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
 
 ## Challenges authored
 
-Author on [iximiuz Labs](https://labs.iximiuz.com/a/shiva-swaroop):
+Author on [iximiuz Labs](https://labs.iximiuz.com/a/shiva-swaroop). One is
+published as official content; the rest are public by link:
 
 - [CKA Practice: Migrate an Ingress to Gateway API](https://labs.iximiuz.com/challenges/CKA-Practice-Migrate-an-Ingress-to-Gateway-API-c29893bc)
   (medium) — move an HTTPS app from ingress-nginx to Gateway API with zero
   downtime: Gateway + HTTPRoute on staging, verify, flip production, retire
   the Ingress.
+- [Issue Per-Pod mTLS Certificates with PodCertificateRequest](https://labs.iximiuz.com/challenges/per-pod-mtls-with-podcertificaterequest-144fe512)
+  (medium) — Kubernetes 1.37 pod certificates: wire a stalled workload to the
+  cluster's signer, give the client its own identity, and make the server
+  enforce mutual TLS. No mesh, no sidecar.
+- [CKA Practice: Renew Expiring Control Plane Certificates](https://labs.iximiuz.com/challenges/cka-practice-renew-control-plane-certificates-94a449de)
+  (medium) — the apiserver certificate expired and kubectl is dead; diagnose
+  offline, renew with kubeadm, restart what never reloads, recover access.
+- [CKA Practice: Recover a Broken Static Control-Plane Pod](https://labs.iximiuz.com/challenges/recover-broken-apiserver-static-pod-b8e1a53b)
+  (medium) — API server down, so work from the node up: crictl, container
+  logs on disk, and the static pod manifest that carries the fault.
+- [CKA Practice: Recover a NotReady Node After a Kubelet Configuration Error](https://labs.iximiuz.com/challenges/recover-notready-node-kubelet-config-af6617e0)
+  (easy) — follow a NotReady node from kubectl into systemd and a strictly
+  decoded KubeletConfiguration that refuses to load.
 
 ## Speaking & community
 
