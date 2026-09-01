@@ -3,8 +3,9 @@
 > Personal site and portfolio of Shiva Swaroop N K (Shiva Swaroop Nittoor
 > Krishnamurthy), cloud infrastructure engineer in Stockholm. Kubernetes,
 > GitOps, software supply-chain security; Carnatic music and travel otherwise.
-> DevOps Engineer at Youmoni; MSc at KTH; co-organizer of Cloud Native
-> Stockholm (CNCF).
+> DevOps Engineer at Youmoni; MSc at KTH; CKA and Nebius AI CloudOps Engineer
+> certified; co-organizer of Cloud Native Stockholm (CNCF) and community
+> organizer for the Agentic AI Foundation (formerly MLOps Community).
 
 This site serves agents natively: page requests with an agent User-Agent, an
 `Accept: text/markdown` preference, or `?format=md` receive markdown instead
@@ -19,6 +20,8 @@ of HTML.
 ## Elsewhere
 
 - [GitHub](https://github.com/shivaswaroop40): containerImages (supply-chain security pipeline), carnatic.xyz, and more
+- [kiac](https://github.com/saiyam1814/kiac): Kubernetes in Apple Containers — he is active in the issue tracker
+- [iximiuz Labs](https://labs.iximiuz.com): 40+ hands-on challenges solved (full list at https://shivu.io/#practice)
 - [LinkedIn](https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b)
 - [X](https://x.com/podsandkapi)
 - [Cloud Native Stockholm](https://community.cncf.io/cloud-native-stockholm/): CNCF community group he co-organizes

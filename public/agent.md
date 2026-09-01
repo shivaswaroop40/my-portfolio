@@ -39,6 +39,11 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
 - MSc Communication Systems, KTH Royal Institute of Technology, Stockholm (2024–2026)
 - BE Telecommunication, M.S. Ramaiah Institute of Technology, Bengaluru (2017–2021)
 
+## Certifications
+
+- Certified Kubernetes Administrator (CKA) — CNCF / The Linux Foundation
+- Nebius AI CloudOps Engineer Certification — Nebius Academy
+
 ## Selected projects
 
 - **Enforcement-readiness of generated Kubernetes NetworkPolicies** (master
@@ -60,9 +65,31 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
   distributed microservices, RDMA-over-fabric storage; full PKI with
   certificate-based auth; a small software ISP (OSPF + BGP in Kathara).
 
+## Open source
+
+- **[kiac](https://github.com/saiyam1814/kiac)** (Kubernetes in Apple Containers) —
+  active in the issue tracker: reported a Cilium install timeout where `--wait`
+  never reaches the installer ([#41](https://github.com/saiyam1814/kiac/issues/41))
+  and proposed one-flag Calico/flannel support on the full kernel
+  ([#42](https://github.com/saiyam1814/kiac/issues/42)); PRs in progress.
+- **[containerImages](https://github.com/shivaswaroop40/containerImages)** — his
+  own open-source supply-chain pipeline (see Selected projects).
+
+## Hands-on practice
+
+40+ challenges solved on [iximiuz Labs](https://labs.iximiuz.com) (real Linux
+VMs and clusters, ~285 hours of playground time): 15 Kubernetes (incl. CKA
+practice: multi-node kubeadm upgrades, Ingress → Gateway API migration),
+12 networking & SSH (tunnels, bastions, SOCKS proxies, network namespaces),
+8 containers/Docker (image squashing, remote multi-arch builders), 6 Linux
+(systemd, cgroups, port conflicts). The full linked list is on
+https://shivu.io/#practice.
+
 ## Speaking & community
 
 - Co-organizer, Cloud Native Stockholm (CNCF community group)
+- Community organizer, [Agentic AI Foundation](https://aaif.io) (formerly the
+  MLOps Community, now the Linux Foundation's AAIF user community)
 - Finland Kubernetes & CNCF Meetup — speaker (Nov 2026)
 - Platform Engineering Stockholm — "From Swarm to Cattle: An Orchestration Story" (Oct 2025)
 - Stockholm Cloud Native Community Group — "Is Your Software Supply-Chain Secure?"

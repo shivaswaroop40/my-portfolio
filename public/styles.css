@@ -586,3 +586,37 @@ code {
         to { opacity: 1; transform: none; }
     }
 }
+
+/* Hands-on practice: challenge groups */
+.challenge-group {
+    border-bottom: 1px solid var(--border);
+}
+.challenge-group summary {
+    cursor: pointer;
+    padding: 0.6rem 0;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.challenge-group summary::marker {
+    color: var(--accent);
+}
+.challenge-group summary:hover {
+    color: var(--accent);
+}
+.challenge-list {
+    list-style: none;
+    padding: 0 0 0.75rem 1.25rem;
+    margin: 0;
+}
+.challenge-list li {
+    position: relative;
+    padding: 0.2rem 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+.challenge-list li::before {
+    content: "✓";
+    position: absolute;
+    left: -1.25rem;
+    color: var(--accent);
+}

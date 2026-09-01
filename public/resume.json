@@ -86,6 +86,24 @@
       "position": "Co-organizer",
       "url": "https://community.cncf.io/cloud-native-stockholm/",
       "summary": "Hosting meetups and growing the cloud-native community in Stockholm."
+    },
+    {
+      "organization": "Agentic AI Foundation (formerly MLOps Community)",
+      "position": "Community organizer",
+      "url": "https://aaif.io",
+      "summary": "Organizing for the Linux Foundation's AAIF user community, formerly known as the MLOps Community."
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Certified Kubernetes Administrator (CKA)",
+      "issuer": "Cloud Native Computing Foundation / The Linux Foundation",
+      "url": "https://www.cncf.io/training/certification/cka/"
+    },
+    {
+      "name": "Nebius AI CloudOps Engineer Certification",
+      "issuer": "Nebius Academy",
+      "url": "https://nebius.com/certification"
     }
   ],
   "publications": [],
@@ -108,7 +126,7 @@
   ],
   "meta": {
     "canonical": "https://shivu.io/resume.json",
-    "version": "v2.0.0",
-    "lastModified": "2026-08-24"
+    "version": "v2.1.0",
+    "lastModified": "2026-09-01"
   }
 }
