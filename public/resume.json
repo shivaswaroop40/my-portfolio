@@ -106,7 +106,22 @@
       "url": "https://nebius.com/certification"
     }
   ],
-  "publications": [],
+  "publications": [
+    {
+      "name": "Postgres on Kubernetes Is No Longer a Dare",
+      "publisher": "Ankra",
+      "releaseDate": "2026-08-03",
+      "url": "https://ankra.ai/blog/postgres-on-kubernetes",
+      "summary": "The \"never run a database on Kubernetes\" rule predates CSI and operators. What production Postgres takes in 2026, and when managed still wins."
+    },
+    {
+      "name": "The Minimalist's Guide to Homelab Setup",
+      "publisher": "Ankra",
+      "releaseDate": "2025-08-11",
+      "url": "https://ankra.ai/blog/minimalist-guide",
+      "summary": "Deploying the essential homelab applications with Ankra in a few clicks."
+    }
+  ],
   "skills": [
     { "name": "Kubernetes", "keywords": ["EKS", "Flux", "ArgoCD", "Kyverno", "Cilium", "eBPF", "NetworkPolicy"] },
     { "name": "Infrastructure as Code", "keywords": ["Terraform", "Ansible", "GitOps"] },
