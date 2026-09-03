@@ -114,6 +114,12 @@ published as official content; the rest are public by link:
 Blog: *Shiv Writes About Stuff*, https://shivu.io/blog (hosted on Notion).
 What he learns, builds, and breaks; not all of it technical.
 
+For the Ankra blog (https://ankra.ai/blog), hands-on guides for running real
+workloads on Kubernetes:
+
+- Postgres on Kubernetes Is No Longer a Dare (Aug 2026) — https://ankra.ai/blog/postgres-on-kubernetes
+- The Minimalist's Guide to Homelab Setup (Aug 2025) — https://ankra.ai/blog/minimalist-guide
+
 ## Contact
 
 - Email: shivaswaroop40@gmail.com
