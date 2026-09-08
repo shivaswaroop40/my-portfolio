@@ -103,8 +103,8 @@ published as official content; the rest are public by link:
 - Co-organizer, Cloud Native Stockholm (CNCF community group)
 - Community organizer, [Agentic AI Foundation](https://aaif.io) (formerly the
   MLOps Community, now the Linux Foundation's AAIF user community)
-- Finland Kubernetes & CNCF Meetup — speaker (Nov 2026)
 - Cloud Native Stockholm — "Is this policy safe to turn on?" (Sep 2026), slides at https://shivu.io/talks/safe-to-turn-on/
+- Finland Kubernetes & CNCF Meetup — speaker (Nov 2025)
 - Platform Engineering Stockholm — "From Swarm to Cattle: An Orchestration Story" (Oct 2025)
 - Stockholm Cloud Native Community Group — "Is Your Software Supply-Chain Secure?"
   + panelist on cloud-native AI (Feb 2025), slides (PDF) at
