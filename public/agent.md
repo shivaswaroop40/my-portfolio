@@ -104,10 +104,22 @@ published as official content; the rest are public by link:
 - Community organizer, [Agentic AI Foundation](https://aaif.io) (formerly the
   MLOps Community, now the Linux Foundation's AAIF user community)
 - Finland Kubernetes & CNCF Meetup — speaker (Nov 2026)
+- Cloud Native Stockholm — "Is this policy safe to turn on?" (Sep 2026), slides at https://shivu.io/talks/safe-to-turn-on/
 - Platform Engineering Stockholm — "From Swarm to Cattle: An Orchestration Story" (Oct 2025)
 - Stockholm Cloud Native Community Group — "Is Your Software Supply-Chain Secure?"
-  + panelist on cloud-native AI (Feb 2025)
+  + panelist on cloud-native AI (Feb 2025), slides (PDF) at
+  https://github.com/shivaswaroop40/containerImages/releases/download/talk-slides/CNCF.pdf
 - Finland Kubernetes & CNCF Meetup — speaker (Feb 2025)
+
+## Talk slides
+
+- Is this policy safe to turn on? (Cloud Native Stockholm, Sep 2026) —
+  https://shivu.io/talks/safe-to-turn-on/ — five Kubernetes NetworkPolicy
+  generators scored on the attacks they block and the connections they cut;
+  from the master thesis.
+- Is Your Software Supply-Chain Secure? (Stockholm Cloud Native Community
+  Group, Feb 2025) — PDF at
+  https://github.com/shivaswaroop40/containerImages/releases/download/talk-slides/CNCF.pdf
 
 ## Writing
 
