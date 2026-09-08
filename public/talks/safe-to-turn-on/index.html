@@ -104,6 +104,11 @@
   .thanks .qr { width: clamp(140px, 20vw, 300px); background: #fff; padding: .6vw; border-radius: 6px; }
   .thanks .who { display: grid; gap: 1.5vh; }
   @media (max-aspect-ratio: 4/3) { .thanks { grid-template-columns: 1fr; justify-items: start; } }
+  .whoami { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4vw; }
+  .whoami .me { width: clamp(160px, 24vw, 380px); aspect-ratio: 1; object-fit: cover; border-radius: 50%; }
+  .who-list { margin-top: 3vh; gap: 1.2vh; }
+  .who-list li { font-size: clamp(1.15rem, 2.2vw, 2rem); max-width: 34ch; }
+  .who-list li.mono { font-family: var(--mono); font-size: .8em; color: var(--ink-2); }
   .hint { position: fixed; right: 1.2rem; bottom: .8rem; font-family: var(--mono); font-size: .7rem; color: var(--mute); letter-spacing: .04em; }
   a { color: inherit; }
   :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
@@ -124,8 +129,32 @@
     <h1>Is this policy safe to turn on?</h1>
     <p class="muted">Shiva Swaroop N K</p>
   </div>
-  <div class="foot"><span></span><span>1 / 22</span></div>
+  <div class="foot"><span></span><span>1 / 23</span></div>
   <aside class="notes">Start with the audience's experience: you tried a generated policy, something broke, you rolled it back, the namespace has been open since. The tool never told you what would break.</aside>
+</section>
+
+<!-- 2 · whoami -->
+<section class="slide">
+  <div class="eyebrow"><b>CNCF Stockholm</b> <span>8 September 2026</span></div>
+  <div class="body" style="grid-row: 2 / span 2">
+    <div class="whoami">
+      <div>
+        <h1 style="font-family: var(--mono); font-weight: 500; letter-spacing: -0.01em">$whoami</h1>
+        <ul class="who-list">
+          <li>Shiva Swaroop N K</li>
+          <li>Cloud infrastructure engineer, Stockholm</li>
+          <li>DevOps Engineer at Youmoni</li>
+          <li>MSc Communication Systems, KTH · thesis at Ankra</li>
+          <li>Co-organizer, Cloud Native Stockholm</li>
+          <li>CKA · Carnatic music · filter coffee</li>
+          <li class="mono">shivu.io · @podsandkapi</li>
+        </ul>
+      </div>
+      <img class="me" alt="Shiva Swaroop N K">
+    </div>
+  </div>
+  <div class="foot"><span></span><span>2 / 23</span></div>
+  <aside class="notes">Thirty seconds. Infra engineer, the thesis is why I am up here, I co-organize this meetup. Then move on.</aside>
 </section>
 
 <!-- 2 · what a netpol is -->
@@ -135,7 +164,7 @@
   <div class="fig">
     <svg id="f-netpol" role="img" aria-label="Left: three pods with arrows in every direction. Middle: a NetworkPolicy YAML allowing frontend to orders on port 8080. Right: the same pods, only the listed arrows remain, the others are crossed out."></svg>
   </div>
-  <div class="foot"><span></span><span>2 / 22</span></div>
+  <div class="foot"><span></span><span>3 / 23</span></div>
   <aside class="notes">The selector picks the pod. Ingress rules say who may come in, egress rules say where it may go. Once a pod is selected by any policy, everything not listed is dropped. That is the part that scares people.</aside>
 </section>
 
@@ -146,7 +175,7 @@
   <div class="fig">
     <svg id="f-adoption" role="img" aria-label="Three hand-drawn rings: 9 percent of clusters use network policies, 84 percent of Helm charts ship none, 46 percent of organisations saw lateral movement."></svg>
   </div>
-  <div class="foot"><span></span><span>3 / 22</span></div>
+  <div class="foot"><span></span><span>4 / 23</span></div>
   <aside class="notes">Nobody has measured how many teams leave policies in audit mode. The NetworkPolicy object has no audit mode; that is a CNI feature, so scanners cannot see it.</aside>
 </section>
 
@@ -157,7 +186,7 @@
   <div class="fig">
     <svg id="f-wrong" role="img" aria-label="A policy wall in the middle. Top: an attacker pod's arrow to the database passes through the wall, labelled too open, over-privilege. Bottom: frontend's arrow to orders is crossed out at the wall, labelled too strict, false-deny."></svg>
   </div>
-  <div class="foot"><span></span><span>4 / 22</span></div>
+  <div class="foot"><span></span><span>5 / 23</span></div>
   <aside class="notes">Define both words once here and reuse them. Over-privilege: share of attack paths the policy lets through. False-deny: share of real dependencies the policy blocks.</aside>
 </section>
 
@@ -168,7 +197,7 @@
   <div class="fig">
     <svg id="f-generators" role="img" aria-label="Row one: pods talking, observed by an observer, turned into a policy that allows what was seen. Row two: manifests and env vars parsed by a derivation into a policy that allows what is declared."></svg>
   </div>
-  <div class="foot"><span></span><span>5 / 22</span></div>
+  <div class="foot"><span></span><span>6 / 23</span></div>
   <aside class="notes">Nearly every tool is in row one. Row two is AutoSeg's idea, not mine. What I add later is a ground truth the tool could not have seen, plus real attacks.</aside>
 </section>
 
@@ -179,7 +208,7 @@
   <div class="fig">
     <svg id="f-tools-watch" role="img" aria-label="Five cards. Otterize: eBPF network mapper builds a service map, an operator turns it into policies; used to see who talks to whom and roll out policies gradually. Inspektor Gadget: eBPF gadgets on each node, trace_tcp records new connections, snapshot_socket lists open sockets; used for node-level debugging, policy advice is a side feature. Cilium Hubble: every flow with pod identities, the policy editor turns flows into rules; used for observability and audit mode. Kunerva: reads Cilium flow logs, merges rules; research. KubeGuard: an LLM reads runtime logs and manifests; research, paper only."></svg>
   </div>
-  <div class="foot"><span></span><span>6 / 22</span></div>
+  <div class="foot"><span></span><span>7 / 23</span></div>
   <aside class="notes">Otterize is really an access-management product; the policy generator is how it gets you to zero trust one service at a time. Inspektor Gadget is a debugging toolbox; its policy advisor is one gadget among many. Hubble is Cilium's observability layer; the editor and my synthesiser both turn its flows into YAML.</aside>
 </section>
 
@@ -190,7 +219,7 @@
   <div class="fig">
     <svg id="f-tools-read" role="img" aria-label="Three cards. AutoSeg: reads command-line args, env vars and config files inside containers to build a dependency graph; used to segment apps you have not run, 184 services tested, paper only. np-guard: static analysis of manifests, lists connectivity and synthesises policies; used in CI to catch a change that opens a connection. KubeTeus: an LLM turns a written intent into policy YAML; used to write policies by hand, faster."></svg>
   </div>
-  <div class="foot"><span></span><span>7 / 22</span></div>
+  <div class="foot"><span></span><span>8 / 23</span></div>
   <aside class="notes">AutoSeg is the closest prior work and it is not circular: it scores against documented topology. It just never runs an attack. np-guard is the industrial relative of my flow synthesiser. KubeTeus scores an NLP metric, F1 on entity extraction, which says nothing about the policy's safety.</aside>
 </section>
 
@@ -201,7 +230,7 @@
   <div class="fig">
     <svg id="f-circular" role="img" aria-label="A loop: the traffic the tool watched is turned into rules, and the rules are graded against the same traffic."></svg>
   </div>
-  <div class="foot"><span></span><span>8 / 22</span></div>
+  <div class="foot"><span></span><span>9 / 23</span></div>
   <aside class="notes">KubeGuard's own definition of a false negative is a rule missing "despite being evidenced in the logs". The ground truth is the observation.</aside>
 </section>
 
@@ -212,7 +241,7 @@
   <div class="fig">
     <svg id="f-attacks" role="img" aria-label="An attacker pod on the left with six arrows to targets: kubelet port 10250, the message bus 4222, the database 5432, cloud metadata 169.254.169.254, the internal API 8000, and a port scan of every pod. Each target lists what the attacker gains."></svg>
   </div>
-  <div class="foot"><span></span><span>9 / 22</span></div>
+  <div class="foot"><span></span><span>10 / 23</span></div>
   <aside class="notes">Port scan reached 21 of 26 internal targets. The message bus answered with its banner and no credentials. Metadata endpoint answered on port 80. This is the roster no prior generator was tested against.</aside>
 </section>
 
@@ -223,7 +252,7 @@
   <div class="fig">
     <svg id="f-bench" role="img" aria-label="Flow: 30 minutes of normal traffic watched by all five observers; each tool writes a policy; the policy is applied and scored. Two inputs feed the scoring: six attacks run at the policy, and the app's real dependencies read from its configuration. Outputs: over-privilege and false-deny. Run three times."></svg>
   </div>
-  <div class="foot"><span></span><span>10 / 22</span></div>
+  <div class="foot"><span></span><span>11 / 23</span></div>
   <aside class="notes">Order matters: the tools only ever see the benign window. The attacks run afterwards, against the policy each tool produced. Ground truth was frozen before any capture, so no tool could have seen it. That is what makes the false-deny score non-circular.</aside>
 </section>
 
@@ -234,7 +263,7 @@
   <div class="fig">
     <svg id="f-blocked" role="img" aria-label="Six attack arrows hit a policy wall and are all crossed out. Block rate 1.000, over-privilege 0.000, same in all three runs."></svg>
   </div>
-  <div class="foot"><span></span><span>11 / 22</span></div>
+  <div class="foot"><span></span><span>12 / 23</span></div>
   <aside class="notes">Keep this slide in any cut. The published metric ties every tool.</aside>
 </section>
 
@@ -245,7 +274,7 @@
   <div class="fig">
     <svg id="f-fd" role="img" aria-label="Hand-drawn bar chart of false-deny: Hubble flow synthesiser 0.299, IG snapshot_socket 0.615, Otterize fresh 30 min 0.709, Otterize 20-day 0.718, IG trace_tcp 0.880."></svg>
   </div>
-  <div class="foot"><span></span><span>12 / 22</span></div>
+  <div class="foot"><span></span><span>13 / 23</span></div>
   <aside class="notes">All five tools watched identical traffic. The difference is what each one records. Next slide shows why.</aside>
 </section>
 
@@ -256,7 +285,7 @@
   <div class="fig">
     <svg id="f-mech" role="img" aria-label="A timeline from day minus 11 to now with a 30-minute capture window near the end. The API's message-bus and cache sockets have been open since day minus 11 and never reconnect inside the window. The database pool reconnects every few minutes. trace_tcp records connect calls inside the window, so it sees the database only. snapshot_socket lists open sockets, so it sees all three."></svg>
   </div>
-  <div class="foot"><span></span><span>13 / 22</span></div>
+  <div class="foot"><span></span><span>14 / 23</span></div>
   <aside class="notes">The database pool reconnects often, so trace_tcp did see it in all three runs. The message-bus and cache sockets stayed open for 11 days.</aside>
 </section>
 
@@ -267,7 +296,7 @@
   <div class="fig">
     <svg id="f-live" role="img" aria-label="Three panels. One: the policy is applied, the API pod keeps its open connections to the message bus, cache and database, zero drops for 45 seconds. Two: the pod restarts, the new pod's connections to the message bus and cache are dropped by the policy, the database one passes, the pod crash-loops. Three: the policy is deleted, everything reconnects, Ready five seconds later."></svg>
   </div>
-  <div class="foot"><span></span><span>14 / 22</span></div>
+  <div class="foot"><span></span><span>15 / 23</span></div>
   <aside class="notes">The rolling update hid the failure: the new pod never became Ready, so the Deployment kept the old one. Deleting the policy, and nothing else, made the new pod Ready in five seconds.</aside>
 </section>
 
@@ -278,7 +307,7 @@
   <div class="fig">
     <svg id="f-time" role="img" aria-label="Three bar panels. Watch for longer: Otterize on the same cluster, 30 minutes 29.1 percent, 20 days 28.2 percent. Run more operations in the same 30 minutes: 70.1 percent, then 79.5 percent with every endpoint and the whole UI. Run the right operation: Bank of Anthos sign-up journey 91.7 percent, plus one payment 100 percent."></svg>
   </div>
-  <div class="foot"><span></span><span>15 / 22</span></div>
+  <div class="foot"><span></span><span>16 / 23</span></div>
   <aside class="notes">Left: Otterize with 20 days of history versus a fresh 30 minutes on the same cluster moved false-deny by 0.009, a third of one edge, in the wrong direction. Middle: same 30 minutes, best observer: 70.1 percent in the three-run study, 79.5 percent when the harness swept all 187 endpoints and the UI. Config declares 89.7 percent, and observation never found an edge config had not declared. Right: Bank of Anthos, both journeys are the vendor's own load generators. The sign-up journey never makes a payment, so frontend to ledgerwriter never appears; the config declares it. Sock Shop checkout is not an example any more: it is broken in the shipped image, so it never fires under any journey.</aside>
 </section>
 
@@ -289,7 +318,7 @@
   <div class="fig">
     <svg id="f-quad" role="img" aria-label="A two by two grid. Declared and seen: allow. Declared and not seen: breaks on enforce, a traffic-only policy cuts this. Not declared and seen: hard-coded dependency, keep and flag. Not declared and not seen: neither, reported not guessed."></svg>
   </div>
-  <div class="foot"><span></span><span>16 / 22</span></div>
+  <div class="foot"><span></span><span>17 / 23</span></div>
   <aside class="notes">False-deny splits in two. Edges that fired but the tool did not record: change the tool. Edges that never fired: read the config. From the maximal run the flow synthesiser lost 0.00 to its mechanism, Otterize 0.26 to 0.28, trace_tcp 0.40 to 0.54.</aside>
 </section>
 
@@ -300,7 +329,7 @@
   <div class="fig">
     <svg id="f-inv" role="img" aria-label="Two panels of bars. Production control plane: config alone 89.7 percent, traffic 70.1 percent, both 89.7 percent. Sock Shop: config alone 6.7 percent, traffic 66.7 percent, both 66.7 percent."></svg>
   </div>
-  <div class="foot"><span></span><span>17 / 22</span></div>
+  <div class="foot"><span></span><span>18 / 23</span></div>
   <aside class="notes">Be exact: the union equalled the better source, it never beat it. Expected first question: why does config win on one app and lose on the other? The control plane puts its endpoints in Helm values and env vars. Sock Shop puts them in code.</aside>
 </section>
 
@@ -311,7 +340,7 @@
   <div class="fig">
     <svg id="f-apps" role="img" aria-label="Three apps. Online Boutique: traffic-built policy, zero drops. Bank of Anthos: frontend to ledgerwriter cut, 264 drops, zero after adding the declared edge. DeathStarBench social: compose chain cut, 1942 drops, neither source found it."></svg>
   </div>
-  <div class="foot"><span></span><span>18 / 22</span></div>
+  <div class="foot"><span></span><span>19 / 23</span></div>
   <aside class="notes">DeathStarBench declares its graph in a mounted JSON file my derivation does not parse. Parsing it would declare every service to every service, so I did not. A limit of my tool, not of the app. Two more apps, the OpenTelemetry demo and DeathStarBench hotel, are capturing now and are not in these numbers.</aside>
 </section>
 
@@ -327,7 +356,7 @@
       <li>"Apply it and watch" is not a test. Score it first.</li>
     </ol>
   </div>
-  <div class="foot"><span></span><span>19 / 22</span></div>
+  <div class="foot"><span></span><span>20 / 23</span></div>
   <aside class="notes">The results look mixed only if you expect one source to win. The finding is that no single source is safe to rely on, and that the number everyone publishes, attacks blocked, cannot tell the tools apart. The property that decides whether you can turn a policy on is how much it breaks, and that has to be measured against dependencies the tool could not have seen, with the attacks run for real. That is what enforcement-readiness means and what npready measures.</aside>
 </section>
 
@@ -344,7 +373,7 @@
       <li>The app changes. Regenerate the policy.</li>
     </ol>
   </div>
-  <div class="foot"><span></span><span>20 / 22</span></div>
+  <div class="foot"><span></span><span>21 / 23</span></div>
   <aside class="notes">Namespace scope: a NetworkPolicy selects pods by label inside one namespace, so anything else in that namespace matching the selector is cut too; keep policies per namespace and selectors tight. Lower environments: the live run showed the break only appears at the first reconnect, so restart pods under the policy in staging, not in production. From the thesis: Cilium never re-checks established flows, so 'apply and watch' passes a broken policy; the NetworkPolicy API has no audit mode, only Cilium and Calico add one; identity-only tools cannot separate egress on 443 from 80, and at layer 3 and 4 GitHub, a mining pool and your own API all look like port 443; on the platform 17 of 55 declared dependencies live outside the workload, in RBAC, scrape config and Ingress, so a policy built from the app's own config misses them; DeathStarBench declares its graph in a mounted JSON no tool parses; my own leftover attack pods later broke a platform upgrade, so clean up test residue; and a policy is only as current as the config and traffic it came from, so regenerate when the app changes.</aside>
 </section>
 
@@ -360,7 +389,7 @@
       <li>What share of my real dependency set could your method ever discover?</li>
     </ol>
   </div>
-  <div class="foot"><span></span><span>21 / 22</span></div>
+  <div class="foot"><span></span><span>22 / 23</span></div>
   <aside class="notes">No numbers needed. A tool that can answer all five is doing something no current one does.</aside>
 </section>
 
@@ -378,7 +407,7 @@
       <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAewAAAHsAQMAAAAq5AwjAAAABlBMVEUSFhv///+Df47xAAAAAnRSTlP//8i138cAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAJhSURBVHic7dhBbgMxCIVhbjD3v+XcgDYxPLCn6qabEv1WFU0TPrp6Bcf8T8fgcDgc/v+56Vzvt9br+7yebosf90cxHD6TXx4f5cN38ffz4r3b682tGA6fyvVRxSEzslqth6MYDv8ErknRR0PrBod/Js+laB21qljB4cP5EYcotpwUHj3VPxUcPpPrZGp++2nFcPhQvuUix4RdMSZqRthZDIcP5RWE57zw7avORyUcPpK74tCj8SZrNMS9IJ+rBg6fyfPZKyMe0VBYamR4Nrzg8Knc8/9/dcgmoXwLy6qBwwfzVqnUKC+mm28mZaUJDh/MV2RyBVIuVJ9DoYKTBw4fyzMFPR1qq5io0o8pA4eP4krHq5FuuBkTvRlzxNr7cPhMHk8tKdVHYbn3TenaEgeHj+Nm1WepIzJFVpOoh8Nn8uMKnGHxjEzUtItADgs4fDJXB6uv8ZUdzYscEA6Hz+arftlsmLnYFiSrvQgOn8pVtiqPbtUzZ0cbGXD4SO65FEVARLJJ1VjeBe5tNYLDh3Gv//yVnX76amR1ZYDD5/LaeXa1PqqYtFZw+Fy+ns/XO5d/S3vV+/FH4fChvC9FOSZi+bmjQKnRjmQXHD6YbzXJo4ltf0IHDh/NVwTCdvjjyvRMHBw+ip9B0Fed2bYa5jRRORw+kW8paHmJsGhxar9uiYPDx/HceaLybvfc9lp9TLdgOHwqr4D07UgfPS6/UQaHfwbv33C6F1RZFsPhn8BzC1JwLJf/VRPnNjh8NI+CthdVN918t7A4HD6Y67TpEK08mmhk6Fc4fC7/w4HD4XD4P+dfJ1eMXN3dNJUAAAAASUVORK5CYII=" alt="QR code for the LinkedIn profile">
     </div>
   </div>
-  <div class="foot"><span></span><span>22 / 22</span></div>
+  <div class="foot"><span></span><span>23 / 23</span></div>
   <aside class="notes">Limits if asked: attack and breakage results come from two applications, reproduced three times. Config derivation was tried on 13 real apps, real edges on 10, zero false positives. The three open-source apps were each run once.</aside>
 </section>
 
@@ -776,6 +805,10 @@
       return;
     }
   }
+
+  // whoami photo: reuse the one embedded on the closing slide
+  var meSrc = document.querySelector('.thanks .me'), meDst = document.querySelector('.whoami .me');
+  if (meSrc && meDst) meDst.src = meSrc.src;
 
   // navigation
   var deck = document.getElementById('deck');
