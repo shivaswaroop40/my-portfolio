@@ -58,6 +58,11 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
   alone plateaus at ~72% of needed edges; fusing config raises coverage to ~82%
   and cuts false-denies, with over-privilege held at zero. Evaluated on a live
   k3s + Cilium cluster against the Ankra control plane and Sock Shop.
+- **[Sift](https://shivu.io/sift/)** ([source](https://github.com/shivaswaroop40/sift)) —
+  daily digest per field. A script reads every feed for a domain, an LLM scores
+  each new item on depth, novelty and utility, and the top dozen become that
+  day's edition. Editions: tech, cybersecurity, chemical engineering, travel,
+  each with an RSS feed at `https://shivu.io/sift/<domain>/rss.xml`.
 - **[containerImages](https://github.com/shivaswaroop40/containerImages)** —
   secure container supply-chain reference: multi-arch Buildx builds to GHCR,
   Cosign signing/verification, Trivy scanning, SBOM generation.
