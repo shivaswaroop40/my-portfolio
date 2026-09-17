@@ -15,6 +15,7 @@ of HTML.
 
 - [Full profile (markdown)](https://shivu.io/agent.md): everything on the site (work, projects, talks, contact)
 - [CV as JSON Resume](https://shivu.io/resume.json): machine-readable career data
+- [Sift](https://shivu.io/sift/): daily LLM-triaged digest with tech, cybersecurity, chemical engineering and travel editions, each with an RSS feed
 - [Blog](https://shivu.io/blog): "Shiv Writes About Stuff", hosted on Notion
 - [Talk slides: Is this policy safe to turn on?](https://shivu.io/talks/safe-to-turn-on/): Cloud Native Stockholm, Sep 2026; the master-thesis benchmark of Kubernetes NetworkPolicy generators
 
