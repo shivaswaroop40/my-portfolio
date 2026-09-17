@@ -76,7 +76,7 @@
     {
       "name": "carnatic.xyz",
       "description": "A web home for Carnatic classical music. Next.js on Cloudflare Workers; in progress.",
-      "url": "https://github.com/shivaswaroop40/carnatic.xyz",
+      "url": "https://carnatic.xyz",
       "keywords": ["Next.js", "Cloudflare Workers", "Carnatic music"]
     }
   ],

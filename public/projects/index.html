@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects · Shiva Swaroop N K</title>
+    <meta name="description" content="Longer write-ups of what Shiva Swaroop has built: a master thesis on Kubernetes NetworkPolicy enforcement, Sift, containerImages, carnatic.xyz, and seven KTH course projects in networking, security and machine learning.">
+    <link rel="canonical" href="https://shivu.io/projects/">
+    <meta property="og:title" content="Projects · Shiva Swaroop N K">
+    <meta property="og:description" content="The problem, what I built and what came out of it, for every project on shivu.io.">
+    <meta property="og:url" content="https://shivu.io/projects/">
+    <meta property="og:type" content="website">
+    <script>
+        try {
+            var t = localStorage.getItem('theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <style>
+        .projects-page h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 5vw, 2.3rem);
+            font-weight: 520;
+            margin: 0 0 0.5rem;
+        }
+        .toc {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            columns: 2 16rem;
+            column-gap: 2.5rem;
+            font-size: 0.94rem;
+        }
+        .toc li { margin: 0 0 0.45rem; break-inside: avoid; }
+        .toc a { color: var(--text-secondary); text-decoration: none; }
+        .toc a:hover { color: var(--accent); }
+        .case {
+            margin: 0 0 3.25rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border);
+            scroll-margin-top: 1.5rem;
+        }
+        .case-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.9rem;
+        }
+        .case h2 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 550;
+            line-height: 1.3;
+            margin: 0;
+        }
+        .case h2 a { color: inherit; }
+        .case h2 a:hover { color: var(--accent); }
+        .case h3 {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin: 1.4rem 0 0.4rem;
+        }
+        .case p {
+            max-width: var(--measure);
+            margin: 0 0 0.85rem;
+            color: var(--text-secondary);
+        }
+        .case .tags { margin-top: 1.1rem; }
+        .case-links { font-size: 0.92rem; }
+    </style>
+</head>
+<body>
+    <header class="site-head">
+        <nav class="site-nav" aria-label="Primary">
+            <a class="brand" href="/">Shiva Swaroop</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/sift/">Sift</a>
+                <a href="/blog">Blog</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main" class="page-main projects-page">
+        <section class="section">
+            <p class="kicker">Projects</p>
+            <h1>The longer version</h1>
+            <p class="section-note">
+                The home page gives each project a paragraph. This page gives each one the
+                problem, what I built and what came out of it. The first four are my own
+                work. The rest are course projects from my master's at KTH, most of them
+                done in groups, and I say so where that is the case.
+            </p>
+            <ul class="toc">
+                <li><a href="#thesis">NetworkPolicy enforcement-readiness (thesis)</a></li>
+                <li><a href="#sift">Sift</a></li>
+                <li><a href="#containerimages">containerImages</a></li>
+                <li><a href="#carnatic">carnatic.xyz</a></li>
+                <li><a href="#llm-ensembles">Ensembles of LLMs on one GPU</a></li>
+                <li><a href="#two-site-network">Securing a two-site company network</a></li>
+                <li><a href="#risk-assessment">Cyber risk in euros with YACRAF</a></li>
+                <li><a href="#wifi">Wi-Fi models against measurements</a></li>
+                <li><a href="#isp-design">Designing a small ISP</a></li>
+                <li><a href="#smart-home">Do smart appliances save energy?</a></li>
+            </ul>
+        </section>
+
+        <section class="section" aria-labelledby="own-heading">
+            <p class="kicker" id="own-heading">Thesis and side projects</p>
+
+            <article class="case" id="thesis">
+                <div class="case-head">
+                    <h2>Enforcement-readiness of generated Kubernetes NetworkPolicies</h2>
+                    <p class="entry-period">Master thesis · Ankra · 2026</p>
+                </div>
+                <h3>The problem</h3>
+                <p>
+                    Plenty of tools can watch a cluster and generate a <code>NetworkPolicy</code>
+                    that blocks attacks. None of them tell you whether that policy is safe to turn
+                    on without breaking the application. The papers do not check either. They
+                    evaluate a policy against the same traffic the tool observed, so a missing
+                    edge never shows up.
+                </p>
+                <h3>What I built</h3>
+                <p>
+                    Two things. The first is a benchmark that works with any generator. It
+                    injects real attacks and scores the resulting policy on block-rate,
+                    over-privilege and false-denies. The second is a prototype that fuses
+                    eBPF flow observation from Cilium Hubble with dependencies read from cluster
+                    configuration: Services, Ingress, DNS, RBAC and StatefulSet peers.
+                </p>
+                <h3>What came out of it</h3>
+                <p>
+                    Watching traffic alone tops out at around 72% of the edges an application
+                    needs. Adding configuration raises that to around 82% and cuts false-denies,
+                    with over-privilege held at zero. Everything was measured on a live k3s and
+                    Cilium cluster, against the Ankra control plane and Sock Shop.
+                </p>
+                <p class="case-links">
+                    <a href="/talks/safe-to-turn-on/">Slides from the Cloud Native Stockholm talk</a>
+                </p>
+                <ul class="tags"><li>eBPF</li><li>Cilium</li><li>Hubble</li><li>Kubernetes</li><li>NetworkPolicy</li><li>k3s</li></ul>
+            </article>
+
+            <article class="case" id="sift">
+                <div class="case-head">
+                    <h2><a href="/sift/">Sift</a></h2>
+                    <p class="entry-period">Side project · updated daily</p>
+                </div>
+                <h3>The problem</h3>
+                <p>
+                    Keeping up with a field means reading a firehose of feeds, and most of what
+                    is in them is a product launch or a rewrite of yesterday's story. I wanted
+                    the dozen items a day that are actually worth the time, per field, without
+                    doing the reading myself.
+                </p>
+                <h3>What I built</h3>
+                <p>
+                    A script that runs every morning in GitHub Actions. For each field it reads
+                    every feed, 65 of them across four fields, drops what it has seen before and
+                    asks an LLM to score each new item on depth, novelty and usefulness to one
+                    specific reader. Near-duplicate stories are collapsed, each source is capped
+                    and the top dozen get a short summary written from the article text. The
+                    output is plain markdown in the repository, built into a static site with
+                    Astro. Each field has a front page, an archive and an RSS feed.
+                </p>
+                <p>
+                    It runs on a cheap open model with a second model as fallback. An edition is
+                    written whole or not at all, so a crash halfway leaves yesterday's edition
+                    in place. The site deploys to GitHub Pages, and shivu.io serves the same
+                    pages under <a href="/sift/">/sift</a> through the edge worker.
+                </p>
+                <h3>What came out of it</h3>
+                <p>
+                    Four daily editions: tech, cybersecurity, chemical engineering and travel. A
+                    day is roughly 75 short model calls and takes under ten minutes.
+                </p>
+                <p class="case-links">
+                    <a href="/sift/">Read it</a> ·
+                    <a href="https://github.com/shivaswaroop40/sift" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+                </p>
+                <ul class="tags"><li>Astro</li><li>GitHub Actions</li><li>LLM triage</li><li>RSS</li><li>Cloudflare Workers</li></ul>
+            </article>
+
+            <article class="case" id="containerimages">
+                <div class="case-head">
+                    <h2><a href="https://github.com/shivaswaroop40/containerImages" target="_blank" rel="noopener noreferrer">containerImages</a></h2>
+                    <p class="entry-period">Open source</p>
+                </div>
+                <h3>The problem</h3>
+                <p>
+                    Signing and scanning container images is only worth something if the cluster
+                    refuses whatever skipped the process. Most examples stop at the pipeline and
+                    never show the refusal.
+                </p>
+                <h3>What I built</h3>
+                <p>
+                    A supply-chain pipeline you can copy. Every push builds a multi-arch image
+                    with Buildx and pushes it to GHCR. Trivy scans the pushed digest, and a
+                    critical or high finding fails the job, so a vulnerable image never gets a
+                    signature. Trivy then generates a CycloneDX SBOM. Cosign signs the digest
+                    keyless, using GitHub's OIDC token for a short-lived Fulcio certificate, and
+                    attests the SBOM against the same digest. There are no key secrets in the
+                    repository. Everything after the build refers to the image by digest,
+                    because a signature on a tag is a signature on whatever the tag points at
+                    today.
+                </p>
+                <p>
+                    On the cluster, a Kyverno <code>ClusterPolicy</code> verifies the signature
+                    and its Fulcio identity, requires the SBOM attestation and rejects anything
+                    still referenced by bare tag.
+                </p>
+                <h3>What came out of it</h3>
+                <p>
+                    The demo is two images from the same Dockerfile. One goes through the
+                    pipeline and the other is pushed as it is. The cluster runs the first and
+                    rejects the second. I built it for my talk at the Stockholm Cloud Native
+                    meetup and still use it for my own images.
+                </p>
+                <p class="case-links">
+                    <a href="https://github.com/shivaswaroop40/containerImages" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+                </p>
+                <ul class="tags"><li>GitHub Actions</li><li>Cosign</li><li>Trivy</li><li>SBOM</li><li>Kyverno</li></ul>
+            </article>
+
+            <article class="case" id="carnatic">
+                <div class="case-head">
+                    <h2><a href="https://carnatic.xyz" target="_blank" rel="noopener noreferrer">carnatic.xyz</a></h2>
+                    <p class="entry-period">Side project · in progress</p>
+                </div>
+                <p>
+                    What happens when I mix my two favourite things. It is a web home for
+                    Carnatic classical music: a place to explore ragas, learn kritis, read about
+                    composers and practise with shruti and tala. It runs on Next.js and
+                    Cloudflare Workers. It is early days for this one, and the write-up will
+                    grow with it.
+                </p>
+                <p class="case-links">
+                    <a href="https://carnatic.xyz" target="_blank" rel="noopener noreferrer">carnatic.xyz</a> ·
+                    <a href="https://github.com/shivaswaroop40/carnatic.xyz" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+                </p>
+                <ul class="tags"><li>Next.js</li><li>Cloudflare Workers</li><li>Carnatic music</li></ul>
+            </article>
+        </section>
+
+        <section class="section" id="kth" aria-labelledby="kth-heading">
+            <p class="kicker" id="kth-heading">KTH course projects</p>
+            <p class="section-note">
+                Written up from the project reports. Group projects are marked as such, and I
+                only claim a part of the work where the report records who did what.
+            </p>
+
+            <article class="case" id="llm-ensembles">
+                <div class="case-head">
+                    <h2>Ensembles of LLMs on one GPU</h2>
+                    <p class="entry-period">Communication System Design project · six people · January 2026</p>
+                </div>
+                <h3>The problem</h3>
+                <p>
+                    A single small language model is uneven across domains, and a large one does
+                    not fit on modest hardware. We asked which way of combining several small
+                    models works best when all you have is one Nvidia T4 with 16 GB of memory,
+                    and whether the combination can approach a larger model.
+                </p>
+                <h3>What we built</h3>
+                <p>
+                    We first benchmarked seven open models on four datasets: GSM8K for maths,
+                    CNN/DailyMail for summarisation, WMT14 for translation and ARC for
+                    reasoning. We then built five ensembles on top of the five best models. Two
+                    route a query to one model before inference, one with a trained neural
+                    router and one with K-Means clusters. One votes word by word during
+                    generation. Two work after inference: a cascade that stops as soon as
+                    enough models agree, and a fusion pipeline where one model merges the
+                    others' answers. In the project plan my share, with one teammate, was the
+                    benchmarking pipeline, GPU efficiency and the two after-inference ensembles.
+                </p>
+                <h3>What came out of it</h3>
+                <p>
+                    No technique won everywhere. Picking the best single model per query, which
+                    is the ceiling for any router, scored 0.87 on our composite metric. The
+                    trained router reached 0.80 and added about 0.01 seconds. Fusion scored 0.86
+                    but took 4.3 seconds on average, too slow for interactive use. The cascade
+                    stopped after two models 57% of the time, and that was its weakness: models
+                    often agreed on an answer that was similarly off, and the best model was
+                    among those consulted in only 44% of cases. Memory set the hard limit. The
+                    five models in float16 take about 12 GB, which leaves 4 GB for everything
+                    else.
+                </p>
+                <ul class="tags"><li>LLM ensembles</li><li>Query routing</li><li>Model cascades</li><li>PyTorch</li><li>Hugging Face</li><li>Nvidia T4</li></ul>
+            </article>
+
+            <article class="case" id="two-site-network">
+                <div class="case-head">
+                    <h2>Securing a two-site company network</h2>
+                    <p class="entry-period">Building Networked Systems Security · four people · 2025</p>
+                </div>
+                <h3>The problem</h3>
+                <p>
+                    A fictional company, ACME, has a headquarters in Stockholm, a branch in
+                    London and people working remotely. Users and devices must prove who they
+                    are, traffic between the offices must be unreadable on the way, a lost
+                    laptop must be locked out and someone has to notice an intrusion.
+                </p>
+                <h3>What we built</h3>
+                <p>
+                    A working lab network on virtual machines, from a requirements and design
+                    document through to the implementation. OpenWrt runs on both routers. A PKI
+                    built with Easy-RSA issues X.509 certificates to servers, users and
+                    routers, with a revocation list for compromised clients. OpenVPN carries the
+                    site-to-site tunnel, with Stockholm as server and London as client, so
+                    London users reach Stockholm services by private address. Both routers drop
+                    traffic by default and allow by exception with iptables. Snort watches
+                    mirrored traffic for DDoS, SQL injection and similar patterns, and sends
+                    alerts to Graylog, which also collects VPN, web server and firewall logs
+                    over TLS. Nextcloud with time-based one-time passwords handles file exchange
+                    and chat, and an Apache web server authenticates against OpenLDAP.
+                </p>
+                <h3>What came out of it</h3>
+                <p>
+                    A running end-to-end environment and a design that survived a round of peer
+                    review. The honest limitation is in the PKI. Revocation is dynamic, but
+                    adding a new employee still means creating certificates by hand. The report
+                    has no measurements, so I will not claim any.
+                </p>
+                <ul class="tags"><li>PKI</li><li>OpenVPN</li><li>OpenWrt</li><li>iptables</li><li>Snort</li><li>Graylog</li><li>Nextcloud</li></ul>
+            </article>
+
+            <article class="case" id="risk-assessment">
+                <div class="case-head">
+                    <h2>Cyber risk in euros with YACRAF</h2>
+                    <p class="entry-period">Security Analysis of Large-Scale Computer Systems · solo · January 2026</p>
+                </div>
+                <h3>The problem</h3>
+                <p>
+                    The case is a fitness business with eight studios in Stockholm. The studios
+                    run legacy on-premise door access, while the revenue depends on booking,
+                    payment and streaming services hosted on AWS. The question was how much
+                    cyber risk that carries in euros, and whether a defence budget pays for
+                    itself.
+                </p>
+                <h3>What I did</h3>
+                <p>
+                    A full assessment with YACRAF, the risk assessment framework taught in the
+                    course. It covers two threat actor profiles, four abuse cases (cloned entry
+                    cards, ransomware, payment fraud through the API and account takeover), data
+                    flow diagrams, attack trees, a trust boundary model and mappings to MITRE
+                    ATT&amp;CK techniques and mitigations. Risk is quantified as loss event
+                    frequency times loss magnitude, with return on investment, net present
+                    value and payback period on top.
+                </p>
+                <h3>What came out of it</h3>
+                <p>
+                    The model puts annual exposure at about EUR 934,000, and almost nine tenths
+                    of it is ransomware. Eight defences costing EUR 119,500 in the first year
+                    bring the modelled loss down to about EUR 50,000. These are estimates from
+                    assumed frequencies, not measurements, and the ranking matters more than the
+                    exact figures. I also wrote a reflection on how the assessment's own
+                    assumptions can discriminate: a stereotyped attacker, mandatory Face ID and
+                    MFA that shut out people with disabilities, and a user assumed to speak
+                    Swedish or English.
+                </p>
+                <ul class="tags"><li>YACRAF</li><li>Threat modelling</li><li>MITRE ATT&amp;CK</li><li>Risk quantification</li><li>AWS</li></ul>
+            </article>
+
+            <article class="case" id="wifi">
+                <div class="case-head">
+                    <h2>Wi-Fi models against measurements</h2>
+                    <p class="entry-period">Wireless networks course project · three people</p>
+                </div>
+                <h3>The problem</h3>
+                <p>
+                    Propagation models predict how a Wi-Fi signal fades indoors. We wanted to
+                    know how far those predictions are from what a device receives in a real
+                    office, and whether 802.11ad at 60 GHz is a better indoor option than
+                    802.11ac at 2.4 and 5 GHz.
+                </p>
+                <h3>What we did</h3>
+                <p>
+                    We surveyed an office of about 283 square metres, divided by glass and
+                    wooden partitions and served by four 802.11ac routers. Signal strength was
+                    averaged over several readings at fixed points and compared with the ITU-R
+                    indoor propagation model. Heatmaps came from TamoGraph for 802.11ac and
+                    MATLAB for 802.11ad. For 60 GHz we moved an access point through the space
+                    and read the signal from its dashboard. My part was the literature review
+                    across the three bands, the measurement plan and where the points went, the
+                    2.4 and 5 GHz measurements, checking the collected data, and the discussion
+                    and future work sections.
+                </p>
+                <h3>What came out of it</h3>
+                <p>
+                    Measured loss was higher than the model predicted, which we put down to
+                    furniture, reflections from metal and interference on 2.4 GHz. The 2.4 GHz
+                    band covered more of the office at lower peak strength, and 5 GHz was
+                    stronger over short distances. At 60 GHz the usable range was about 10.9
+                    metres and needed a clear line of sight. Beamforming helped on direct paths
+                    and did little against obstacles, so we judged it a poor fit for covering a
+                    whole office.
+                </p>
+                <ul class="tags"><li>Wi-Fi</li><li>802.11ac</li><li>802.11ad</li><li>60 GHz</li><li>RSSI site survey</li><li>ITU-R model</li></ul>
+            </article>
+
+            <article class="case" id="isp-design">
+                <div class="case-head">
+                    <h2>Designing a small ISP</h2>
+                    <p class="entry-period">IK2215 network design · two people</p>
+                </div>
+                <h3>The problem</h3>
+                <p>
+                    Design the network of a small ISP, a single autonomous system in a course
+                    lab. It has to survive link failures, prefer one upstream provider and keep
+                    a second as backup, never carry traffic between the two, and host its own
+                    DNS, web and DHCP services.
+                </p>
+                <h3>What we designed</h3>
+                <p>
+                    Four routers, three servers and two clients, with an address plan down to
+                    every interface. OSPF runs inside the network, with link costs chosen so
+                    that every router has at least two disjoint paths. BGP faces the two
+                    upstreams. The network advertises one aggregated prefix, an iBGP session
+                    between the two border routers runs over loopback addresses, and local
+                    preference of 150 against 50 steers traffic to the primary link. The policy
+                    keeps either upstream from using the network as transit and keeps it
+                    reachable if one border router goes down. DNS is BIND 9, and the router
+                    nearest the clients relays DHCP.
+                </p>
+                <h3>What came out of it</h3>
+                <p>
+                    A design specification, and a peer review I wrote of another group's design
+                    against the same criteria. The report itself contains no measurements.
+                </p>
+                <ul class="tags"><li>OSPF</li><li>BGP</li><li>iBGP</li><li>IP addressing</li><li>BIND 9</li><li>DHCP relay</li></ul>
+            </article>
+
+            <article class="case" id="smart-home">
+                <div class="case-head">
+                    <h2>Do smart appliances save energy?</h2>
+                    <p class="entry-period">II2202 research methodology · two people · autumn 2024</p>
+                </div>
+                <h3>The problem</h3>
+                <p>
+                    Smart home devices are sold on convenience and efficiency, and there are few
+                    comparisons of what they do to a household's energy use.
+                </p>
+                <h3>What we did</h3>
+                <p>
+                    A case study. We collected energy ratings and power figures for smart
+                    appliances from manufacturers' product pages, and for older traditional
+                    models from service manuals, and discarded values that conflicted. We then
+                    costed three households, a single person, a couple and a family of four,
+                    once with traditional and once with smart versions of five appliances: TV,
+                    fridge, washing machine, microwave and LED bulbs.
+                </p>
+                <h3>What came out of it</h3>
+                <p>
+                    In all three scenarios the smart set used roughly half the energy. It is a
+                    rough answer, and the report says why. Public data was thin, the usage
+                    patterns were invented rather than surveyed, and the carbon footprint
+                    comparison we had planned, including manufacturing, was not finished.
+                </p>
+                <ul class="tags"><li>IoT</li><li>Home automation</li><li>Energy efficiency</li><li>Sustainability</li><li>Case study</li></ul>
+            </article>
+        </section>
+
+        <footer class="site-foot">
+            <p class="foot-meta"><span>© 2026 Shiva Swaroop N K</span> <span aria-hidden="true">·</span> <a href="/">Back to the home page</a></p>
+        </footer>
+    </main>
+</body>
+</html>

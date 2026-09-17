@@ -48,6 +48,11 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
 
 ## Selected projects
 
+Longer write-ups of each project, plus seven KTH course projects (LLM
+ensembles on one GPU, a two-site company network with PKI and OpenVPN, a YACRAF
+risk assessment, Wi-Fi modelling against measurements, a small ISP design with
+OSPF and BGP, and a smart-appliance energy study): https://shivu.io/projects/
+
 - **Enforcement-readiness of generated Kubernetes NetworkPolicies** (master
   thesis, Ankra, 2026) — argues that blocking attacks is solved and the open
   problem is whether a generated policy is safe to enforce without breaking the
@@ -66,7 +71,7 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
 - **[containerImages](https://github.com/shivaswaroop40/containerImages)** —
   secure container supply-chain reference: multi-arch Buildx builds to GHCR,
   Cosign signing/verification, Trivy scanning, SBOM generation.
-- **[carnatic.xyz](https://github.com/shivaswaroop40/carnatic.xyz)** — a web home
+- **[carnatic.xyz](https://carnatic.xyz)** ([source](https://github.com/shivaswaroop40/carnatic.xyz)) — a web home
   for Carnatic classical music; Next.js on Cloudflare Workers. In progress.
 - **KTH lab work** — hybrid edge/cloud Kubernetes with VXLAN overlays, Llama 2 as
   distributed microservices, RDMA-over-fabric storage; full PKI with
