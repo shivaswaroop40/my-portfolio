@@ -8,19 +8,22 @@
  *      ?format=md override, and Cloudflare's verified-bot classification
  *      (request.cf.verifiedBotCategory).
  *   2. Redirects — www → apex, /blog → the Notion blog.
- *   3. Sift — /sift is proxied to the digest's own GitHub Pages site.
+ *   3. Sift and 4sight — /sift and /4sight are proxied to their own GitHub
+ *      Pages sites.
  *   4. Security + caching headers on everything that passes through.
  */
 
 const BLOG_URL =
   'https://shiva-swaroop.notion.site/Shiv-Writes-About-Stuff-2066afd5b4ac800fabeae431c4b7a271';
 
-// Sift builds and deploys from its own repo to GitHub Pages under the same
-// /sift base path, so it is proxied rather than deployed twice. GitHub Pages
-// stays the origin and its URL keeps working for existing feed subscribers.
-const SIFT_ORIGIN = 'https://shivaswaroop40.github.io';
+// Sift and 4sight each build and deploy from their own repo to GitHub Pages
+// under the same base path they use here (/sift, /4sight), so they are proxied
+// rather than deployed twice. GitHub Pages stays the origin and its URL keeps
+// working for existing feed subscribers and links.
+const PAGES_ORIGIN = 'https://shivaswaroop40.github.io';
+const PROXIED_APPS = ['/sift', '/4sight'];
 
-async function proxySift(request, url) {
+async function proxyPages(request, url, base) {
   if (request.method !== 'GET' && request.method !== 'HEAD') {
     return new Response('Method Not Allowed', { status: 405, headers: { Allow: 'GET, HEAD' } });
   }
@@ -29,7 +32,7 @@ async function proxySift(request, url) {
     const value = request.headers.get(name);
     if (value) headers.set(name, value);
   }
-  const upstream = await fetch(SIFT_ORIGIN + url.pathname + url.search, {
+  const upstream = await fetch(PAGES_ORIGIN + url.pathname + url.search, {
     method: request.method,
     headers,
     redirect: 'manual',
@@ -38,13 +41,13 @@ async function proxySift(request, url) {
   // GitHub Pages redirects /sift/tech to its own absolute /sift/tech/.
   const location = upstream.headers.get('location');
   if (location) {
-    return Response.redirect(location.replace(SIFT_ORIGIN, url.origin), upstream.status);
+    return Response.redirect(location.replace(PAGES_ORIGIN, url.origin), upstream.status);
   }
 
   // Feeds and the about page carry absolute URLs. Point them at this host.
   const type = upstream.headers.get('content-type') || '';
   if (request.method === 'GET' && upstream.status === 200 && /html|xml/i.test(type)) {
-    const body = (await upstream.text()).replaceAll(`${SIFT_ORIGIN}/sift`, `${url.origin}/sift`);
+    const body = (await upstream.text()).replaceAll(`${PAGES_ORIGIN}${base}`, `${url.origin}${base}`);
     const res = new Response(body, upstream);
     res.headers.delete('content-length');
     return res;
@@ -101,11 +104,13 @@ export default {
       return Response.redirect(BLOG_URL, 302);
     }
 
-    if (url.pathname === '/sift') {
-      return Response.redirect(`${url.origin}/sift/${url.search}`, 301);
-    }
-    if (url.pathname.startsWith('/sift/')) {
-      return withHeaders(await proxySift(request, url));
+    for (const base of PROXIED_APPS) {
+      if (url.pathname === base) {
+        return Response.redirect(`${url.origin}${base}/${url.search}`, 301);
+      }
+      if (url.pathname.startsWith(`${base}/`)) {
+        return withHeaders(await proxyPages(request, url, base));
+      }
     }
 
     // Agent mode: answer page requests from agents with the markdown mirror.

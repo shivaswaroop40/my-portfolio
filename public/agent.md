@@ -1,7 +1,7 @@
 # Shiva Swaroop N K
 
-> Cloud infrastructure engineer in Stockholm, Sweden. Kubernetes, GitOps, and
-> software supply-chain security. DevOps Engineer at Youmoni; MSc Communication
+> Platform software engineer in Stockholm, Sweden. Kubernetes, Go, GitOps, and
+> software supply-chain security. Platform Engineer at Ankra and Youmoni; MSc Communication
 > Systems at KTH Royal Institute of Technology (2024–2026). Co-organizer of
 > Cloud Native Stockholm (CNCF). Otherwise: Carnatic classical music, travel,
 > filter coffee (@podsandkapi = Kubernetes pods + kaapi).
@@ -13,7 +13,7 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
 ## Right now
 
 - Master thesis at [Ankra](https://ankra.ai): enforcement-readiness of generated
-  Kubernetes NetworkPolicies (attack-injection benchmarking + flows ∪ config fusion)
+  Kubernetes NetworkPolicies, and when a generated one is safe to enforce
 - Co-organizing [Cloud Native Stockholm](https://community.cncf.io/cloud-native-stockholm/)
 - Organizing for the [Agentic AI Foundation](https://aaif.io) community
   (formerly the MLOps Community)
@@ -21,7 +21,14 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
 
 ## Work
 
-### DevOps Engineer — Youmoni, Stockholm (May 2025 – present)
+### Platform Engineer (part-time) — Ankra, Stockholm (Jan 2026 – present)
+
+- Owns the Scaleway integration in Go and React
+- Turned the thesis research into a shipped feature that scores workload
+  ingress/egress exposure and ranks over-permissive NetworkPolicies
+- Stack: Go, React, Kubernetes, Scaleway
+
+### DevOps / Platform Engineer — Youmoni, Stockholm (Apr 2025 – present)
 
 - Leading migration of production IoT workloads from Docker Swarm to EKS
 - Terraform-provisioned AWS infrastructure; GitOps delivery with Flux
@@ -31,8 +38,9 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
 ### Software Engineer — Infinite Computer Solutions, Bengaluru (Mar 2021 – Jul 2024)
 
 - Optimized Terraform modules, reducing infrastructure provisioning time by 30%
-- GitLab CI/CD pipelines integrated with ArgoCD
-- Software supply-chain security with Buildah and Cosign (signed images, verified deploys)
+- GitLab CI/CD pipelines integrated with ArgoCD; services moved from weekly to daily releases
+- Software supply-chain security with Buildah and Cosign (signed images, verified deploys),
+  Kyverno enforcing provenance, resource limits and network restrictions; internal audit scores up 20%
 - Network security: firewall rules, VPNs, compliance policies
 - Stack: AWS, Azure, Terraform, GitLab, Kubernetes, Ansible
 
@@ -51,18 +59,23 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
 - **Enforcement-readiness of generated Kubernetes NetworkPolicies** (master
   thesis, Ankra, 2026) — argues that blocking attacks is solved and the open
   problem is whether a generated policy is safe to enforce without breaking the
-  app. Contributes (1) a tool-agnostic attack-injection benchmark scoring any
-  generator on block-rate, over-privilege, and false-denies, and (2) a prototype
-  fusing eBPF/Cilium-Hubble flow observation with config-derived dependencies
-  (Services, Ingress, DNS, RBAC, StatefulSet peers). Key result: observation
-  alone plateaus at ~72% of needed edges; fusing config raises coverage to ~82%
-  and cuts false-denies, with over-privilege held at zero. Evaluated on a live
-  k3s + Cilium cluster against the Ankra control plane and Sock Shop.
+  app. Ran real attacks and real traffic against five generators on seven live
+  applications. Every generator blocked every attack, and on the same input
+  blocked 30% to 88% of legitimate connections. Those connections open only on
+  specific events, which traffic capture rarely sees, while the app's declared
+  config recovered 90%. Released as
+  [netpol-readiness](https://github.com/shivaswaroop40/netpol-readiness), a Go
+  tool that lists what a policy would block before you enforce it.
 - **[Sift](https://shivu.io/sift/)** ([source](https://github.com/shivaswaroop40/sift)) —
   daily digest per field. A script reads every feed for a domain, an LLM scores
   each new item on depth, novelty and utility, and the top dozen become that
   day's edition. Editions: tech, cybersecurity, chemical engineering, travel,
   each with an RSS feed at `https://shivu.io/sift/<domain>/rss.xml`.
+- **[4sight](https://shivu.io/4sight/)** ([source](https://github.com/shivaswaroop40/4sight)) —
+  interactive 3D explorer where every scene is a function of time: an iPhone
+  assembling over seconds, the solar system forming over 4.6 billion years.
+  React, TypeScript, Three.js. Team of three; Shiv wrote the time
+  engine, renderer and UI.
 - **[containerImages](https://github.com/shivaswaroop40/containerImages)** —
   secure container supply-chain reference: multi-arch Buildx builds to GHCR,
   Cosign signing/verification, Trivy scanning, SBOM generation.
@@ -80,10 +93,22 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
   rejects unsigned images at admission.
 - More on [GitHub](https://github.com/shivaswaroop40).
 
-## Challenges authored
+## Challenges and tutorials authored
 
-Author on [iximiuz Labs](https://labs.iximiuz.com/a/shiva-swaroop). One is
-published as official content; the rest are public by link:
+Author on [iximiuz Labs](https://labs.iximiuz.com/a/shiva-swaroop). Two
+tutorials and five challenges. One challenge is published as official content;
+the rest are public by link.
+
+Tutorials:
+
+- [How Kubernetes Operators Work: Building a Controller From Scratch](https://labs.iximiuz.com/tutorials/build-a-kubernetes-operator-from-scratch-a6eecb2c)
+  — an operator for a small Pet API, first as a 15-line bash loop, then as a Go
+  controller with controller-runtime; shows the reconcile loop.
+- [How Kubernetes CRDs Work: Designing a Validated API From Scratch](https://labs.iximiuz.com/tutorials/open-a-kubernetes-zoo-9ad54ae8)
+  — a CRD for the same Pet API, layer by layer: validation, defaults, status
+  subresource, printer columns. No controller, no code.
+
+Challenges:
 
 - [CKA Practice: Migrate an Ingress to Gateway API](https://labs.iximiuz.com/challenges/CKA-Practice-Migrate-an-Ingress-to-Gateway-API-c29893bc)
   (medium) — move an HTTPS app from ingress-nginx to Gateway API with zero
@@ -136,6 +161,15 @@ workloads on Kubernetes:
 
 - Postgres on Kubernetes Is No Longer a Dare (Aug 2026) — https://ankra.ai/blog/postgres-on-kubernetes
 - The Minimalist's Guide to Homelab Setup (Aug 2025) — https://ankra.ai/blog/minimalist-guide
+
+## For recruiters
+
+- Role: platform software engineer, Stockholm, Sweden
+- Experience: about 5 years on Kubernetes (Ankra 2026–present; Youmoni 2025–present; Infinite Computer Solutions 2021–2024)
+- Strengths: Kubernetes, Go, GitOps (Flux, ArgoCD), Terraform, AWS, supply-chain security
+- Credentials: CKA; Nebius AI CloudOps Engineer; MSc Communication Systems, KTH (2024–2026)
+- Languages: English (fluent), Kannada (native)
+- Full CV: https://shivu.io/resume.json
 
 ## Contact
 

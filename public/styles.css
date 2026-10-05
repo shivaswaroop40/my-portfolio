@@ -453,6 +453,11 @@ code {
     width: 5.5rem;
     flex-shrink: 0;
 }
+.contact-list-wide span { width: 8rem; }
+@media (max-width: 640px) {
+    .contact-list-wide li { flex-direction: column; gap: 0.1rem; }
+    .contact-list-wide span { width: auto; }
+}
 
 /* --- Footer (inside the content column) ----------------------------------- */
 
