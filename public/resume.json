@@ -2,24 +2,51 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Shiva Swaroop Nittoor Krishnamurthy",
-    "label": "Cloud Infrastructure / DevOps Engineer",
+    "label": "Platform Software Engineer",
     "email": "shivaswaroop40@gmail.com",
     "url": "https://shivu.io",
-    "summary": "Cloud infrastructure engineer with 3+ years designing and running large-scale cloud systems. Kubernetes, GitOps, Terraform, and software supply-chain security. Co-organizer of Cloud Native Stockholm (CNCF).",
-    "location": { "city": "Stockholm", "countryCode": "SE" },
+    "summary": "Platform engineer with five years on Kubernetes and a networking background. Kubernetes, Go, GitOps, Terraform, and software supply-chain security. Co-organizer of Cloud Native Stockholm (CNCF).",
+    "location": {
+      "city": "Stockholm",
+      "countryCode": "SE"
+    },
     "profiles": [
-      { "network": "GitHub", "username": "shivaswaroop40", "url": "https://github.com/shivaswaroop40" },
-      { "network": "LinkedIn", "username": "shivaswaroop-nittoor-krishnamurthy", "url": "https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b" },
-      { "network": "X", "username": "podsandkapi", "url": "https://x.com/podsandkapi" }
+      {
+        "network": "GitHub",
+        "username": "shivaswaroop40",
+        "url": "https://github.com/shivaswaroop40"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "shivaswaroop-nittoor-krishnamurthy",
+        "url": "https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b"
+      },
+      {
+        "network": "X",
+        "username": "podsandkapi",
+        "url": "https://x.com/podsandkapi"
+      }
     ]
   },
   "work": [
     {
+      "name": "Ankra",
+      "position": "Platform Engineer (part-time)",
+      "location": "Stockholm, Sweden",
+      "url": "https://ankra.ai",
+      "startDate": "2026-01",
+      "summary": "Platform engineering alongside the master thesis.",
+      "highlights": [
+        "Owns the Scaleway integration in Go and React",
+        "Turned thesis research into a shipped feature scoring workload exposure and ranking over-permissive NetworkPolicies"
+      ]
+    },
+    {
       "name": "Youmoni",
-      "position": "DevOps Engineer",
+      "position": "DevOps / Platform Engineer",
       "location": "Stockholm, Sweden",
       "url": "https://youmoni.com",
-      "startDate": "2025-05",
+      "startDate": "2025-04",
       "summary": "Cloud infrastructure for IoT backend services on AWS.",
       "highlights": [
         "Leading migration of production workloads from Docker Swarm to EKS",
@@ -37,8 +64,8 @@
       "highlights": [
         "Reduced infrastructure provisioning time by 30% through optimized Terraform modules",
         "Improved deployment efficiency by 35% via cross-functional collaboration",
-        "Built and maintained GitLab CI/CD pipelines integrated with ArgoCD",
-        "Led software supply-chain security implementations using Buildah and Cosign",
+        "Built and maintained GitLab CI/CD pipelines integrated with ArgoCD, moving services from weekly to daily releases",
+        "Led software supply-chain security with Buildah and Cosign, enforcing provenance, resource limits and network restrictions with Kyverno; internal audit scores rose 20%",
         "Enhanced network security with firewall rules, VPNs, and compliance policies"
       ]
     }
@@ -62,22 +89,54 @@
   "projects": [
     {
       "name": "Enforcement-Readiness of Generated Kubernetes NetworkPolicies",
-      "description": "Master thesis at Ankra AB: a tool-agnostic attack-injection benchmark that scores NetworkPolicy generators on block-rate, over-privilege, and false-denies, plus a generation prototype fusing eBPF/Cilium-Hubble flow observation with config-derived dependencies. Shows observation alone plateaus at ~72% of needed edges; fusing config raises coverage to ~82% and cuts false-denies. Evaluated on a live k3s + Cilium cluster against the Ankra control plane and Sock Shop.",
-      "keywords": ["eBPF", "Cilium", "Hubble", "Kubernetes", "NetworkPolicy", "network security", "benchmarking"],
+      "description": "Master thesis at Ankra AB: ran real attacks and real traffic against five NetworkPolicy generators on seven live applications. Every generator blocked every attack, and on the same input blocked 30% to 88% of legitimate connections. Those connections open only on specific events, which traffic capture rarely sees, while the application's declared config recovered 90%. Released as netpol-readiness, a Go tool that lists what a policy would block before you enforce it.",
+      "keywords": [
+        "Go",
+        "Kubernetes",
+        "NetworkPolicy",
+        "eBPF",
+        "Cilium",
+        "network security",
+        "benchmarking"
+      ],
       "startDate": "2026-01",
-      "roles": ["Author"]
+      "roles": [
+        "Author"
+      ],
+      "url": "https://github.com/shivaswaroop40/netpol-readiness"
     },
     {
       "name": "containerImages",
       "description": "Secure container supply-chain reference pipeline: multi-arch Buildx builds to GHCR, Cosign signing and verification, Trivy scanning, SBOM generation.",
       "url": "https://github.com/shivaswaroop40/containerImages",
-      "keywords": ["GitHub Actions", "Cosign", "Trivy", "SBOM", "supply chain security"]
+      "keywords": [
+        "GitHub Actions",
+        "Cosign",
+        "Trivy",
+        "SBOM",
+        "supply chain security"
+      ]
+    },
+    {
+      "name": "4sight",
+      "description": "Interactive 3D explorer where every scene is a function of time: an iPhone assembling over seconds, the solar system forming over 4.6 billion years. React, TypeScript, Three.js. Team of three; built the time engine, renderer and UI.",
+      "url": "https://shivu.io/4sight/",
+      "keywords": [
+        "React",
+        "TypeScript",
+        "Three.js",
+        "Vite"
+      ]
     },
     {
       "name": "carnatic.xyz",
       "description": "A web home for Carnatic classical music. Next.js on Cloudflare Workers; in progress.",
       "url": "https://github.com/shivaswaroop40/carnatic.xyz",
-      "keywords": ["Next.js", "Cloudflare Workers", "Carnatic music"]
+      "keywords": [
+        "Next.js",
+        "Cloudflare Workers",
+        "Carnatic music"
+      ]
     }
   ],
   "volunteer": [
@@ -123,25 +182,93 @@
     }
   ],
   "skills": [
-    { "name": "Kubernetes", "keywords": ["EKS", "Flux", "ArgoCD", "Kyverno", "Cilium", "eBPF", "NetworkPolicy"] },
-    { "name": "Infrastructure as Code", "keywords": ["Terraform", "Ansible", "GitOps"] },
-    { "name": "Cloud", "keywords": ["AWS", "Azure"] },
-    { "name": "Supply-chain security", "keywords": ["Cosign", "Buildah", "Trivy", "SBOM"] },
-    { "name": "Networking", "keywords": ["OSPF", "BGP", "VXLAN", "RDMA", "PKI", "network security"] },
-    { "name": "Languages", "keywords": ["Python", "Go", "Bash"] }
+    {
+      "name": "Kubernetes",
+      "keywords": [
+        "EKS",
+        "Flux",
+        "ArgoCD",
+        "Kyverno",
+        "Cilium",
+        "eBPF",
+        "NetworkPolicy"
+      ]
+    },
+    {
+      "name": "Infrastructure as Code",
+      "keywords": [
+        "Terraform",
+        "Ansible",
+        "GitOps"
+      ]
+    },
+    {
+      "name": "Cloud",
+      "keywords": [
+        "AWS",
+        "Azure"
+      ]
+    },
+    {
+      "name": "Supply-chain security",
+      "keywords": [
+        "Cosign",
+        "Buildah",
+        "Trivy",
+        "SBOM"
+      ]
+    },
+    {
+      "name": "Networking",
+      "keywords": [
+        "OSPF",
+        "BGP",
+        "VXLAN",
+        "RDMA",
+        "PKI",
+        "network security"
+      ]
+    },
+    {
+      "name": "Languages",
+      "keywords": [
+        "Python",
+        "Go",
+        "Bash"
+      ]
+    }
   ],
   "languages": [
-    { "language": "English", "fluency": "Fluent" },
-    { "language": "Kannada", "fluency": "Native" }
+    {
+      "language": "English",
+      "fluency": "Fluent"
+    },
+    {
+      "language": "Kannada",
+      "fluency": "Native"
+    }
   ],
   "interests": [
-    { "name": "Carnatic classical music" },
-    { "name": "Travel", "keywords": ["every country in Europe before 28", "road trips"] },
-    { "name": "Philosophy", "keywords": ["Advaita Vedanta"] }
+    {
+      "name": "Carnatic classical music"
+    },
+    {
+      "name": "Travel",
+      "keywords": [
+        "every country in Europe before 28",
+        "road trips"
+      ]
+    },
+    {
+      "name": "Philosophy",
+      "keywords": [
+        "Advaita Vedanta"
+      ]
+    }
   ],
   "meta": {
     "canonical": "https://shivu.io/resume.json",
     "version": "v2.1.0",
-    "lastModified": "2026-09-01"
+    "lastModified": "2026-10-05"
   }
 }

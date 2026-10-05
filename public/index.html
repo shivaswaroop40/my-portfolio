@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shiva Swaroop N K</title>
-    <meta name="description" content="Shiva Swaroop N K, cloud infrastructure engineer in Stockholm. Kubernetes and GitOps for work, Carnatic music and travel otherwise. Co-organizer of Cloud Native Stockholm (CNCF).">
+    <meta name="description" content="Shiva Swaroop N K, platform software engineer in Stockholm. Kubernetes and GitOps for work, Carnatic music and travel otherwise. Co-organizer of Cloud Native Stockholm (CNCF).">
     <link rel="canonical" href="https://shivu.io/">
     <meta name="theme-color" content="#faf6f0">
     <meta property="og:title" content="Shiva Swaroop N K">
-    <meta property="og:description" content="Cloud infrastructure engineer in Stockholm. Kubernetes, GitOps, Carnatic music, and the road.">
+    <meta property="og:description" content="Platform software engineer in Stockholm. Kubernetes, GitOps, Carnatic music, and the road.">
     <meta property="og:url" content="https://shivu.io/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://shivu.io/assets/profile.png">
@@ -19,7 +19,7 @@
     <meta name="twitter:site" content="@podsandkapi">
     <meta name="twitter:creator" content="@podsandkapi">
     <meta name="twitter:title" content="Shiva Swaroop N K">
-    <meta name="twitter:description" content="Cloud infrastructure engineer in Stockholm. Kubernetes, GitOps, Carnatic music, and the road.">
+    <meta name="twitter:description" content="Platform software engineer in Stockholm. Kubernetes, GitOps, Carnatic music, and the road.">
     <meta name="twitter:image" content="https://shivu.io/assets/profile.png">
     <script>
         try {
@@ -41,7 +41,7 @@
       "name": "Shiva Swaroop Nittoor Krishnamurthy",
       "alternateName": "Shiva Swaroop N K",
       "url": "https://shivu.io",
-      "jobTitle": "DevOps Engineer",
+      "jobTitle": "Platform Software Engineer",
       "worksFor": { "@type": "Organization", "name": "Youmoni" },
       "alumniOf": [
         { "@type": "CollegeOrUniversity", "name": "KTH Royal Institute of Technology" },
@@ -86,7 +86,7 @@
                     <img src="/assets/profile.png" alt="Shiva Swaroop N K" width="72" height="72" loading="eager">
                 </div>
                 <h1><a href="/">Shiva Swaroop&nbsp;N&nbsp;K</a></h1>
-                <p class="sidebar-role">Cloud infrastructure engineer</p>
+                <p class="sidebar-role">Platform software engineer</p>
                 <p class="sidebar-tag">This is my corner of the internet, part résumé, part scrapbook. Take your time poking around.</p>
 
                 <nav class="side-nav" aria-label="Sections">
@@ -96,10 +96,11 @@
                         <li><a href="#work">Work</a></li>
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#oss">Open source</a></li>
-                        <li><a href="#practice">Challenges</a></li>
+                        <li><a href="#practice">Labs</a></li>
                         <li><a href="#talks">Talks</a></li>
                         <li><a href="#slides">Slides</a></li>
                         <li><a href="#photos">Photos</a></li>
+                        <li><a href="#recruiters">For recruiters</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -132,7 +133,7 @@
                 <p class="kicker" id="about-heading">About</p>
                 <div class="about-text">
                     <p>
-                        Hello! I'm a DevOps engineer at <a href="https://youmoni.com" target="_blank" rel="noopener noreferrer">Youmoni</a>
+                        Hello! I'm a platform engineer at <a href="https://youmoni.com" target="_blank" rel="noopener noreferrer">Youmoni</a>
                         and a masters student at KTH, both at once (I like keeping my plate full).
                         Long story short, the job is Kubernetes all the way down.
                     </p>
@@ -161,8 +162,23 @@
 
                 <article class="entry">
                     <div class="entry-head">
-                        <h3>DevOps Engineer · <span class="entry-org">Youmoni</span></h3>
-                        <p class="entry-period">Stockholm · May 2025 - present</p>
+                        <h3>Platform Engineer · <span class="entry-org">Ankra</span></h3>
+                        <p class="entry-period">Stockholm · Jan 2026 - present · part-time</p>
+                    </div>
+                    <p>
+                        Where my thesis research went to production. I own the Scaleway
+                        integration in Go and React, and turned the NetworkPolicy work into a
+                        feature that scores how exposed each workload is.
+                    </p>
+                    <ul class="tags" aria-label="Technologies">
+                        <li>Go</li><li>React</li><li>Kubernetes</li><li>Scaleway</li><li>NetworkPolicy</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-head">
+                        <h3>DevOps / Platform Engineer · <span class="entry-org">Youmoni</span></h3>
+                        <p class="entry-period">Stockholm · Apr 2025 - present</p>
                     </div>
                     <p>
                         I'm currently moving our production IoT workloads from Docker Swarm to
@@ -181,9 +197,12 @@
                     </div>
                     <p>
                         My first job out of college. I wrote Terraform modules that cut
-                        provisioning time by about 30%, wired GitLab CI into ArgoCD and led the
-                        image-signing work with Buildah and Cosign. That last one is where my
-                        supply-chain security interest started.
+                        provisioning time by about 30% and wired GitLab CI into ArgoCD, which
+                        took services from weekly to daily releases. I also led the
+                        image-signing work with Buildah and Cosign, with Kyverno enforcing
+                        provenance, limits and network restrictions, and internal audit scores
+                        rose 20%. That last one is where my supply-chain security interest
+                        started.
                     </p>
                     <ul class="tags" aria-label="Technologies">
                         <li>AWS</li><li>Azure</li><li>Terraform</li><li>GitLab</li><li>Kubernetes</li><li>Ansible</li>
@@ -217,15 +236,16 @@
                         Every tool out there can generate a <code>NetworkPolicy</code> that blocks
                         attacks. But can it tell you if the policy is safe to turn on without
                         breaking your app? Turns out, no. The papers don't check either, they
-                        evaluate against the same traffic the tool observed. So I built a benchmark
-                        that injects real attacks and scores any generator on block-rate,
-                        over-privilege and false-denies, plus a prototype that fuses eBPF/Hubble
-                        flows with dependencies pulled from cluster config. Watching traffic alone
-                        tops out around 72% of the edges an app needs. Adding config gets it to
-                        82% and stops the policies breaking things. All of this measured on a live
-                        k3s + Cilium cluster against the Ankra control plane and Sock Shop.
+                        evaluate against the same traffic the tool observed. So I ran real
+                        attacks and real traffic against five generators on seven live
+                        applications. Every one blocked every attack, and on the same input they
+                        blocked 30% to 88% of legitimate connections. Those connections only
+                        open on specific events, which traffic capture rarely sees, while the
+                        app's own declared config recovered 90%. The checker is out as
+                        <a href="https://github.com/shivaswaroop40/netpol-readiness" target="_blank" rel="noopener noreferrer">netpol-readiness</a>,
+                        a Go tool that lists what a policy would block before you enforce it.
                     </p>
-                    <ul class="tags"><li>eBPF</li><li>Cilium</li><li>Hubble</li><li>Kubernetes</li><li>NetworkPolicy</li><li>k3s</li></ul>
+                    <ul class="tags"><li>eBPF</li><li>Cilium</li><li>Hubble</li><li>Kubernetes</li><li>NetworkPolicy</li><li>Go</li></ul>
                 </article>
 
                 <article class="entry">
@@ -255,6 +275,22 @@
                         <a href="https://github.com/shivaswaroop40/sift" target="_blank" rel="noopener noreferrer">Source on GitHub</a>.
                     </p>
                     <ul class="tags"><li>Astro</li><li>GitHub Actions</li><li>LLM triage</li><li>RSS</li></ul>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-head">
+                        <h3><a href="/4sight/">4sight</a></h3>
+                        <p class="entry-period">Side project · team of three</p>
+                    </div>
+                    <p>
+                        Time is the fourth dimension, so I built a 3D explorer where every scene
+                        is a function of time. Scrub, play backwards or warp time, and an iPhone
+                        assembles itself in seconds while a cloud of dust collapses into the
+                        solar system over 4.6 billion years. I wrote the time engine, renderer
+                        and UI.
+                        <a href="https://github.com/shivaswaroop40/4sight" target="_blank" rel="noopener noreferrer">Source on GitHub</a>.
+                    </p>
+                    <ul class="tags"><li>React</li><li>TypeScript</li><li>Three.js</li><li>Vite</li></ul>
                 </article>
 
                 <article class="entry">
@@ -300,14 +336,44 @@
             </section>
 
             <section class="section" id="practice" aria-labelledby="practice-heading">
-                <p class="kicker" id="practice-heading">Challenges I've built</p>
+                <p class="kicker" id="practice-heading">Challenges &amp; tutorials I've built</p>
                 <p class="section-note">
-                    I author hands-on challenges on
+                    I author hands-on challenges and tutorials on
                     <a href="https://labs.iximiuz.com/a/shiva-swaroop" target="_blank" rel="noopener noreferrer">iximiuz Labs</a>:
                     real VMs, real broken clusters, no multiple choice. Solving other
                     people's is fun; writing one that breaks in exactly the right way is
                     the harder puzzle.
                 </p>
+
+                <p class="section-note">
+                    The two newest are tutorials: build the thing one layer at a time and
+                    watch what Kubernetes does with it.
+                </p>
+                <article class="entry">
+                    <div class="entry-head">
+                        <h3><a href="https://labs.iximiuz.com/tutorials/build-a-kubernetes-operator-from-scratch-a6eecb2c" target="_blank" rel="noopener noreferrer">How Kubernetes Operators Work: Building a Controller From Scratch</a></h3>
+                        <p class="entry-period">Tutorial</p>
+                    </div>
+                    <p>
+                        An operator for a small Pet API, first as a 15-line bash loop and then
+                        as a Go controller with controller-runtime. Every Pet gets a Pod, gets
+                        hungry as time passes, and runs away if nobody feeds it. The reconcile
+                        loop shows itself along the way.
+                    </p>
+                    <ul class="tags"><li>Kubernetes</li><li>operators</li><li>Go</li><li>controller-runtime</li></ul>
+                </article>
+                <article class="entry">
+                    <div class="entry-head">
+                        <h3><a href="https://labs.iximiuz.com/tutorials/open-a-kubernetes-zoo-9ad54ae8" target="_blank" rel="noopener noreferrer">How Kubernetes CRDs Work: Designing a Validated API From Scratch</a></h3>
+                        <p class="entry-period">Tutorial</p>
+                    </div>
+                    <p>
+                        A CustomResourceDefinition for the same Pet API, one layer at a time.
+                        By the end the API server rejects invalid Pets, fills in defaults, keeps
+                        status separate and prints useful columns. No controller, no code.
+                    </p>
+                    <ul class="tags"><li>Kubernetes</li><li>CRDs</li><li>OpenAPI schema</li><li>API server</li></ul>
+                </article>
                 <article class="entry">
                     <div class="entry-head">
                         <h3><a href="https://labs.iximiuz.com/challenges/CKA-Practice-Migrate-an-Ingress-to-Gateway-API-c29893bc" target="_blank" rel="noopener noreferrer">CKA Practice: Migrate an Ingress to Gateway API</a></h3>
@@ -550,6 +616,26 @@
                         </div>
                         <span class="talk-date">Aug 2025</span>
                     </li>
+                </ul>
+            </section>
+
+            <section class="section" id="recruiters" aria-labelledby="recruiters-heading">
+                <p class="kicker" id="recruiters-heading">For recruiters</p>
+                <p class="section-note">
+                    The short version, so you don't have to dig. Everything here is
+                    expanded further up the page, and the full CV is machine-readable at
+                    <a href="/resume.json">/resume.json</a>.
+                </p>
+                <ul class="contact-list contact-list-wide">
+                    <li><span>Role</span>Platform software engineer (Kubernetes, Go, cloud infrastructure)</li>
+                    <li><span>Based in</span>Stockholm, Sweden</li>
+                    <li><span>Experience</span>5 years on Kubernetes: Ankra and Youmoni (2025 - present), Infinite Computer Solutions (2021 - 2024)</li>
+                    <li><span>Strengths</span>Kubernetes, GitOps (Flux, ArgoCD), Terraform, supply-chain security, network security</li>
+                    <li><span>Stack</span>AWS, Azure, EKS, Kyverno, Cilium, Python, Go, Bash</li>
+                    <li><span>Credentials</span>CKA; Nebius AI CloudOps Engineer; MSc Communication Systems, KTH (2024 - 2026)</li>
+                    <li><span>Languages</span>English (fluent), Kannada (native)</li>
+                    <li><span>Proof of work</span><a href="#projects">Projects</a>, <a href="#practice">iximiuz Labs content</a>, <a href="#talks">talks</a></li>
+                    <li><span>Best way in</span><a href="mailto:shivaswaroop40@gmail.com">shivaswaroop40@gmail.com</a> or <a href="https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                 </ul>
             </section>
 
