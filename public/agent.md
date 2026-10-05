@@ -13,7 +13,7 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
 ## Right now
 
 - Master thesis at [Ankra](https://ankra.ai): enforcement-readiness of generated
-  Kubernetes NetworkPolicies (attack-injection benchmarking + flows ∪ config fusion)
+  Kubernetes NetworkPolicies, and when a generated one is safe to enforce
 - Co-organizing [Cloud Native Stockholm](https://community.cncf.io/cloud-native-stockholm/)
 - Organizing for the [Agentic AI Foundation](https://aaif.io) community
   (formerly the MLOps Community)
@@ -164,10 +164,9 @@ workloads on Kubernetes:
 
 ## For recruiters
 
-- Role: platform software engineer (Kubernetes, Go, cloud infrastructure), Stockholm, Sweden
-- Experience: 5 years on Kubernetes (Ankra and Youmoni 2025–present; Infinite Computer Solutions 2021–2024)
-- Strengths: Kubernetes, GitOps (Flux, ArgoCD), Terraform, supply-chain security, network security
-- Stack: AWS, Azure, EKS, Kyverno, Cilium, Python, Go, Bash
+- Role: platform software engineer, Stockholm, Sweden
+- Experience: about 5 years on Kubernetes (Ankra 2026–present; Youmoni 2025–present; Infinite Computer Solutions 2021–2024)
+- Strengths: Kubernetes, Go, GitOps (Flux, ArgoCD), Terraform, AWS, supply-chain security
 - Credentials: CKA; Nebius AI CloudOps Engineer; MSc Communication Systems, KTH (2024–2026)
 - Languages: English (fluent), Kannada (native)
 - Full CV: https://shivu.io/resume.json
