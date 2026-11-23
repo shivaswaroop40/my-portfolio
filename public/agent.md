@@ -91,6 +91,12 @@ machine-readable CV at [resume.json](/resume.json) (JSON Resume schema).
   supply-chain reference pipeline he actually uses: multi-arch builds to GHCR,
   Cosign signing, Trivy scanning, SBOMs, and a Kyverno ClusterPolicy that
   rejects unsigned images at admission.
+- **[kiac](https://github.com/saiyam1814/kiac)** (Kubernetes in Apple Containers,
+  local clusters where every node is a lightweight VM on Apple's container
+  framework): contributed one-flag Flannel CNI support, `--cni flannel` on the
+  full kernel, with a pinned upstream manifest, a guard against manifest shape
+  changes, and an end-to-end test profile
+  ([PR #49](https://github.com/saiyam1814/kiac/pull/49), merged September 2026).
 - More on [GitHub](https://github.com/shivaswaroop40).
 
 ## Challenges and tutorials authored

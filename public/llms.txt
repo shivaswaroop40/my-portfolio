@@ -22,7 +22,7 @@ of HTML.
 
 ## Elsewhere
 
-- [GitHub](https://github.com/shivaswaroop40): containerImages (supply-chain security pipeline), carnatic.xyz, and more
+- [GitHub](https://github.com/shivaswaroop40): containerImages (supply-chain security pipeline), carnatic.xyz, and more; contributor to kiac, Kubernetes in Apple Containers (Flannel CNI support, https://github.com/saiyam1814/kiac/pull/49)
 - [iximiuz Labs author profile](https://labs.iximiuz.com/a/shiva-swaroop): two tutorials (Kubernetes operators, CRDs) and five hands-on challenges he has authored (CKA practice, pod-certificate mTLS; full list at https://shivu.io/#practice)
 - [Ankra blog posts](https://ankra.ai/blog/author/shiva-swaroop): two hands-on Kubernetes guides written for Ankra (Postgres on Kubernetes; homelab setup)
 - [LinkedIn](https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b)

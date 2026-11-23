@@ -317,6 +317,16 @@
                     It started as the demo for my supply-chain talk and became the pipeline
                     I actually use.
                 </p>
+                <p class="section-note">
+                    I also contribute upstream. In
+                    <a href="https://github.com/saiyam1814/kiac" target="_blank" rel="noopener noreferrer">kiac</a>
+                    (Kubernetes in Apple Containers), every node of a local cluster is its own
+                    lightweight VM on Apple's container framework. I added Flannel as a one-flag
+                    CNI, <code>--cni flannel</code> on the full kernel. It pins the upstream
+                    manifest, patches the pod network to kiac's range, refuses to apply if a
+                    future manifest changes shape, and ships with its own end-to-end test
+                    profile (<a href="https://github.com/saiyam1814/kiac/pull/49" target="_blank" rel="noopener noreferrer">PR #49</a>).
+                </p>
             </section>
 
             <section class="section" id="practice" aria-labelledby="practice-heading">
