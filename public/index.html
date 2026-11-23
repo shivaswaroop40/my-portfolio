@@ -6,7 +6,7 @@
     <title>Shiva Swaroop N K</title>
     <meta name="description" content="Shiva Swaroop N K, platform software engineer in Stockholm. Kubernetes and GitOps for work, Carnatic music and travel otherwise. Co-organizer of Cloud Native Stockholm (CNCF).">
     <link rel="canonical" href="https://shivu.io/">
-    <meta name="theme-color" content="#faf6f0">
+    <meta name="theme-color" content="#1A1C2C">
     <meta property="og:title" content="Shiva Swaroop N K">
     <meta property="og:description" content="Platform software engineer in Stockholm. Kubernetes, GitOps, Carnatic music, and the road.">
     <meta property="og:url" content="https://shivu.io/">
@@ -21,16 +21,9 @@
     <meta name="twitter:title" content="Shiva Swaroop N K">
     <meta name="twitter:description" content="Platform software engineer in Stockholm. Kubernetes, GitOps, Carnatic music, and the road.">
     <meta name="twitter:image" content="https://shivu.io/assets/profile.png">
-    <script>
-        try {
-            var t = localStorage.getItem('theme') ||
-                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', t);
-        } catch (e) {}
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@400;500;600&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <link rel="alternate" type="text/markdown" href="/agent.md" title="Markdown version for agents">
@@ -82,58 +75,40 @@
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="layout">
-        <aside class="sidebar">
-            <div class="sidebar-top">
-                <div class="sidebar-photo">
-                    <img src="/assets/profile.png" alt="Shiva Swaroop N K" width="72" height="72" loading="eager">
-                </div>
-                <h1><a href="/">Shiva Swaroop&nbsp;N&nbsp;K</a></h1>
-                <p class="sidebar-role">Platform software engineer</p>
-                <p class="sidebar-tag">This is my corner of the internet, part résumé, part scrapbook. Take your time poking around.</p>
+    <header class="hero">
+        <img class="hero-art" src="/assets/checkpoint-flag.webp" alt="" width="1200" height="685" fetchpriority="high">
+        <div class="hero-copy">
+            <h1><a href="/">Shiva Swaroop&nbsp;N&nbsp;K</a></h1>
+            <p class="hero-role">Platform software engineer</p>
+            <p class="hero-tag">This is my corner of the internet, part résumé, part scrapbook. Take your time poking around.</p>
+        </div>
+        <p class="hero-checkpoint">Checkpoint reached: Stockholm</p>
+    </header>
 
-                <nav class="side-nav" aria-label="Sections">
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#now">Now</a></li>
-                        <li><a href="#work">Work</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#oss">Open source</a></li>
-                        <li><a href="#practice">Labs</a></li>
-                        <li><a href="#talks">Talks</a></li>
-                        <li><a href="#slides">Slides</a></li>
-                        <li><a href="#photos">Photos</a></li>
-                        <li><a href="#recruiters">For recruiters</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <nav class="section-nav" aria-label="Sections">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#now">Now</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#oss">Open source</a></li>
+            <li><a href="#practice">Labs</a></li>
+            <li><a href="#talks">Talks</a></li>
+            <li><a href="#slides">Slides</a></li>
+            <li><a href="#photos">Photos</a></li>
+            <li><a href="#recruiters">For recruiters</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-            <div class="sidebar-foot">
-                <ul class="social-row">
-                    <li><a href="https://github.com/shivaswaroop40" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                    <li><a href="https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href="https://x.com/podsandkapi" target="_blank" rel="noopener noreferrer">X</a></li>
-                    <li><a href="mailto:shivaswaroop40@gmail.com">Email</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li>
-                        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                            <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                                <circle cx="12" cy="12" r="4.5"/>
-                                <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/>
-                            </svg>
-                            <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                            </svg>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </aside>
-
-        <main id="main" class="content">
+    <div class="page">
+        <main id="main">
+            <div class="intro">
             <section class="section" id="about" aria-labelledby="about-heading">
-                <p class="kicker" id="about-heading">About</p>
+                <div class="about-head">
+                    <img class="about-photo" src="/assets/profile.png" alt="Shiva Swaroop N K" width="56" height="56">
+                    <h2 class="section-title" id="about-heading">About</h2>
+                </div>
                 <div class="about-text">
                     <p>
                         Hello! I'm a platform engineer at <a href="https://youmoni.com" target="_blank" rel="noopener noreferrer">Youmoni</a>
@@ -151,8 +126,8 @@
                 </div>
             </section>
 
-            <section class="section" id="now" aria-labelledby="now-heading">
-                <p class="kicker" id="now-heading">Right now</p>
+            <section class="section quest-log" id="now" aria-labelledby="now-heading">
+                <h2 class="section-title" id="now-heading">Quest log</h2>
                 <ul class="now-list">
                     <li>Master thesis at <a href="https://ankra.ai" target="_blank" rel="noopener noreferrer">Ankra</a>: when is a generated Kubernetes NetworkPolicy actually safe to enforce?</li>
                     <li>Co-organizing <a href="https://community.cncf.io/cloud-native-stockholm/" target="_blank" rel="noopener noreferrer">Cloud Native Stockholm</a></li>
@@ -160,9 +135,10 @@
                     <li>Reading <em>We the People of India</em> by T.M. Krishna</li>
                 </ul>
             </section>
+            </div>
 
             <section class="section" id="work" aria-labelledby="work-heading">
-                <p class="kicker" id="work-heading">Work</p>
+                <h2 class="section-title" id="work-heading">Work</h2>
 
                 <article class="entry">
                     <div class="entry-head">
@@ -229,7 +205,8 @@
             </section>
 
             <section class="section" id="projects" aria-labelledby="projects-heading">
-                <p class="kicker" id="projects-heading">Selected projects</p>
+                <h2 class="section-title" id="projects-heading">Selected projects</h2>
+                <div class="cards">
 
                 <article class="entry">
                     <div class="entry-head">
@@ -266,6 +243,7 @@
                 </article>
 
                 <article class="entry">
+                    <img class="card-art" src="/assets/pixel-lighthouse.webp" alt="" width="670" height="1200" loading="lazy">
                     <div class="entry-head">
                         <h3><a href="/sift/">Sift</a></h3>
                         <p class="entry-period">Side project · updated daily</p>
@@ -282,6 +260,7 @@
                 </article>
 
                 <article class="entry">
+                    <img class="card-art" src="/assets/loot-chest.webp" alt="" width="900" height="1200" loading="lazy">
                     <div class="entry-head">
                         <h3><a href="/4sight/">4sight</a></h3>
                         <p class="entry-period">Side project · team of three</p>
@@ -323,10 +302,11 @@
                     </p>
                     <ul class="tags"><li>VXLAN</li><li>RDMA</li><li>PKI</li><li>OSPF</li><li>BGP</li></ul>
                 </article>
+                </div>
             </section>
 
             <section class="section" id="oss" aria-labelledby="oss-heading">
-                <p class="kicker" id="oss-heading">Open source</p>
+                <h2 class="section-title" id="oss-heading">Open source</h2>
                 <p class="section-note">
                     Everything I build in the open lives on
                     <a href="https://github.com/shivaswaroop40" target="_blank" rel="noopener noreferrer">GitHub</a>.
@@ -340,7 +320,7 @@
             </section>
 
             <section class="section" id="practice" aria-labelledby="practice-heading">
-                <p class="kicker" id="practice-heading">Challenges &amp; tutorials I've built</p>
+                <h2 class="section-title" id="practice-heading">Challenges &amp; tutorials I've built</h2>
                 <p class="section-note">
                     I author hands-on challenges and tutorials on
                     <a href="https://labs.iximiuz.com/a/shiva-swaroop" target="_blank" rel="noopener noreferrer">iximiuz Labs</a>:
@@ -442,7 +422,7 @@
             </section>
 
             <section class="section" id="talks" aria-labelledby="talks-heading">
-                <p class="kicker" id="talks-heading">Speaking &amp; community</p>
+                <h2 class="section-title" id="talks-heading">Speaking &amp; community</h2>
                 <p class="section-note">
                     Same person who overthinks YAML on weekdays. I co-organize
                     <a href="https://community.cncf.io/cloud-native-stockholm/" target="_blank" rel="noopener noreferrer">Cloud Native Stockholm</a>
@@ -490,7 +470,7 @@
             </section>
 
             <section class="section" id="slides" aria-labelledby="slides-heading">
-                <p class="kicker" id="slides-heading">Talk slides</p>
+                <h2 class="section-title" id="slides-heading">Talk slides</h2>
                 <p class="section-note">
                     Decks from the talks above, hosted here so the QR code on the last slide lands somewhere.
                 </p>
@@ -513,7 +493,7 @@
             </section>
 
             <section class="section section-photos" id="photos" aria-labelledby="photos-heading">
-                <p class="kicker" id="photos-heading">From the road</p>
+                <h2 class="section-title" id="photos-heading">From the road</h2>
                 <p class="section-note">
                     Scraps from the road and the in-between days: hikes, cities, wrong turns
                     that turned out fine. Nothing curated, just frames I like revisiting.
@@ -592,7 +572,7 @@
             </section>
 
             <section class="section" id="writing" aria-labelledby="writing-heading">
-                <p class="kicker" id="writing-heading">Writing</p>
+                <h2 class="section-title" id="writing-heading">Writing</h2>
                 <p class="section-note">
                     I keep a blog called <a href="/blog"><em>Shiv Writes About Stuff</em></a>
                     where I write about what I learn, build and break along the way (not all of
@@ -624,7 +604,7 @@
             </section>
 
             <section class="section" id="recruiters" aria-labelledby="recruiters-heading">
-                <p class="kicker" id="recruiters-heading">For recruiters</p>
+                <h2 class="section-title" id="recruiters-heading">For recruiters</h2>
                 <p class="section-note">
                     The short version. Contact details are just below, and the full CV is at
                     <a href="/resume.json">/resume.json</a>.
@@ -639,7 +619,7 @@
             </section>
 
             <section class="section" id="contact" aria-labelledby="contact-heading">
-                <p class="kicker" id="contact-heading">Contact</p>
+                <h2 class="section-title" id="contact-heading">Contact</h2>
                 <p class="section-note">
                     Want to talk Kubernetes, music or anything in between? Email is the fastest
                     way to reach me.
@@ -653,6 +633,13 @@
             </section>
 
             <footer class="site-foot">
+                <ul class="social-row">
+                    <li><a href="https://github.com/shivaswaroop40" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="https://linkedin.com/in/shivaswaroop-nittoor-krishnamurthy-67551a14b" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://x.com/podsandkapi" target="_blank" rel="noopener noreferrer">X</a></li>
+                    <li><a href="mailto:shivaswaroop40@gmail.com">Email</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
                 <p class="foot-ask">
                     If you've reached this far, thank you for taking time out of your busy day!
                     Now send me a weird networking fact or a song recommendation. Seriously.
