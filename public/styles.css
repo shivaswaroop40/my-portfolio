@@ -176,7 +176,8 @@ code {
 .section-nav a:hover { background: var(--border); }
 .section-nav a.active { background: var(--accent); color: var(--ink); }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
+    html { scroll-padding-top: 88px; }
     .section-nav { position: sticky; top: 0; z-index: 10; }
 }
 
@@ -188,7 +189,7 @@ code {
     padding: 0 var(--gutter);
 }
 
-.section { padding: 44px 0 8px; scroll-margin-top: 80px; }
+.section { padding: 44px 0 8px; }
 
 .section-title {
     margin: 0 0 18px;
@@ -475,11 +476,13 @@ code {
 .foot-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    align-items: center;
+    gap: 0 10px;
     margin: 0;
     font-size: 14px;
     color: var(--muted);
 }
+.foot-meta a { display: inline-flex; align-items: center; min-height: 44px; }
 
 .agent-note {
     margin-top: 16px;
