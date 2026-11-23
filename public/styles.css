@@ -2,7 +2,6 @@
    shivu.io — blue / grey / black.
    Desktop: sticky sidebar + wide content column. Mobile: stacked flow.
    Space Grotesk for display, Inter for body, JetBrains Mono for labels.
-   Dark is the default; light is the override.
    ========================================================================== */
 
 :root {
@@ -10,29 +9,6 @@
     --font-sans: "Inter", -apple-system, "Segoe UI", sans-serif;
     --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
 
-    /* light (default) — warm paper and ink */
-    --bg-primary: #faf6f0;
-    --bg-secondary: #f3ede4;
-    --bg-card: #fffdf9;
-    --border: #e5dcce;
-    --text-primary: #211d18;
-    --text-secondary: #4f4a42;
-    --text-muted: #857d71;
-    --accent: #b45309;
-    --accent-hover: #92400e;
-    --accent-soft: #f5e3cd;
-
-    /* tints used by the 404 game tiles */
-    --mint: #dbe6d5;
-    --lavender: #e2dcea;
-    --peach: #f6d9c3;
-
-    --radius: 12px;
-    --radius-sm: 8px;
-    --measure: 68ch;
-}
-
-[data-theme="dark"] {
     --bg-primary: #171412;
     --bg-secondary: #201c18;
     --bg-card: #1e1a16;
@@ -47,6 +23,10 @@
     --mint: #2c352b;
     --lavender: #322e3b;
     --peach: #453425;
+
+    --radius: 12px;
+    --radius-sm: 8px;
+    --measure: 68ch;
 }
 
 * { box-sizing: border-box; }
@@ -218,25 +198,6 @@ code {
 }
 .social-row a { color: var(--text-secondary); text-decoration: none; }
 .social-row a:hover { color: var(--accent); }
-
-.theme-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.1rem;
-    height: 2.1rem;
-    padding: 0;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    background: transparent;
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: border-color 0.15s ease, color 0.15s ease;
-}
-.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
-.icon-moon { display: none; }
-[data-theme="dark"] .icon-sun { display: none; }
-[data-theme="dark"] .icon-moon { display: block; }
 
 /* --- Content sections ---------------------------------------------------- */
 

@@ -1,18 +1,7 @@
 (function () {
     'use strict';
 
-    // Theme toggle — dark by default (set inline in <head>), persisted
-    var html = document.documentElement;
-    var toggle = document.getElementById('theme-toggle');
-    if (toggle) {
-        toggle.addEventListener('click', function () {
-            var next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-            html.setAttribute('data-theme', next);
-            try { localStorage.setItem('theme', next); } catch (e) {}
-        });
-    }
-
-    // Scrollspy — highlight the sidebar nav link for the section in view
+    // Scrollspy: highlight the sidebar nav link for the section in view
     var navLinks = document.querySelectorAll('.side-nav a[href^="#"]');
     if (navLinks.length && 'IntersectionObserver' in window) {
         var byId = {};
