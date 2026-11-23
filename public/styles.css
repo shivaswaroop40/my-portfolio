@@ -335,9 +335,9 @@ code {
 .cards .entry > .card-art {
     margin: 0;
     width: 100%;
-    height: 220px;
+    height: 260px;
     object-fit: cover;
-    object-position: 50% 58%;
+    object-position: 50% 32%;
     image-rendering: pixelated;
     display: block;
     border-bottom: 2px solid var(--border);
