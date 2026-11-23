@@ -1,8 +1,8 @@
 (function () {
     'use strict';
 
-    // Scrollspy: highlight the sidebar nav link for the section in view
-    var navLinks = document.querySelectorAll('.side-nav a[href^="#"]');
+    // Scrollspy: highlight the nav strip link for the section in view
+    var navLinks = document.querySelectorAll('.section-nav a[href^="#"]');
     if (navLinks.length && 'IntersectionObserver' in window) {
         var byId = {};
         navLinks.forEach(function (link) {
