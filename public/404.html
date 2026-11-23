@@ -5,45 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page not found</title>
     <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#1A1C2C">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@400;500;600&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <style>
-        .error-shell { max-width: 60rem; margin: 0 auto; padding: 0 1.25rem 3rem; }
+        .error-shell { max-width: 60rem; margin: 0 auto; padding: 0 var(--gutter) 3rem; }
         .error-joke { text-align: center; max-width: 34rem; margin: 3rem auto 2.5rem; }
         .error-joke .code {
-            font-family: var(--font-mono);
-            font-size: 0.78rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--text-muted);
             margin: 0 0 0.75rem;
+            font-family: var(--font-pixel);
+            font-size: 18px;
+            color: var(--coin);
         }
         .error-joke h1 {
-            font-family: var(--font-display);
-            font-size: clamp(1.8rem, 6vw, 2.6rem);
-            font-weight: 520;
-            letter-spacing: -0.015em;
-            line-height: 1.15;
             margin: 0 0 0.75rem;
+            font-family: var(--font-pixel);
+            font-weight: 700;
+            font-size: clamp(2rem, 6vw, 3rem);
+            line-height: 1.05;
+            color: var(--accent);
         }
-        .error-joke .punch { color: var(--text-secondary); margin: 0; }
+        .error-joke .punch { color: var(--muted); margin: 0; }
 
         .error-2048-wrap { display: grid; gap: 2rem; align-items: start; }
         @media (min-width: 800px) {
             .error-2048-wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 280px); }
         }
 
-        #game-2048:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
         #game-2048 {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: clamp(1rem, 3vw, 1.35rem);
             position: relative;
             min-width: 0;
+            padding: clamp(1rem, 3vw, 1.35rem);
+            background: var(--surface);
+            border: 2px solid var(--border);
         }
         .g2048-column { max-width: 400px; width: 100%; margin-inline: auto; }
         .g2048-head {
@@ -51,40 +48,44 @@
             justify-content: space-between; gap: 0.75rem; margin-bottom: 1rem;
         }
         .g2048-head h2 {
-            font-family: var(--font-display);
-            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-            font-weight: 550; margin: 0;
+            margin: 0;
+            font-family: var(--font-pixel);
+            font-weight: 700;
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
         }
         .g2048-scores { display: flex; gap: 0.5rem; }
         .g2048-scorebox {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
+            min-width: 4.5rem;
             padding: 0.35rem 0.65rem;
-            text-align: center; min-width: 4.5rem;
+            text-align: center;
+            background: var(--bg);
+            border: 2px solid var(--border);
         }
-        .g2048-scorebox span {
-            display: block; font-family: var(--font-mono); font-size: 0.6rem;
-            letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);
-        }
-        .g2048-scorebox strong { font-size: 1.1rem; }
+        .g2048-scorebox span { display: block; font-family: var(--font-pixel); font-size: 15px; color: var(--muted); }
+        /* Pixelify's 2 and 5 read as 8 and S, so numbers use the body face */
+        .g2048-scorebox strong { font-weight: 700; font-size: 1.3rem; }
 
         .g2048-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
         .g2048-btn {
-            font-family: var(--font-sans); font-size: 0.85rem; font-weight: 500;
-            padding: 0.45rem 0.85rem; border-radius: var(--radius-sm);
-            border: 1px solid var(--border); background: var(--bg-primary);
-            color: var(--text-primary); cursor: pointer;
-            transition: border-color 0.15s, background 0.15s;
+            min-height: 44px;
+            padding: 0 0.9rem;
+            font-family: var(--font-pixel);
+            font-weight: 500;
+            font-size: 17px;
+            color: var(--text);
+            background: var(--bg);
+            border: 2px solid var(--border);
+            box-shadow: 3px 3px 0 var(--ink);
+            cursor: pointer;
         }
-        .g2048-btn:hover { border-color: var(--accent); }
-        .g2048-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-        .g2048-btn--primary { background: var(--accent); color: #fff; border-color: transparent; }
-        .g2048-btn--primary:hover { background: var(--accent-hover); color: #fff; }
-        .g2048-btn--ghost { background: transparent; color: var(--text-muted); font-size: 0.8rem; }
-        .g2048-btn--ghost:hover { color: var(--text-primary); }
+        .g2048-btn:hover { border-color: var(--coin); }
+        .g2048-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+        .g2048-btn--primary { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+        .g2048-btn--primary:hover { border-color: var(--text); }
+        .g2048-btn--ghost { background: transparent; color: var(--muted); box-shadow: none; }
+        .g2048-btn--ghost:hover { color: var(--text); }
         .g2048-arrows { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-left: auto; }
-        .g2048-arrows .g2048-btn { min-width: 2.25rem; padding: 0.35rem 0.5rem; }
+        .g2048-arrows .g2048-btn { min-width: 44px; padding: 0; }
 
         #g2048-board {
             display: grid;
@@ -94,84 +95,98 @@
             width: 100%; aspect-ratio: 1;
             margin: 0 0 0.75rem;
             padding: clamp(6px, 1.5vw, 10px);
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            touch-action: none; box-sizing: border-box;
+            background: var(--ink);
+            border: 2px solid var(--border);
+            touch-action: none;
         }
         .g2048-cell {
-            border-radius: var(--radius-sm);
-            background: color-mix(in srgb, var(--border) 35%, var(--bg-card));
             display: flex; align-items: center; justify-content: center;
             min-width: 0; min-height: 0;
+            background: var(--bg);
         }
         .g2048-tile {
             width: 100%; height: 100%; min-width: 0; min-height: 0;
             display: flex; align-items: center; justify-content: center;
-            border-radius: var(--radius-sm); font-weight: 700;
-            font-size: clamp(0.6rem, 3.6vmin, 1.3rem);
-            color: var(--text-primary);
-            animation: g2048-pop 0.12s ease-out;
+            font-weight: 700;
+            font-size: clamp(0.9rem, 5vmin, 1.8rem);
+            color: var(--text);
+            box-shadow: inset -4px -4px 0 rgb(13 14 22 / 0.35);
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            .g2048-tile { animation: g2048-pop 0.12s steps(3, end); }
         }
         @keyframes g2048-pop {
-            from { transform: scale(0.85); opacity: 0.7; }
-            to { transform: scale(1); opacity: 1; }
+            from { transform: scale(0.8); }
+            to { transform: scale(1); }
         }
-        .g2048-tile[data-value="2"]   { background: var(--mint); }
-        .g2048-tile[data-value="4"]   { background: var(--lavender); }
-        .g2048-tile[data-value="8"]   { background: var(--peach); }
-        .g2048-tile[data-value="16"]  { background: var(--accent-soft); }
-        .g2048-tile[data-value="32"]  { background: color-mix(in srgb, var(--accent) 40%, var(--bg-card)); color: #fff; }
-        .g2048-tile[data-value="64"]  { background: color-mix(in srgb, var(--accent) 60%, var(--bg-card)); color: #fff; }
+        .g2048-tile[data-value="2"]    { background: var(--border); }
+        .g2048-tile[data-value="4"]    { background: #7E2553; }
+        .g2048-tile[data-value="8"]    { background: #AB5236; }
+        .g2048-tile[data-value="16"]   { background: #FFA300; color: var(--ink); }
+        .g2048-tile[data-value="32"]   { background: #FFEC27; color: var(--ink); }
+        .g2048-tile[data-value="64"]   { background: #00E436; color: var(--ink); }
         .g2048-tile[data-value="128"],
-        .g2048-tile[data-value="256"] { background: color-mix(in srgb, var(--accent) 78%, #2b1608); color: #fff; font-size: clamp(0.55rem, 3vmin, 1.05rem); }
+        .g2048-tile[data-value="256"]  { background: var(--coin); color: var(--ink); font-size: clamp(0.75rem, 4vmin, 1.4rem); }
         .g2048-tile[data-value="512"],
         .g2048-tile[data-value="1024"],
-        .g2048-tile[data-value="2048"] { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: #fff; font-size: clamp(0.45rem, 2.6vmin, 0.9rem); }
+        .g2048-tile[data-value="2048"] { background: var(--accent); color: var(--ink); font-size: clamp(0.6rem, 3.4vmin, 1.15rem); }
 
-        .g2048-hint { text-align: center; font-size: 0.82rem; color: var(--text-muted); margin: 0; }
+        .g2048-hint { margin: 0; text-align: center; font-size: 15px; color: var(--muted); }
 
         #g2048-overlay {
             position: absolute; inset: 0;
             margin: clamp(1rem, 3vw, 1.35rem);
-            border-radius: calc(var(--radius) - 4px);
-            background: color-mix(in srgb, var(--bg-primary) 92%, transparent);
-            backdrop-filter: blur(6px);
             display: flex; align-items: center; justify-content: center;
             padding: 1.25rem; z-index: 5;
+            background: rgb(26 28 44 / 0.94);
+            border: 2px solid var(--border);
         }
         #g2048-overlay[hidden] { display: none !important; }
         .g2048-overlay-inner { text-align: center; max-width: 320px; }
-        .g2048-overlay-inner h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 550; margin: 0 0 0.5rem; }
-        .g2048-overlay-inner .g2048-overlay-score { margin: 0 0 1rem; color: var(--text-secondary); line-height: 1.5; }
+        .g2048-overlay-inner h3 {
+            margin: 0 0 0.5rem;
+            font-family: var(--font-pixel);
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--accent);
+        }
+        .g2048-overlay-inner .g2048-overlay-score { margin: 0 0 1rem; color: var(--muted); line-height: 1.5; }
         .g2048-overlay-inner input {
-            width: 100%; box-sizing: border-box; padding: 0.55rem 0.75rem;
-            border-radius: var(--radius-sm); border: 1px solid var(--border);
-            font-family: var(--font-sans); margin-bottom: 0.65rem;
-            background: var(--bg-primary); color: var(--text-primary);
+            width: 100%;
+            min-height: 44px;
+            margin-bottom: 0.65rem;
+            padding: 0 0.75rem;
+            font: inherit;
+            color: var(--text);
+            background: var(--bg);
+            border: 2px solid var(--border);
         }
         .g2048-overlay-actions { display: flex; flex-direction: column; gap: 0.5rem; }
         .g2048-overlay-actions .g2048-row { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
 
         .g2048-leaderboard-panel {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: clamp(1rem, 3vw, 1.25rem);
             min-width: 0;
+            padding: clamp(1rem, 3vw, 1.25rem);
+            background: var(--surface);
+            border: 2px solid var(--border);
         }
-        .g2048-leaderboard-panel h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 550; margin: 0 0 0.75rem; }
-        .g2048-leaderboard-panel .g2048-lb-note { font-size: 0.78rem; color: var(--text-muted); line-height: 1.45; margin: 0 0 0.85rem; }
+        .g2048-leaderboard-panel h3 {
+            margin: 0 0 0.75rem;
+            font-family: var(--font-pixel);
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+        .g2048-leaderboard-panel .g2048-lb-note { margin: 0 0 0.85rem; font-size: 14px; line-height: 1.45; color: var(--muted); }
         #g2048-leaderboard { list-style: none; margin: 0 0 1rem; padding: 0; }
         #g2048-leaderboard li {
             display: flex; align-items: center; gap: 0.5rem;
-            padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem;
+            padding: 0.4rem 0; border-bottom: 1px solid var(--border);
         }
         #g2048-leaderboard li:last-child { border-bottom: none; }
-        .g2048-lb-rank { font-family: var(--font-mono); font-weight: 500; color: var(--accent); width: 1.5rem; }
+        .g2048-lb-rank { width: 1.5rem; font-weight: 700; color: var(--coin); }
         .g2048-lb-name { flex: 1; overflow: hidden; text-overflow: ellipsis; }
-        .g2048-lb-score { font-weight: 600; color: var(--text-secondary); }
-        .g2048-lb-empty { color: var(--text-muted); font-style: italic; border: none !important; padding: 0.5rem 0 !important; }
+        .g2048-lb-score { font-weight: 600; color: var(--muted); }
+        .g2048-lb-empty { color: var(--muted); font-style: italic; border: none !important; padding: 0.5rem 0 !important; }
         .visually-hidden {
             position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
             overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
@@ -192,7 +207,7 @@
         <div class="error-joke">
             <p class="code">404 not found</p>
             <h1>Why did the developer quit?</h1>
-            <p class="punch">They didn’t get arrays. (Also, this URL doesn’t exist — but the grid below does. Same dimensions. Totally related.)</p>
+            <p class="punch">They didn’t get arrays. (Also, this URL doesn’t exist, but the grid below does. Same dimensions. Totally related.)</p>
         </div>
 
         <div class="error-2048-wrap">
@@ -250,7 +265,7 @@
 
             <aside class="g2048-leaderboard-panel" aria-labelledby="g2048-lb-heading">
                 <h3 id="g2048-lb-heading">Leaderboard</h3>
-                <p class="g2048-lb-note">Stored in your browser on this device only — great for bragging rights at home, useless for global fame.</p>
+                <p class="g2048-lb-note">Stored in your browser on this device only. Great for bragging rights at home, useless for global fame.</p>
                 <ol id="g2048-leaderboard"></ol>
                 <button type="button" class="g2048-btn g2048-btn--ghost" id="g2048-reset-lb">Clear leaderboard</button>
             </aside>
